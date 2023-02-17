@@ -1,0 +1,23 @@
+stages:
+  - pages
+  - deploy
+image: node:lts
+
+pages:
+  stage: pages
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - echo CI_JOB_ID=$CI_JOB_ID
+    # 这个12.x lts版本的node镜像自带yarn了
+    - yarn config set registry http://10.60.44.127:8083/nexus3/repository/npm-group/
+    - yarn
+    - yarn run docs:build
+  artifacts:
+    paths:
+      - public
+  tags:
+    - document
+  only:
+    - master
