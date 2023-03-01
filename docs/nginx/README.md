@@ -605,7 +605,6 @@ http {
 ```
 
 一个nginx启动5个端口
-
 ![img.png](img/img.png)
 
 
