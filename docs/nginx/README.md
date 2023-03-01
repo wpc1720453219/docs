@@ -147,6 +147,10 @@ http {
 
 解决：设置100以下的端口或者1000以上的端口就可以了。
 
+### 权限问题
+avatar启动nginx 需要在nginx配置文件修改用户为avatar  
+[普通用户nginx访问不了](https://blog.csdn.net/weixin_29116603/article/details/113005370)
+
 ### 相对路径
 html文件夹可以使用“../../”指向父级路径。
 
