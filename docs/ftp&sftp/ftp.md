@@ -38,7 +38,7 @@ docker run -d --name ftpd_server \
     -v /data/vsftpd/data:/home \
     -e TZ=Asia/Shanghai \
     --restart=always \
-    stilliard/pure-ftpd:latest
+    stilliard/pure-ftpd:latest
 docker logs -f ftpd_server
 ```
 
