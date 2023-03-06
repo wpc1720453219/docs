@@ -1,0 +1,167 @@
+
+
+[Linux ssh命令详解](https://www.cnblogs.com/ftl1012/p/ssh.html)
+
+[sshd_config配置文件详解](https://blog.csdn.net/u014721096/article/details/78559506?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-78559506-blog-121057725.pc_relevant_multi_platform_whitelistv4&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-78559506-blog-121057725.pc_relevant_multi_platform_whitelistv4&utm_relevant_index=1)
+
+[SSH连接慢问题解决](https://blog.csdn.net/weixin_42767321/article/details/86479696)
+
+
+
+sshd_config配置文件详解：
+
+```shell
+#       $OpenBSD: sshd_config,v 1.100 2016/08/15 12:32:04 naddy Exp $
+
+# This is the sshd server system-wide configuration file.  See
+# sshd_config(5) for more information.
+
+# This sshd was compiled with PATH=/usr/local/bin:/usr/bin
+
+# The strategy used for options in the default sshd_config shipped with
+# OpenSSH is to specify options with their default value where
+# possible, but leave them commented.  Uncommented options override the
+# default value.
+
+# If you want to change the port on a SELinux system, you have to tell
+# SELinux about this change.
+# semanage port -a -t ssh_port_t -p tcp #PORTNUMBER    <==在开启selinux的系统上，修改ssh端口的要修改selinux规则，用此命令修改
+#
+#Port 22           <==默认ssh端口，生产环境中建议改成五位数的端口 
+#AddressFamily any   <==地址家族，any表示同时监听ipv4和ipv6地址
+#ListenAddress 0.0.0.0  <==监听本机所有ipv4地址
+#ListenAddress ::    <==监听本机所有ipv6地址
+HostKey /etc/ssh/ssh_host_rsa_key   <==ssh所使用的RSA私钥路径
+#HostKey /etc/ssh/ssh_host_dsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key   <==ssh所使用的ECDSA私钥路径
+HostKey /etc/ssh/ssh_host_ed25519_key   <==ssh所使用的ED25519私钥路径
+
+# Ciphers and keying
+#RekeyLimit default none
+
+# Logging
+#SyslogFacility AUTH
+SyslogFacility AUTHPRIV    <==设定在记录来自sshd的消息的时候，是否给出“facility code(工厂代码)”  SSH 会记录信息，这个信息要记录的类型为AUTHPRIV
+ #LogLevel INFO    <==日志记录级别，默认为info 
+
+# Authentication:
+
+#LoginGraceTime 2m    <==限定用户认证时间为2min
+#PermitRootLogin yes   <==是否允许root账户ssh登录，生产环境中建议改成no，使用普通账户ssh登录
+#StrictModes yes    <==设置ssh在接收登录请求之前是否检查用户根目录和rhosts文件的权限和所有权，建议开启
+#MaxAuthTries 6   <==指定每个连接最大允许的认证次数。默认值是 6
+#MaxSessions 10   <==最大允许保持多少个连接。默认值是 10 
+
+#PubkeyAuthentication yes  <==是否开启公钥验证
+
+# The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
+# but this is overridden so installations will only check .ssh/authorized_keys
+AuthorizedKeysFile      .ssh/authorized_keys   <==公钥验证文件路径
+
+#AuthorizedPrincipalsFile none
+
+#AuthorizedKeysCommand none
+#AuthorizedKeysCommandUser nobody
+
+# For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
+#HostbasedAuthentication no
+# Change to yes if you don't trust ~/.ssh/known_hosts for
+# HostbasedAuthentication   <==指定服务器在使用 ~/.shosts ~/.rhosts /etc/hosts.equiv 进行远程主机名匹配时，是否进行反向域名查询
+#IgnoreUserKnownHosts no  <==是否在 RhostsRSAAuthentication 或 HostbasedAuthentication 过程中忽略用户的 ~/.ssh/known_hosts 文件
+# Don't read the user's ~/.rhosts and ~/.shosts files
+#IgnoreRhosts yes   <==是否在 RhostsRSAAuthentication 或 HostbasedAuthentication 过程中忽略 .rhosts 和 .shosts 文件
+
+# To disable tunneled clear text passwords, change to no here!
+#PasswordAuthentication yes
+#PermitEmptyPasswords no    <==是否允许空密码
+PasswordAuthentication yes   <==是否允许密码验证，生产环境中建议改成no，只用密钥登录
+
+# Change to no to disable s/key passwords
+#ChallengeResponseAuthentication yes
+ChallengeResponseAuthentication no   <==是否允许质疑-应答(challenge-response)认证
+
+# Kerberos options
+#KerberosAuthentication no   <==是否使用Kerberos认证
+#KerberosOrLocalPasswd yes   <==如果 Kerberos 密码认证失败，那么该密码还将要通过其它的认证机制(比如 /etc/passwd)
+#KerberosTicketCleanup yes  <==是否在用户退出登录后自动销毁用户的 ticket
+#KerberosGetAFSToken no  <==如果使用了AFS并且该用户有一个 Kerberos 5 TGT，那么开启该指令后，将会在访问用户的家目录前尝试获取一个AFS token
+#KerberosUseKuserok yes
+
+# GSSAPI options
+GSSAPIAuthentication yes   <==是否允许基于GSSAPI的用户认证
+GSSAPICleanupCredentials no    <==是否在用户退出登录后自动销毁用户凭证缓存
+#GSSAPIStrictAcceptorCheck yes
+#GSSAPIKeyExchange no
+#GSSAPIEnablek5users no
+
+# Set this to 'yes' to enable PAM authentication, account processing,
+# and session processing. If this is enabled, PAM authentication will
+# be allowed through the ChallengeResponseAuthentication and
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication via ChallengeResponseAuthentication may bypass
+# the setting of "PermitRootLogin without-password".
+# If you just want the PAM account and session checks to run without
+# PAM authentication, then enable this but set PasswordAuthentication
+# and ChallengeResponseAuthentication to 'no'.
+# WARNING: 'UsePAM no' is not supported in Red Hat Enterprise Linux and may cause several
+# problems.
+UsePAM yes   <==是否通过PAM验证
+
+#AllowAgentForwarding yes
+#AllowTcpForwarding yes
+#GatewayPorts no     <==是否允许远程主机连接本地的转发端口
+X11Forwarding yes    <==是否允许X11转发
+#X11DisplayOffset 10  <==指定sshd（8）X11转发的第一个可用的显示区(display)数字。默认值是10
+#X11UseLocalhost yes  <==是否应当将X11转发服务器绑定到本地loopback地址
+#PermitTTY yes
+#PrintMotd yes     <==指定sshd(8)是否在每一次交互式登录时打印 /etc/motd 文件的内容
+#PrintLastLog yes  <==指定sshd(8)是否在每一次交互式登录时打印最后一位用户的登录时间
+#TCPKeepAlive yes  <==指定系统是否向客户端发送 TCP keepalive 消息
+#UseLogin no   <==是否在交互式会话的登录过程中使用 login（1）
+#UsePrivilegeSeparation sandbox  <==是否让 sshd(8) 通过创建非特权子进程处理接入请求的方法来进行权限分离
+#PermitUserEnvironment no  <==指定是否允许sshd(8)处理~/.ssh/environment以及 ~/.ssh/authorized_keys中的 environment= 选项
+#Compression delayed  <==是否对通信数据进行加密，还是延迟到认证成功之后再对通信数据加密
+#ClientAliveInterval 0  <==sshd(8)长时间没有收到客户端的任何数据，不发送"alive"消息
+#ClientAliveCountMax 3   <==sshd(8)在未收到任何客户端回应前最多允许发送多个"alive"消息，默认值是 3 
+#ShowPatchLevel no
+#UseDNS no      <==是否使用dns反向解析
+#PidFile /var/run/sshd.pid   <==指定存放SSH守护进程的进程号的路径
+#MaxStartups 10:30:100   <==最大允许保持多少个未认证的连接
+#PermitTunnel no   <==是否允许tun(4)设备转发
+#ChrootDirectory none
+#VersionAddendum none
+
+# no default banner path
+#Banner none  <==将这个指令指定的文件中的内容在用户进行认证前显示给远程用户，默认什么内容也不显示，"none"表示禁用这个特性
+
+# Accept locale-related environment variables
+AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
+AcceptEnv XMODIFIERS
+
+# override default of no subsystems
+Subsystem       sftp    /usr/libexec/openssh/sftp-server   <==配置一个外部子系统sftp及其路径
+
+# Example of overriding settings on a per-user basis
+#Match User anoncvs    <==引入一个条件块。块的结尾标志是另一个 Match 指令或者文件结尾    
+#       X11Forwarding no
+#       AllowTcpForwarding no
+#       PermitTTY no
+#       ForceCommand cvs server
+
+## 选择的SSH协议版本，一般使用2版本，如果要同时使用1和2这两个版本则用逗号将其隔开
+#Protocol 2 
+## 登录记录的等级
+#LogLevel INFO
+#X11Forwarding no
+
+## Max AuthTrimes参数将降低SSH服务器被暴力攻击成功的风险
+# MaxAuthTries 6
+##是否取消使用 ~/.ssh/.rhosts  来做为认证！当然是！，IgnoreRhosts参数可以忽略以前登录过主机的记录，设置为yes后可以极大的提高连接速度
+#IgnoreRhosts yes
+## 将无密码登陆的配置关闭
+#PermitEmptyPasswords no 
+
+```
+
