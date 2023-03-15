@@ -4,11 +4,19 @@ redhat系:
 rpm 只能安装已经下载到本地机器上的rpm 包. yum能在线下载并安装rpm包,能更新系统,且还能自动处理包与包之间的依赖问题,这个是rpm 工具所不具备的。  
 yum是在rpm的基础上建立的一个工具，在配置好yum源之后很多功能比rpm命令更强大，更方便。rpm可以查询包安装后生成的配置文件等，查询未安装软件包中的内容，查询软件包相关的脚本。一般情况下软件包的查询，安装，卸载，和软件属于的软件包等命令用yum的相关命令来完成更好  
 
-rpm与yum的区别
-rpm命令和yum命令都可以用来安装软件
-但与yum命令最大的区别为yum命令在安装软件时如果碰到了依赖性的问题，yum会去主动尝试解决依赖性，如果解决不了才会反馈给用户。而rpm命令一旦遇到了依赖性的问题不会去解决依赖性，而是直接反馈给用户，让用户自行解决。
+rpm与yum的区别    
+rpm命令和yum命令都可以用来安装软件  
+但与yum命令最大的区别为yum命令在安装软件时如果碰到了依赖性的问题，yum会去主动尝试解决依赖性，如果解决不了才会反馈给用户。而rpm命令一旦遇到了依赖性的问题不会去解决依赖性，而是直接反馈给用户，让用户自行解决。  
+rpm适用于所有环境，而yum要搭建本地yum源才可以使用！yum是上层管理工具，自动解决依赖性，而rpm是底层管理工具。  
 
-rpm适用于所有环境，而yum要搭建本地yum源才可以使用！yum是上层管理工具，自动解决依赖性，而rpm是底层管理工具。
+[cenos(redhat系)与ubuntu(debain系)常用命令](https://blog.csdn.net/qq_41520220/article/details/126333786)
+[Linux如何配置yum镜像源](https://www.cnblogs.com/zhangchangchang/p/16053875.html)
+[yum的repo文件详解、以及epel简介、yum源的更换](https://www.cnblogs.com/nineep/p/6795692.html)
+[yum 源的配置与使用](https://blog.csdn.net/sirria1/article/details/122809087)
+[yum缓存命令：yum makecache fast 和yum clean all](https://blog.csdn.net/A___LEi/article/details/118340579)
+
+
+
 
 
 

@@ -1,6 +1,35 @@
 module.exports = [
-    {text: '总结', link: '/admin/'},
     {text: '微服务', link: '/microservice/'},
+    {
+        text: '运维', items: [
+            { text: 'Linux',link: '/linux/' ,items: [
+                    {text: 'iptables', link: '/linux/iptables.md'},
+                    {text: 'systemd', link: '/linux/systemd.md'},
+                    {text: 'rpm与yum的区别', link: '/linux/yan_rpm_apt.md'},
+                    {text: 'ssh详情', link: '/linux/ssh&&sshd_config.md'},
+                    {text: '远程操作wget与curl', link: '/linux/wget_curl.md'},
+                    {text: '硬盘分区', link: '/linux/硬盘分区.md.md'},
+                ]
+            },
+            { text: 'shell',link: '/shell/' },
+            { text: 'docker',link: '/docker/'}
+        ]
+    },
+
+    {
+        text: 'Jenkins', items: [
+            {text: 'Jenkins', link: '/jenkins/'},
+            {text: '截图及功能说明', link: '/jenkins/manual.md'},
+            {text: '插件介绍', link: '/jenkins/plugins.md'},
+            {text: 'jenkins kubernetes插件', link: '/jenkins/kubernetes.md'},
+            {text: '问题解决备忘', link: '/jenkins/faq.md'},
+            {text: '环境变量参考：env-vars', link: '/jenkins/env-vars.md'},
+            {text: '单元测试相关', link: '/jenkins/unit-test.md'},
+            {text: 'jenkins docker镜像相关', link: '/jenkins/docker.md'},
+        ]
+    },
+
+
     {
         text: '中间件', items: [
             {

@@ -2,6 +2,8 @@
 
 Linux平台下的 包过滤防火墙、免费、完成封包过滤、封包重定向和网络地址转换（NAT）等功能
 
+[iptables基础知识详解](https://blog.csdn.net/u011537073/article/details/82685586?spm=1001.2101.3001.6650.5&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-5-82685586-blog-109674599.pc_relevant_recovery_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-5-82685586-blog-109674599.pc_relevant_recovery_v2&utm_relevant_index=10)
+
 
 
 iptables 规则
@@ -10,13 +12,13 @@ iptables 规则
 
 iptables和netfilter的关系：
 
-​       iptables只是Linux防火墙的管理工具而已，位于/sbin/iptables。真正实现防火墙功能的是 netfilter，它是Linux内核中实现包过滤的内部结构。
+iptables只是Linux防火墙的管理工具而已，位于/sbin/iptables。真正实现防火墙功能的是 netfilter，它是Linux内核中实现包过滤的内部结构。
 
 
 
 iptables的规则表和链：
 
-表（tables）提供特定的功能，iptables内置了4个表，即filter表、nat表、mangle表和raw表，分别用于实现包过滤，网络[地址转换](https://so.csdn.net/so/search?q=%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2&spm=1001.2101.3001.7020)、包重构(修改)、数据跟踪处理。
+表（tables）提供特定的功能，iptables内置了4个表，即filter表、nat表、mangle表和raw表，分别用于实现包过滤，网络[地址转换](https://so.csdn.net/so/search?q=%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2&spm=1001.2101.3001.7020) 、包重构(修改)、数据跟踪处理。
 
 
 

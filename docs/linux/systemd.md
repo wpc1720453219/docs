@@ -47,7 +47,11 @@ ExecStop=${this.installPath(appMeta.stopPathInSoftware)}
 WantedBy=multi-user.target
 ```
 
-https://blog.csdn.net/stone_fall/article/details/108630115
+
+[system.service | 参数解析](https://blog.csdn.net/stone_fall/article/details/108630115)  
+[Systemd 技术原理](https://blog.csdn.net/UbuntuKylinOS/article/details/120997854)
+
+
 
 
 
