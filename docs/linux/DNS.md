@@ -8,7 +8,7 @@ DNS （Domain Name System 的缩写）的作用非常简单，就是根据域名
 ![img_1.png](./wsl.assets/img_1.png)
 ![img.png](./wsl.assets/img.png)
    
-搭建本地dns服务器  
+搭建内网dns服务器  
 ```shell
 mkdir -p /data/dnsmasq/
 # 初始化配置文件
