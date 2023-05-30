@@ -7,8 +7,45 @@
 [SSH连接慢问题解决](https://blog.csdn.net/weixin_42767321/article/details/86479696)
 
 
+## ssh白名单规则（sshd）
+实际使用中：为限制ssh高危端口我们一般做以下策略：
 
-sshd_config配置文件详解：
+1.修改端口（ssh默认用22）
+
+2.密码强口令
+
+3.root限制
+
+4.新增ssh登录白名单
+
+5.开启端口防火墙
+
+```java
+重点说一下ssh白名单设置（centos7）:
+
+/etc/hosts.allow 允许指定ip或ip网段连接服务器
+/etc/hosts.deny 禁止指定ip或ip网段连接服务器
+        
+当两个配置文件中同时存在相同对象时，allow生效；故可通过配置两个文档来实现白名单的目的；
+
+1、/etc/hosts.deny 中配置阻止所有连接
+
+vim /etc/hosts.deny 中，sshd:All //阻止全部访问
+
+2、/etc/hosts.allow 中配置允许连接的ip或网段
+
+vim /etc/hosts.allow 中，sshd:192.168.0.1,192.168.0.51 //允许192.168.0.1和192.168.0.51登录 -----------多个ip需要用，隔开
+
+根据两个文件的优先级判断。则可得出，alliw中指定的ip可以连接，除次以外的都无法连接。故而达到白名单的目的。
+```
+
+
+
+
+
+
+
+## sshd_config配置文件详解：
 
 ```shell
 #       $OpenBSD: sshd_config,v 1.100 2016/08/15 12:32:04 naddy Exp $
