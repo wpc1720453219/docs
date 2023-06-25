@@ -13,6 +13,7 @@ make PREFIX=${installPath} install    // 安装到 installPath路径
 {{absolute_install_dir}}/bin/redis-server {{absolute_install_dir}}/bin/redis.conf   // 指定 某个redis.conf 配置启动
 ```
 
+
 redis.conf 配置参数  
 ```shell
 # Redis configuration file example.
