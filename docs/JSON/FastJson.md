@@ -1,5 +1,8 @@
 [FastJson 狗都不用](https://mp.weixin.qq.com/s/WhCpiZ-EIjIdYXixZBskrQ)  
 主推Jackson，逐渐的淘汰Fastjson（bug太多）  
+
+https://blog.csdn.net/weixin_44747933/article/details/108301626
+
 jacjson 方法总结： 
 ```java
 //单个对象转json
