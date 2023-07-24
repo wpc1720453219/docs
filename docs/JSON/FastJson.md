@@ -3,7 +3,7 @@
 
 https://blog.csdn.net/weixin_44747933/article/details/108301626
 
-jacjson 方法总结： 
+jackjson 方法总结： 
 ```java
 //单个对象转json
  String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(person);
