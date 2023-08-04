@@ -1,7 +1,4 @@
 # Zookeeper
-1. [ZooKeeper-3.4.10 源码的一个Bug:创建临时节点时数据不能为空](https://blog.csdn.net/hikeboy/article/details/86029882)
-    - 建议用3.5以上的版本
-
 ## Zookeeper安装
 ### zookeeper单机版安装
 首先确保正确安装了java 8。`JAVA_HOME`、`JRE_HOME`环境变量指向正常。
@@ -79,4 +76,6 @@ server.1=10.60.44.54:2881:3881
 server.2=10.60.44.54:2882:3882
 server.3=10.60.44.54:2883:3883
 ```
+
+### zookeeper集群
 
