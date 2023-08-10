@@ -34,6 +34,26 @@ nginx -s reload
 sudo nginx -g "daemon off;"
 ```
 
+### nginx -s reload 不生效的问题
+[系统重启后ngix reload不生效原因分析](https://www.gxlsystem.com/hulianwang-1523871.html)
+```shell
+Nginx reload过程分析：
+1，检查配置是否正确
+相当于nginx -t
+
+2，打开日志文件
+相当于nginx -s reopen
+由于日志文件比较多，需要打开多个文件
+
+3，重新监听套接字
+相当于nginx
+这个步骤会初始化很多东西，重点关注哈希表
+
+4，关闭旧worker进程
+相当于nginx -s quit
+```
+
+
 ### 一个nginx配置文件示例
 ```nginx
 
