@@ -51,6 +51,10 @@ WantedBy=multi-user.target
 [system.service | 参数解析](https://blog.csdn.net/stone_fall/article/details/108630115)  
 [Systemd 技术原理](https://blog.csdn.net/UbuntuKylinOS/article/details/120997854)
 
+systemd 区别 ，avatar用的是  ```/usr/lib/systemd/system/```  
+/usr/lib/systemd/system/ 软件包安装的单元  
+/etc/systemd/system/ 系统管理员安装的单元, 优先级更高  
+
 
 ## /etc/init.d
 service 文件是使用 systemd 作为初始化程序的 Linux 系统才有的服务文件，叫“服务配置单元文件”，  
