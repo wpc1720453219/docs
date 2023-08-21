@@ -1,4 +1,7 @@
-
+## ssh  
+### 命令行登陆  
+-v 查看详情  
+ssh -v -p 3333 avatar@10.60.44.16
 
 [Linux ssh命令详解](https://www.cnblogs.com/ftl1012/p/ssh.html)
 
