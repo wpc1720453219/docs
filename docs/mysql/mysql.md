@@ -17,6 +17,30 @@ db2 从表 获取db1 主表的数据
 change master to master_host='10.0.10.43', master_user='slave', 
 master_password='Hz123456', master_log_file='mysql-bin.000002', master_log_pos=2048;
 
+### avatar-cd下
+安装：
+1. 上传安装包解压
+2. 生成my.cnf文件
+3.初始化：
+this.execInInstallDir("${this.installPath}/bin/mysqld --defaults-file=${this.installPath}/my.cnf  --initialize-insecure")
+--initialize ：默认安全”安装（即 包括生成随机初始密码）。在这种情况下， 密码被标记为已过期，您必须选择一个新密码。root
+
+--initialize-insecure：    生成无密码。这是 不安全的;假设您打算分配密码 在放置服务器之前及时到帐户 投入生产使用。root
+
+配置：
+运行时候  初始化sql语句
+```shell
+/home/avatar/fg-deploy/software/mysql/mysql-8.0.16-linux-glibc2.12-x86_64/bin/mysql --defaults-file=/home/avatar/fg-deploy/software/mysql/mysql-8.0.16-linux-glibc2.12-x86_64/my.cnf \
+                                -u root --skip-password -vv -e \
+                                "show databases;CREATE USER 'root'@'%' IDENTIFIED BY 'fingard123';GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';  flush privileges;"
+```
+--skip-password 跳过密码
+
+mysql -uroot -e 'select * from mydb.user'
+-v 显示语句本身
+-vv 增加显示查询结果行数
+
+
 开始进行同步
 start slave;
 
