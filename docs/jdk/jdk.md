@@ -21,5 +21,9 @@ https://adoptium.net/zh-CN/temurin/releases/?version=8
 
 ![img.png](img.png)
 
+### 环境配置
+jdk安装路径
+echo 'PATH=$PATH:$JAVA_HOME/bin >>/etc/profile
+
 
 
