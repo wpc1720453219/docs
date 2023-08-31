@@ -8,6 +8,7 @@
 
 ### docker原理
 [Linux Namespace](https://www.cnblogs.com/sally-zhou/p/13398260.html)
+[Docker中网络的使用和配置用法详解](https://blog.csdn.net/weixin_44799217/article/details/128167248)
 Namespace 实现资源隔离的目的  
 
 cgroup是一种层次化的组织结构，类似于文件系统的目录树结构。每个cgroup都可以包含一组进程，
@@ -21,6 +22,8 @@ cgroup是一种层次化的组织结构，类似于文件系统的目录树结�
 [如何从docker镜像里提取dockerfile](https://liucy.blog.csdn.net/article/details/123203549)
 [docker修改容器的端口、容器名、映射地址](https://liucy.blog.csdn.net/article/details/12451173)
 [lowerdir、upperdir、merged](https://blog.51cto.com/u_16099350/6687189)
+
+    
 
 ### docker inspect xxx 详情
 ![img_1.png](img_1.png)
