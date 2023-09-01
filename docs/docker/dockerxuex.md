@@ -18,9 +18,3 @@ Docker 有意思的一个使用场景是在多租户的应用中，它可以避�
 chroot的过程是将/bin/bash进程的Home目录切换成了/var/lib/docker/aufs/mnt/[id]
 [Docker原理之rootfs](https://www.cnblogs.com/lioa/p/12666514.html)
 [docker rootfs](https://www.cnblogs.com/WJQ2017/p/17180077.html)
-
-
-
-
-
-
