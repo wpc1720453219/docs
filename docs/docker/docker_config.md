@@ -23,6 +23,43 @@ cgroup是一种层次化的组织结构，类似于文件系统的目录树结�
 [docker修改容器的端口、容器名、映射地址](https://liucy.blog.csdn.net/article/details/12451173)
 [lowerdir、upperdir、merged](https://blog.51cto.com/u_16099350/6687189)
 
+### docker -v 映射
+```shell
+"""docker run -d --network host --name ${containerName()} \\
+    --restart=always \\
+    --privileged=true \\
+    -e TZ=Asia/Shanghai \\
+    -v ${installPath}redis.conf:/etc/redis/redis.conf \\
+    -v ${installPath}data:/data \\
+    ${imageNameTag()}  redis-server /etc/redis/redis.conf --appendonly yes """
+```
+容器内部没有 /etc/redis/redis.conf ,可以通过外部配置文件映射到内部  
+
+```shell
+docker run -d --network host --name ${containerName()} \\
+    --restart=always \\
+    --privileged=true \\
+    -e TZ=Asia/Shanghai \\
+    -v ${installPath}rabbitmq-env.conf:/etc/rabbitmq/rabbitmq-env.conf \\
+    -v ${installPath}rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf    \\
+    -v ${installPath}data:/var/lib/rabbitmq/mnesia/rabbit\\@rabbit38 \\
+```
+宿主机里的 rabbitmq.conf 优先覆盖掉容器内部的 /etc/rabbitmq/rabbitmq.conf   
+
+宿主机里目录为空，通过 -v 映射 可以把容器里的文件映射到外面的配置文件里  
+```shell
+docker run -d --network host --name fat_10.60.44.16_docker_RabbitmqNode-3_rabbitmq38-5672 \
+    --restart=always \
+    --privileged=true \
+    -e TZ=Asia/Shanghai \
+    -e RABBITMQ_DIST_PORT=25675 \
+    -e RABBITMQ_ERLANG_COOKIE='rabbitcookie' \
+    -v /home/avatar/fg-deploy/software/docker_RabbitmqNode-3/test:/etc/rabbitmq  \
+    -v /home/avatar/fg-deploy/software/docker_RabbitmqNode-3/data:/var/lib/rabbitmq/mnesia/rabbit\@rabbit38 \
+    rabbit:3.8.23-fg1-delay
+```
+-v /home/avatar/fg-deploy/software/docker_RabbitmqNode-3/test:/etc/rabbitmq
+
     
 
 ### docker inspect xxx 详情
