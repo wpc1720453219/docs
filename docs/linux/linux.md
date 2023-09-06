@@ -4,6 +4,19 @@ npm i -g -d serve ; serve -p 5000
 python2 -m SimpleHTTPServer 5000  
 python3 -m http.server 5000
 
+cp 命令
+-p : 保留复制前文件的用户属性    -r : 递归复制
+```shell
+[root@cxm test]# cp -p 1.txt 3.txt
+[root@cxm test]# ll
+总用量 0
+-rw-r--r--. 1 cxm  cxm  0 3月   6 19:55 1.txt    （源文件）
+-rw-r--r--. 1 root root 0 3月   6 19:59 2.txt    （没保留属性）
+-rw-r--r--. 1 cxm  cxm  0 3月   6 19:55 3.txt    （保留属性）
+```
+[Linux 使用 cp 命令强制覆盖功能](https://blog.csdn.net/xinluke/article/details/52229431)
+
+
 
 tee  —— 兼顾打印输出屏幕内容并且内容还会重定向到文件内。（通常和管道符连用）  
 | tee           相当于  cat  和  >      重定向  
