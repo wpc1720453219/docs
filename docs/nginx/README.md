@@ -182,6 +182,42 @@ codo项目使用openresty的代码和文档，代码在lua目录下：
 - [codo api-gateway安装文档](https://docs.opendevops.cn/zh/guide/install/distribute/#api%E7%BD%91%E5%85%B3%EF%BC%88%E9%83%A8%E7%BD%B2%E5%AE%B9%E6%98%93%E5%87%BA%E9%97%AE%E9%A2%98%E7%9A%84%E5%9C%B0%E6%96%B9%EF%BC%89)
 遇到一个坑：[nginx + openresty + lua 不支持k8s下的短域名，长域名没问题](https://github.com/openresty/openresty/issues/298)，
 并且，也只有lua脚本里面的遇到这种问题，普通的nginx proxy_pass都没这种问题。
+
+
+### nginx黑名单配置
+1.conf下面创建个ip.black
+里面写
+deny ip;          //  代表禁用这个ip
+nginx.conf里加个          include       ip.black;
+如果做的是http层的 就加到http里 server上面
+如果做的是端口stream层  就加到stream层 server上面
+重启nginx
+
+# 屏蔽单个ip访问
+deny IP;
+# 允许单个ip访问
+allow IP;
+# 屏蔽所有ip访问
+deny all;
+# 允许所有ip访问
+allow all;
+#屏蔽整个段即从123.0.0.1到123.255.255.254访问的命令
+deny 123.0.0.0/8
+#屏蔽IP段即从123.45.0.1到123.45.255.254访问的命令
+deny 124.45.0.0/16
+#屏蔽IP段即从123.45.6.1到123.45.6.254访问的命令
+deny 123.45.6.0/24
+
+
+
+也可以
+ip.black 反向弄成白名单
+
+里面写
+allow 192.168.41.x;
+allow 192.168.41.x;
+deny all;
+意思只让这俩ip访问
   
 
 ### 配置https
