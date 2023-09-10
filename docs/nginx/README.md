@@ -213,33 +213,59 @@ server {
 
 例如:
 ```shell
-
+##定义Nginx运行的用户和用户组
 user avatar;
+
+##nginx进程数，建议设置为等于CPU总核心数
 worker_processes 1; # 这个配置和cpu核数一致，能达最佳性能
+
+##  全局错误日志定义类型，[ debug | info | notice | warn | error | crit ]
 #error_log  logs/error.log;
 #error_log  logs/error.log  notice;
 #error_log  logs/error.log  info;
+
+## 进程pid文件
 #pid        logs/nginx.pid;
+
+
 events {
+  ##单个进程最大连接数（最大连接数=连接数*进程数）
+  ##根据硬件调整，和前面工作进程配合起来用，尽量大，但是别把cpu跑到100%就行。每个进程允许的最多连接数，理论上每台nginx服务器的最大连接数为
   worker_connections 1024;
 }
+
+#设定http服务器，利用它的反向代理功能提供负载均衡支持
 http {
+  #文件扩展名与文件类型映射表
   include mime.types;
+  #默认文件类型
   default_type application/octet-stream;
+  
+   #设定通过nginx上传文件的大小
   client_max_body_size 100m;
+  
   #access_log  logs/access.log  main;
+  
+  #开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意：如果图片显示不正常把这个改成off。
+    #sendfile指令指定 nginx 是否调用sendfile 函数（zero copy 方式）来输出文件，对于普通应用，必须设为on。如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络IO处理速度，降低系统uptime。
   sendfile on;
+  
+  
   #tcp_nopush     on;
   #keepalive_timeout  0;
+  
+  # #长连接超时时间，单位是秒
   keepalive_timeout 86400;
   proxy_read_timeout 86400; # 这个设置nginx检测的超时时间，单位秒
   proxy_send_timeout 86400;
-  gzip on;
-  gzip_min_length 1k;
-  gzip_buffers 4 16k;
-  gzip_comp_level 4;
+  
+  #gzip模块设置
+  gzip on; #开启gzip压缩输出
+  gzip_min_length 1k;   #最小压缩文件大小
+  gzip_buffers 4 16k;   #压缩缓冲区
+  gzip_comp_level 4;  #压缩等级
   gzip_types text/plain application/x-javascript application/javascript application/json text/css text/javascript application/xml application/x-httpd-php image/jpeg image/gif image/png;
-  gzip_vary on;
+  gzip_vary on; #压缩类型，默认就已经包含textml，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn。
   gzip_disable "MSIE [1-6]\.";
 
   # 这里配置两个websys的tomcat地址
@@ -282,7 +308,7 @@ http {
       proxy_http_version 1.1;
     }
 
-   2222 # websock接口单独配置
+    # websock接口单独配置
     location /websocket {
       proxy_pass http://api; # 这个对应上面的那个 upstream 设置的名字，用于反向代理、负载均衡
 
