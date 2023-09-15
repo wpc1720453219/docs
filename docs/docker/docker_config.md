@@ -32,7 +32,9 @@ Docker 有意思的一个使用场景是在多租户的应用中，它可以避�
 ### docker 架构
 需要容器镜像时，则从 Docker Registry 中下载镜像，并通过镜像管理驱动 graphdriver 将下载镜像以 Graph 的形式存储
 
-chroot的过程是将/bin/bash进程的Home目录切换成了/var/lib/docker/aufs/mnt/[id]
+rootfs: 完整包含根目录的拷贝  
+rootfs只是一个操作系统所包含的文件、配置和目录，并不包括操作系统内核，因此在容器中运行的内核与宿主机一致，与内核相关的模块是无法隔离的  
+chroot的过程是将/bin/bash进程的Home目录切换成了/var/lib/docker/aufs/mnt/[id] 
 [Docker原理之rootfs](https://www.cnblogs.com/lioa/p/12666514.html)
 [docker rootfs](https://www.cnblogs.com/WJQ2017/p/17180077.html)
 
