@@ -60,7 +60,7 @@ docker run -d --network host --name fat_10.60.44.16_docker_RabbitmqNode-3_rabbit
 ```
 -v /home/avatar/fg-deploy/software/docker_RabbitmqNode-3/test:/etc/rabbitmq
 
-    
+[查看容器详细信息](https://zhuanlan.zhihu.com/p/553264831?utm_id=0)    
 
 ### docker inspect xxx 详情
 ![img_1.png](img_1.png)
@@ -101,7 +101,9 @@ docker run -d --network host --name fat_10.60.44.16_docker_RabbitmqNode-3_rabbit
         "AppArmorProfile": "",
         "ExecIDs": null,
         "HostConfig": {
-            "Binds": null,
+            "Binds": [
+                "/home/avatar/fg-deploy/software/docker-redis/data:/data"
+            ],     # -v 形式
             "ContainerIDFile": "",
             "LogConfig": {
                 "Type": "json-file",
@@ -112,10 +114,10 @@ docker run -d --network host --name fat_10.60.44.16_docker_RabbitmqNode-3_rabbit
             },
             "NetworkMode": "default",
             "PortBindings": {
-                "6379/tcp": [
+                "6379/tcp": [               #容器端口
                     {
                         "HostIp": "",
-                        "HostPort": "6389"
+                        "HostPort": "6389"   #主机端口
                     }
                 ]
             },
@@ -200,18 +202,18 @@ docker run -d --network host --name fat_10.60.44.16_docker_RabbitmqNode-3_rabbit
         },
         "Mounts": [
             {
-                "Type": "volume",
+                "Type": "volume",  #数据存储的类型，其主要有：bind,volume,tmpfs, 在这里我们主要研究的bind类型，也就所谓的文件挂载
                 "Name": "79357d8534095f8c88f3f3ed44bdaaa5fa5f776fd5ce11beb29f479e9525ccfd",
-                "Source": "/var/lib/docker/volumes/79357d8534095f8c88f3f3ed44bdaaa5fa5f776fd5ce11beb29f479e9525ccfd/_data",
-                "Destination": "/data",
+                "Source": "/var/lib/docker/volumes/79357d8534095f8c88f3f3ed44bdaaa5fa5f776fd5ce11beb29f479e9525ccfd/_data", #外部主机
+                "Destination": "/data", #容器內
                 "Driver": "local",
                 "Mode": "",
                 "RW": true,
-                "Propagation": ""
+                "Propagation": ""  #文件挂载的传播级别，主要有：rprivate, private,rshard,shard,rslave,slave
             }
         ],
         "Config": {
-            "Hostname": "e3819f863e33",
+            "Hostname": "e3819f863e33", #容器里 主机名
             "Domainname": "",
             "User": "",
             "AttachStdin": false,
@@ -264,7 +266,7 @@ docker run -d --network host --name fat_10.60.44.16_docker_RabbitmqNode-3_rabbit
                     }
                 ]
             },
-            "SandboxKey": "/var/run/docker/netns/8f8c6f5ea138",
+            "SandboxKey": "/var/run/docker/netns/8f8c6f5ea138", #沙盒密钥路径
             "SecondaryIPAddresses": null,
             "SecondaryIPv6Addresses": null,
             "EndpointID": "14c0ba98e9a03995b9359ec4d47440e6ecf101830b7ef332829696689b1cc7e3",
