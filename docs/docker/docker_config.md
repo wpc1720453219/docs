@@ -7,13 +7,41 @@
 ![img.png](img.png)
 
 ### docker原理
-[Linux Namespace](https://www.cnblogs.com/sally-zhou/p/13398260.html)
-[Docker中网络的使用和配置用法详解](https://blog.csdn.net/weixin_44799217/article/details/128167248)
+[Linux Namespace](https://www.cnblogs.com/sally-zhou/p/13398260.html)  
+[Docker中网络的使用和配置用法详解](https://blog.csdn.net/weixin_44799217/article/details/128167248)  
 Namespace 实现资源隔离的目的  
 
 cgroup是一种层次化的组织结构，类似于文件系统的目录树结构。每个cgroup都可以包含一组进程，
 并且可以对这些进程施加资源限制和管理策略
-[linux的cgroup](https://blog.csdn.net/liulanba/article/details/131525683)
+[linux的cgroup](https://blog.csdn.net/liulanba/article/details/131525683)  
+
+[docker实战](https://www.wenjiangs.com/doc/docker-rootfs)
+[docker学习](https://haicoder.net/docker/docker-virtualmachine-copmare.html)
+Docker 从 17.03 版本之后分为 CE（Community Edition: 社区版） 和 EE（Enterprise Edition: 企业版）  
+一般使用社区版、企业版要收费没必要
+
+docker 实现是基于 LXC[Linux Container容器是一种内核虚拟化技术，可以提供轻量级的虚拟化，以便隔离进程和资源]，从 0.7 版本以后开始去除 LXC，
+转而使用自行开发的 libcontainer，从 1.11 开始，则进一步演进为使用 runC 和 containerd
+
+### Docker应用场景
+Docker 有意思的一个使用场景是在多租户的应用中，它可以避免关键应用的重写。如果你将应用程序服务公开给多个租户（租户指一组用户，例如组织），
+使用单租户方案设计的应用程序如果用上了 sub-domain + docker 可以快速获得提供多租户的服务。
+得益于 Docker 环境的启动速度和其高效的 diff 命令
+
+
+### docker 架构
+需要容器镜像时，则从 Docker Registry 中下载镜像，并通过镜像管理驱动 graphdriver 将下载镜像以 Graph 的形式存储
+
+chroot的过程是将/bin/bash进程的Home目录切换成了/var/lib/docker/aufs/mnt/[id]
+[Docker原理之rootfs](https://www.cnblogs.com/lioa/p/12666514.html)
+[docker rootfs](https://www.cnblogs.com/WJQ2017/p/17180077.html)
+
+
+docker内部:  
+![img_2.png](img_2.png)
+
+docker外部:  
+![img_3.png](img_3.png)
 
 ### 如何从docker镜像里提取dockerfile
 1.  docker history xx     [无法查询详情]
@@ -112,7 +140,7 @@ docker run -d --network host --name fat_10.60.44.16_docker_RabbitmqNode-3_rabbit
                     "max-size": "500m"
                 }
             },
-            "NetworkMode": "default",
+            "NetworkMode": "default",    #网络模式
             "PortBindings": {
                 "6379/tcp": [               #容器端口
                     {
