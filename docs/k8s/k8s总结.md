@@ -1,9 +1,5 @@
-
-
 ## kubernetes 概述
-
 ### kubernetes 基本介绍
-
 > kubernetes，简称 K8s，是用 8 代替 8 个字符“ubernete”而成的缩写。是一个开源的，用于管理云平台中多个主机上的容器化的应用,Kubernetes 提供了应用部署，规划，更新，维护的一种机制。
 >
 > 1. 传统的应用部署 ： 通过插件或脚本来安装应用，不利于应用的升级更新/回滚等操作，当然也可以通过创建虚拟机的方式来实现某些功能，但是虚拟机非常重，并不利于可移植性
@@ -11,7 +7,7 @@
 
 
 
-##Pod
+## Pod
 
 > 一个 Pod 可以有多个容器，彼此间共享网络和存储资源，每个 Pod 中有一个 Pause 容器保
 > 存所有的容器状态， 通过管理 pause 容器，达到管理 pod 中所有容器的效果
@@ -25,6 +21,8 @@
 
 > metadata.labels 字段,来为对象添加Label ,  通过 spec.selector来引用对象
 
+[k8s 中 pod 是如何做到网络共享的](https://blog.csdn.net/qq_31725391/article/details/130827819)
+[pod中持久化是挂载在哪里](https://zhuanlan.zhihu.com/p/570130935)
 
 
 ##Replication Controller
