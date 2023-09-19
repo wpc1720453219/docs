@@ -115,7 +115,7 @@ address=/.server.mydomain.com/192.168.0.3
 
 /data/dnsmasq/dnsmasq.conf  配置文件备份，可以在页面修改。
 
-```she
+```shell
 #dnsmasq config, for a complete example, see:
 #  http://oss.segetech.com/intra/srv/dnsmasq.conf
 #log all dns queries
