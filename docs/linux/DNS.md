@@ -72,6 +72,11 @@ nslookup aaa.sunht.fingard.vm
 ping aaa.sunht.fingard.vm
 ```
 
+### nslookup 命令  
+![img_7.png](img_7.png)  
+Server： 指的是10.60.44.54对应的主机名  
+Address:  dns服务器ip  10.60.44.54#53
+[nslookup](https://www.cnblogs.com/machangwei-8/p/10353137.html)
 
 dnsmasq
 - [jpillora/dnsmasq 一个docker镜像，介绍页有教程](https://hub.docker.com/r/jpillora/dnsmasq)
