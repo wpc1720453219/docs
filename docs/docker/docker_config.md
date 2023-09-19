@@ -5,6 +5,8 @@
 
 ###  进入容器内部
 ![img.png](img.png)
+### 一个主机下容器之间的访问
+[容器link](https://blog.csdn.net/qq_28903377/article/details/124042044)
 
 ### docker原理
 [Linux Namespace](https://www.cnblogs.com/sally-zhou/p/13398260.html)  
