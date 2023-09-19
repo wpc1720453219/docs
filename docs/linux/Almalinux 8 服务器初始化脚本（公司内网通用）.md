@@ -1,12 +1,7 @@
-
-
 # AlmaLinux
-
-centos 8 替代品
-
-## centos7 升级到 almalinux8
-
-官方提供从centos7升级到almalinux8工具
+centos 8 替代品  
+## centos7 升级到 almalinux8  
+官方提供从centos7升级到almalinux8工具  
 
 [AlmaLinux OS - 升级你的发行版](https://almalinux.org/zh-hans/elevate)
 

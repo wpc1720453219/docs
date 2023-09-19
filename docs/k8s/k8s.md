@@ -555,11 +555,277 @@ spec:
             periodSeconds: 10
 ```
 
+### kibana
+```yaml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kibana
+  namespace: luna-lixp-dev
+data:
+  holder: "占位符"
+  kibana.yml: |-
+    server.host: "0.0.0.0"
+    elasticsearch.hosts: ["http://192.168.10.104:9200"]
+    i18n.locale: "zh-CN"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kibana
+  namespace: luna-lixp-dev
+  labels:
+    app: kibana
+spec:
+  type: NodePort
+  ports:
+    - port: 5601
+      targetPort: 5601
+      nodePort: 15601
+      name: kibana
+  selector:
+    app: kibana
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kibana
+  namespace: luna-lixp-dev
+spec:
+  rules:
+    - host: "kibana.luna-lixp-dev.lixp.fingard.vm"
+      http:
+        paths:
+          - backend:
+              service:
+                name: kibana
+                port:
+                  number: 5601
+            path: /
+            pathType: Prefix
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana
+  namespace: luna-lixp-dev
+spec:
+  selector:
+    matchLabels:
+      app: kibana
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+        - name: kibana
+          image: docker.elastic.co/kibana/kibana:7.16.0
+          ports:
+            - containerPort: 5601
+              name: http
+          env:
+            - name: TZ
+              value: Asia/Shanghai
+          resources:
+            requests:
+              memory: "1000Mi"
+            limits:
+              memory: "1000Mi"
+          readinessProbe:
+            tcpSocket:
+              port: 5601
+            initialDelaySeconds: 5
+            failureThreshold: 5
+            periodSeconds: 10
+          volumeMounts:
+            - mountPath: /usr/share/kibana/config/kibana.yml
+              name: config
+              subPath: kibana.yml
+      volumes:
+        - name: config
+          configMap:
+            name: kibana
+```
+### filebeat
+filebeat.yaml：用于创建一个配置映射，实际上filebeat在每个服务启动的时候都需要启动一个（在同一个pod中），所以主要的容器配置在各个服务的yaml中
+```yaml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: filebeat
+  namespace: luna-lixp-dev
+data:
+  holder: "占位符"
+  filebeat.yml: |-
+   filebeat.inputs:
+     - type: log
+       enabled: true
+       paths:
+         - /root/luna/logs/*/*/*/*filebeat*.log
+       json.keys_under_root: true
+       json.overwrite_keys: true
+   setup.ilm.enabled: false
+   setup.template.name: "my-log"
+   setup.template.pattern: "my-log-*"
+   
+   
+   filebeat.config.modules:
+   
+     path: ${path.config}/modules.d/*.yml
+   
+   
+     reload.enabled: false
+   
+   
+   
+   setup.template.settings:
+     index.number_of_shards: 1
+   
+   setup.kibana:
+   
+   output.elasticsearch:
+     hosts: ["192.168.10.104:9200"]
+   
+     index: "my-log-%{+yyyy.MM.dd}"
+   
+   processors:
+     - add_host_metadata:
+         when.not.contains.tags: forwarded
+     - add_cloud_metadata: ~
+     - add_docker_metadata: ~
+     - add_kubernetes_metadata: ~
+   
+   
+
+以gateway为例
+#---
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: gateway
+#  namespace: luna-lixp-dev
+#  labels:
+#    app: gateway
+#spec:
+#  ports:
+#    - port: 8080
+#      name: http
+#  selector:
+#    app: gateway
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gateway
+  namespace: luna-lixp-dev
+spec:
+  rules:
+    - host: "gateway.luna-lixp-dev.lixp.fingard.vm"
+      http:
+        paths:
+          - backend:
+              service:
+                name: gateway
+                port:
+                  number: 8080
+            path: /
+            pathType: Prefix
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway
+  namespace: luna-lixp-dev
+spec:
+  selector:
+    matchLabels:
+      app: gateway
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gateway
+    spec:
+      containers:
+        - name: gateway
+          image: 192.168.10.104:4800/luna-lixp-dev/gateway:latest
+          ports:
+            - containerPort: 8080
+              name: http
+          env:
+            - name: TZ
+              value: Asia/Shanghai
+            - name: ENV_JVM_FLAGS
+              valueFrom:
+                configMapKeyRef:
+                  name: java-common-config
+                  key: ENV_JVM_FLAGS
+          volumeMounts:
+            - mountPath: /root/luna/logs
+              name: logdata
+          resources:
+            requests:
+              memory: "500Mi"
+            limits:
+              memory: "500Mi"
+          # 启动状态检查
+          readinessProbe:
+            # 检查tcp端口
+            tcpSocket:
+              port: 8080
+            # 首次检查等待时间
+            initialDelaySeconds: 5
+            # 检查多少次
+            failureThreshold: 5
+            # 检查时间间隔
+            periodSeconds: 10
+        - name: filebeat
+          image: docker.elastic.co/beats/filebeat:7.16.0
+          args: [
+            "-c", "/opt/filebeat/filebeat.yml",
+            "-e"
+          ]
+#          env:
+#            - name: POD_IP
+#              valueFrom:
+#                fieldRef:
+#                  fieldPath: status.podIP
+#                  apiVersion: v1
+#            - name: pod_name
+#              valueFrom:
+#                fieldRef:
+#                  fieldPath: metadata.name
+#                  apiVersion: v1
+          volumeMounts:
+            - mountPath: /opt/filebeat/
+              name: config
+            - mountPath: /root/luna/logs
+              name: logdata
+          resources:
+            requests:
+              memory: "500Mi"
+            limits:
+              memory: "500Mi"
+      volumes:
+        - name: logdata
+          emptyDir: {}
+        - name: config
+          configMap:
+            name: filebeat
+            items:
+              - key: filebeat.yml
+                path: filebeat.yml
+```
 
 
 
 
-## kuboard
+### kuboard
 ```yaml
 # k8s api版本
 apiVersion: networking.k8s.io/v1

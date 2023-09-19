@@ -1,20 +1,8 @@
 # Linux相关
 
 ## 链接
-### 目录
-1. [各语言ssh工具](./ssh-program.md)
 
 ### 外链
-1. kvm
-    1. [CentOS7.4安装部署KVM虚拟机](https://blog.csdn.net/qq_39452428/article/details/80781403)
-    1. [KVM——以桥接的方式搭建虚拟机网络配置](https://www.cnblogs.com/weilu2/p/kvm_bridge_centos7.html)
-        - 参考这个记得不要做停止网卡的操作
-    1. [KVM创建Windows10虚拟机](https://blog.51cto.com/10802692/2414758?source=dra)
-        - 这个里面有windows网卡配置，和linux用的不一样
-    1. [KVM虚拟化的Windows虚拟机CPU只识别两核的问题](https://blog.csdn.net/dwj1979/article/details/90514604)
-        - 这里介绍的方式在图形界面也能操作
-1. [samba](https://baike.baidu.com/item/samba/455025)
-    1. nfs与cifs的整合
 1. sed
     1. [Sed正则表达式](https://www.yiibai.com/sed/sed_regular_expressions.html)
         - 和普通的正则不太一样
@@ -22,7 +10,6 @@
     1. [gcc编译时对’xxxx’未定义的引用问题](https://www.cnblogs.com/oloroso/p/4688426.html)
 1. man page
     1. [ManKier Linux man pages](https://www.mankier.com/)
-### 脚本收藏
 
 #### 批量杀进程
 传入一批进程中间包含的唯一字符串即可，一般是严格匹配的文件夹路径
@@ -169,8 +156,3 @@ ping -c 2 www.baidu.com
 ping -c 2 10.96.0.10
 ```
 
-### ls
-```bash
-# 单列输出
-ls -1
-```
