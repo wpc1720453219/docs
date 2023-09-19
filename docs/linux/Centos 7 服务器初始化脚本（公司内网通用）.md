@@ -65,6 +65,8 @@ systemctl stop firewalld
 systemctl disable firewalld
  
 # SELinux 主要作用就是最大限度地减小系统中服务进程可访问的资源 
+# 例如：黑客发现以root身份运行的redis漏洞，植入root身份的redis里的脚本，以redis进程形式操作整个主机
+# selinux作用: 控制现在redis进程只获取主机一部分资源，就算你redis进程是以root用户起来的也没办法操作整个主机
 echo '禁用 SELinux'
 setenforce 0
 sed -i 's/^SELINUX=enforcing$/SELINUX=disabled/' /etc/selinux/config
