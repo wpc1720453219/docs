@@ -16,6 +16,7 @@ Namespace 实现资源隔离的目的
 cgroup是一种层次化的组织结构，类似于文件系统的目录树结构。每个cgroup都可以包含一组进程，
 并且可以对这些进程施加资源限制和管理策略
 [linux的cgroup](https://blog.csdn.net/liulanba/article/details/131525683)  
+[docker Overlay2 文件系统原理](http://static.kancloud.cn/chunyu/php_basic_knowledge/3083133)
 
 [docker实战](https://www.wenjiangs.com/doc/docker-rootfs)
 [docker学习](https://haicoder.net/docker/docker-virtualmachine-copmare.html)

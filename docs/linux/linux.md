@@ -38,6 +38,9 @@ jps -v 查看启动参数
 rsync  远程和本地文件备份      
 ```
 
+### netstat 命令输出
+[netstat命令输出详解](https://www.jianshu.com/p/443e6267dc47)
+
 ### rsync 与 cp、scp 区别
 cp是一种典型的将文件完整的拷贝或者复制到其他位置，不管里面改了多少东西  
 rsync是第一次在目标地址没有（复制到这后的同步源没有）的时候，全量备份。

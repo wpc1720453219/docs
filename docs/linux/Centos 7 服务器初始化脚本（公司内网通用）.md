@@ -71,6 +71,13 @@ echo '禁用 SELinux'
 setenforce 0
 sed -i 's/^SELINUX=enforcing$/SELINUX=disabled/' /etc/selinux/config
 cat /etc/selinux/config
+
+
+# swap禁用
+# Linux中Swap（即：交换分区），类似于Windows的虚拟内存，就是当内存不足的时候，把一部分硬盘空间虚拟成内存使用,从而解决内存容量不足的情况
+# 在内存不够的情况下，操作系统先把内存中暂时不用的数据，存到硬盘的交换空间，腾出内存来让别的程序运行，和 Windows的虚拟内存（pagefile.sys）的作用是一样的
+swapoff -a
+sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 ```
 
 
@@ -255,7 +262,8 @@ modprobe ip_vs
 iptables -F && iptables -X && iptables -F -t nat && iptables -X -t nat
 # 转发策略开启
 iptables -P FORWARD ACCEPT
- 
+
+ # 调大普通用户进程数限制，docker里面非root权限运行的进程全在这个里面
 sed -i 's/4096/65535/g' /etc/security/limits.d/20-nproc.conf
 cat /etc/security/limits.d/20-nproc.conf
  
