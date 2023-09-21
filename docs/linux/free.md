@@ -32,4 +32,5 @@ MemAvailable = MemFree - LowWaterMark + (PageCache - min(PageCache / 2, LowWater
 [linux问题-memory free 大于 available 怪异现象分析](https://blog.csdn.net/ygq13572549874/article/details/128798578)
 available 会受到 min_free_kbytes操作系统最小保留内存设置影响
 
+会报告有关内核线程、虚拟内存、磁盘、管理程序页面、陷阱和处理器活动的统计信息
 [Linux系统调优详解（四）——内存状态查看命令](https://blog.csdn.net/weixin_40228200/article/details/125351690)
