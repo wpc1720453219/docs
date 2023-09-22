@@ -5,3 +5,5 @@ apollo 使用感受
 [apollo 与 nacos 功能对比](https://blog.csdn.net/kwame211/article/details/104371263)
 [配置中心Nacos与Apollo比较](https://huaweicloud.csdn.net/633576ebd3efff3090b57d7e.html)
 [nacos、Eureka、apollo三者比较](https://blog.csdn.net/qq_36325332/article/details/125019475)
+
+[apollo配置使用，坑点分析](https://blog.csdn.net/qq_36268452/article/details/107181166)
