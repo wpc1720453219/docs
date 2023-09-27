@@ -2,6 +2,13 @@
 
 ### Docker网络network详解
 [Docker网络network详解](https://blog.csdn.net/qq_44749491/article/details/128682105)
+[docker网络](https://blog.csdn.net/weixin_42322206/article/details/126564020)
+
+### 自定义网络
+[Docker—自定义网络](https://zhuanlan.zhihu.com/p/603791701)
+当两个容器相互调用的时候，如果直接通过ip来通信，由于容器内的ip地址可能会发生变化，此时会导致相互调用的服务不可用  
+可通过自定义网络 ，通过 ping 其他容器名进行访问  
+在开发当中，最常用使用的一种方式就是自定义网络，自定义网络本身就维护好了主机名称与ip地址的映射关系。  
 
 ###  进入容器内部
 ![img.png](img.png)
