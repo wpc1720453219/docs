@@ -19,7 +19,9 @@
 [Linux Namespace](https://www.cnblogs.com/sally-zhou/p/13398260.html)  
 [Docker中网络的使用和配置用法详解](https://blog.csdn.net/weixin_44799217/article/details/128167248)  
 [Docker四大网络&自定义网络](https://blog.csdn.net/sinat_34104446/article/details/125057941)
-Namespace 实现资源隔离的目的  
+Namespace 实现资源隔离的目的
+[用户定义的 bridge 跟默认 bridge 的区别](https://blog.csdn.net/weixin_42445065/article/details/130827936)
+
 
 cgroup是一种层次化的组织结构，类似于文件系统的目录树结构。每个cgroup都可以包含一组进程，
 并且可以对这些进程施加资源限制和管理策略
