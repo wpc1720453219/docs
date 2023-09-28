@@ -25,6 +25,48 @@
 [pod中持久化是挂载在哪里](https://zhuanlan.zhihu.com/p/570130935)
 
 
+## service
+service可以实现“pod的发现和副本间负载均衡”，但访问service也需要ip和端口号，因此又引出了service的发现的问题。  
+得益于kube-dns插件，通过修改容器的/etc/resolv.conf配置，使service以域名来访问。   
+  
+服务发现:  
+pod与pod 之间是可以通过pod的ip 进行访问的，但pod的重启ip会发生变化，导致 pod对应的ip 不固定，service 解决 ip不固定的问题  
+通过 域名 与 pod的 ip 相映射  
+
+域名访问:    
+service可以实现“pod的发现和副本间负载均衡”，但访问service也需要ip和端口号，因此又引出了service的发现的问题。    
+得益于kube-dns插件，通过修改容器的/etc/resolv.conf配置，使service以域名来访问。  
+
+service 生成的 域名 与 pod的 ip进行 映射
+
+
+
+```shell
+Kubernetes Kube-DNS是Kubernetes集群中用于服务发现和DNS解析的核心组件之一。它负责将服务名称解析为相应的IP地址，并确保服务之间可以通过名称进行通信。
+
+Kube-DNS的工作原理如下：  
+1. Kube-DNS部署为一个集群中的Pod，通常在kube-system命名空间中。    
+2. 它监听Kubernetes API服务器上的Service和Endpoint对象的变化。  
+3. 当Service或Endpoint对象发生变化时，Kube-DNS会更新内部的DNS记录。  
+4. Kube-DNS使用CoreDNS作为DNS服务器，它将DNS查询转发给其他Pod和服务。  
+5. 当容器内的应用程序尝试通过服务名称访问其他服务时，它会向Kube-DNS发起DNS查询请求。  
+6. Kube-DNS将查询转发给CoreDNS，并返回相应的IP地址给应用程序。  
+```
+![img.png](img.png)
+![img_1.png](img_1.png)
+[CoreDNS简介（非常详细）](http://c.biancheng.net/view/9842.html)
+
+
+
+
+
+
+
+
+
+
+
+
 ##Replication Controller
 
 1.ReplicaSet 支持集合式的 selector（ReplicationController 仅支持等式）
