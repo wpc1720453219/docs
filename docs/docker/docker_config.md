@@ -1,11 +1,11 @@
 ## docker 配置
 
-### Docker网络network详解
-[Docker网络network详解](https://blog.csdn.net/qq_44749491/article/details/128682105)
-[docker网络](https://blog.csdn.net/weixin_42322206/article/details/126564020)
+### Docker网络network详解  
+[Docker网络network详解](https://blog.csdn.net/qq_44749491/article/details/128682105)    
+[docker网络](https://blog.csdn.net/weixin_42322206/article/details/126564020)  
 
 ### 自定义网络
-[Docker—自定义网络](https://zhuanlan.zhihu.com/p/603791701)
+[Docker—自定义网络](https://zhuanlan.zhihu.com/p/603791701)  
 当两个容器相互调用的时候，如果直接通过ip来通信，由于容器内的ip地址可能会发生变化，此时会导致相互调用的服务不可用  
 可通过自定义网络 ，通过 ping 其他容器名进行访问  
 在开发当中，最常用使用的一种方式就是自定义网络，自定义网络本身就维护好了主机名称与ip地址的映射关系。  
@@ -18,9 +18,9 @@
 ### docker原理
 [Linux Namespace](https://www.cnblogs.com/sally-zhou/p/13398260.html)  
 [Docker中网络的使用和配置用法详解](https://blog.csdn.net/weixin_44799217/article/details/128167248)  
-[Docker四大网络&自定义网络](https://blog.csdn.net/sinat_34104446/article/details/125057941)
-Namespace 实现资源隔离的目的
-[用户定义的 bridge 跟默认 bridge 的区别](https://blog.csdn.net/weixin_42445065/article/details/130827936)
+[Docker四大网络&自定义网络](https://blog.csdn.net/sinat_34104446/article/details/125057941)  
+Namespace 实现资源隔离的目的  
+[用户定义的 bridge 跟默认 bridge 的区别](https://blog.csdn.net/weixin_42445065/article/details/130827936)  
 
 
 cgroup是一种层次化的组织结构，类似于文件系统的目录树结构。每个cgroup都可以包含一组进程，
@@ -47,7 +47,7 @@ Docker 有意思的一个使用场景是在多租户的应用中，它可以避�
 
 rootfs: 完整包含根目录的拷贝  
 rootfs只是一个操作系统所包含的文件、配置和目录，并不包括操作系统内核，因此在容器中运行的内核与宿主机一致，与内核相关的模块是无法隔离的  
-chroot的过程是将/bin/bash进程的Home目录切换成了/var/lib/docker/aufs/mnt/[id] 
+chroot的过程是将/bin/bash进程的Home目录切换成了/var/lib/docker/aufs/mnt/[id]   
 [Docker原理之rootfs](https://www.cnblogs.com/lioa/p/12666514.html)
 [docker rootfs](https://www.cnblogs.com/WJQ2017/p/17180077.html)
 
