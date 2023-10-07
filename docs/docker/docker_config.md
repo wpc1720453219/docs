@@ -103,7 +103,11 @@ docker run -d --network host --name fat_10.60.44.16_docker_RabbitmqNode-3_rabbit
 ```
 -v /home/avatar/fg-deploy/software/docker_RabbitmqNode-3/test:/etc/rabbitmq
 
-[查看容器详细信息](https://zhuanlan.zhihu.com/p/553264831?utm_id=0)    
+[查看容器详细信息](https://zhuanlan.zhihu.com/p/553264831?utm_id=0)
+### docker pid 映射  
+"Pid": 86579  是当前jar包在主机的pid,他对应docker内部 pid 1  
+如果我在docker内部启动一个新的进程，那边在主机里面，会有个新的pid 和 "Pid": 86579 并行 同时继承一个父进程  
+![img_4.png](img_4.png)  
 
 ### docker inspect xxx 详情
 ![img_1.png](img_1.png)
