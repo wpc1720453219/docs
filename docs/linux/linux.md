@@ -16,6 +16,8 @@ cp 命令
 ```
 [Linux 使用 cp 命令强制覆盖功能](https://blog.csdn.net/xinluke/article/details/52229431)
 
+### pid 1  
+[Linux中的特殊进程：idle进程(0号进程)、init进程(1号进程，被systemd 取代 )、kthreadd进程(2号进程)](https://blog.csdn.net/m0_45406092/article/details/130657532)  
 
 
 tee  —— 兼顾打印输出屏幕内容并且内容还会重定向到文件内。（通常和管道符连用）  

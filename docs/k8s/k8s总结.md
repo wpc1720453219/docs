@@ -5,23 +5,19 @@
 > 1. 传统的应用部署 ： 通过插件或脚本来安装应用，不利于应用的升级更新/回滚等操作，当然也可以通过创建虚拟机的方式来实现某些功能，但是虚拟机非常重，并不利于可移植性
 > 2. 容器方式：容器之间互相隔离，可移植性强，Kubernetes 是 Google 开源的一个容器编排引擎，它支持自动化部署、大规模可伸缩、应用容器化管理。
 
-
-
 ## Pod
-
-> 一个 Pod 可以有多个容器，彼此间共享网络和存储资源，每个 Pod 中有一个 Pause 容器保
-> 存所有的容器状态， 通过管理 pause 容器，达到管理 pod 中所有容器的效果
->
+### 共享存储  
 > 一个 Pod 里的多个容器可以共享存储和网络，可以看作一个逻辑的主机。共享的如
-> namespace,cgroups 或者其他的隔离资源。
->
-> 一个 Pod 内的多个容器之间可以通过 localhost 来进行通信
->
-> 不同 Pod 内的多个容器之前通信，通常情况下使用 Pod的 IP 进行通信
-
+> namespace,cgroups 或者其他的隔离资源。  
+> 一个 Pod 内的多个容器之间可以通过 localhost 来进行通信  【启动一个容器, 然后将新的容器加入到已有容器的网络中】
+> 不同 Pod 内的多个容器之前通信，通常情况下使用 Pod的 IP 进行通信  
 > metadata.labels 字段,来为对象添加Label ,  通过 spec.selector来引用对象
 
 [k8s 中 pod 是如何做到网络共享的](https://blog.csdn.net/qq_31725391/article/details/130827819)
+
+### 共享网络
+Volumes被定义在pod上，挂载在pod的pause容器上。当业务容器加入时，可以将Volumes挂载到具体的文件目录下，  
+进而进行访问和操作。kubernetes通过Volume实现同一个Pod中不同容器之间的数据共享以及数据的持久化存储  
 [pod中持久化是挂载在哪里](https://zhuanlan.zhihu.com/p/570130935)
 
 
@@ -38,6 +34,12 @@ service可以实现“pod的发现和副本间负载均衡”，但访问service
 得益于kube-dns插件，通过修改容器的/etc/resolv.conf配置，使service以域名来访问。  
 
 service 生成的 域名 与 pod的 ip进行 映射
+
+### Ingress
+[Ingress的概念和原理](https://blog.csdn.net/m0_46172263/article/details/121079156)
+ingress对象 yaml 运行后,内部会调用 ingress-controller负责具体转发的组件，  
+ingress-controller并不是k8s自带的组件，实际上ingress-controller只是一个统称，用户可以选择不同的ingress-controller实现  
+ingress组件: 公司默认用这个 Traefik  当然还有其他 比如 nginx ingress
 
 
 

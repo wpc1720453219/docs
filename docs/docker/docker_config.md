@@ -1,4 +1,7 @@
 ## docker 配置
+### Docker 组件作用
+[https://blog.51cto.com/u_14035463/5585053](https://blog.51cto.com/u_14035463/5585053)
+
 
 ### Docker网络network详解  
 [Docker网络network详解](https://blog.csdn.net/qq_44749491/article/details/128682105)    
@@ -9,6 +12,9 @@
 当两个容器相互调用的时候，如果直接通过ip来通信，由于容器内的ip地址可能会发生变化，此时会导致相互调用的服务不可用  
 可通过自定义网络 ，通过 ping 其他容器名进行访问  
 在开发当中，最常用使用的一种方式就是自定义网络，自定义网络本身就维护好了主机名称与ip地址的映射关系。  
+
+### Docker跨主机网络通信
+[Docker跨主机网络通信](https://blog.csdn.net/qq_36733838/article/details/130533447)
 
 ###  进入容器内部
 ![img.png](img.png)
