@@ -22,18 +22,15 @@ Volumes被定义在pod上，挂载在pod的pause容器上。当业务容器加�
 
 
 ## service
-service可以实现“pod的发现和副本间负载均衡”，但访问service也需要ip和端口号，因此又引出了service的发现的问题。  
-得益于kube-dns插件，通过修改容器的/etc/resolv.conf配置，使service以域名来访问。   
   
 服务发现:  
-pod与pod 之间是可以通过pod的ip 进行访问的，但pod的重启ip会发生变化，导致 pod对应的ip 不固定，service 解决 ip不固定的问题  
-通过 域名 与 pod的 ip 相映射  
+pod与pod 之间是可以通过pod的ip 进行访问的，但pod的重启ip会发生变化，导致 pod对应的ip 不固定，service 解决 ip不固定的问题
 
 域名访问:    
 service可以实现“pod的发现和副本间负载均衡”，但访问service也需要ip和端口号，因此又引出了service的发现的问题。    
 得益于kube-dns插件，通过修改容器的/etc/resolv.conf配置，使service以域名来访问。  
 
-service 生成的 域名 与 pod的 ip进行 映射
+service 生成的 域名 与 service 的 ip进行 映射
 
 ### Ingress
 [Ingress的概念和原理](https://blog.csdn.net/m0_46172263/article/details/121079156)
