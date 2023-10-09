@@ -7,6 +7,7 @@ DNS （Domain Name System 的缩写）的作用非常简单，就是根据域名
 检查浏览器缓存-> 操作系统缓存(在内存里)--> 读取hosts文件-->本地dns服务器--> 根服务器-->1级域名服务器-->2级域名服务器-->3级域名服务器
 ![img_1.png](./wsl.assets/img_1.png)
 ![img.png](./wsl.assets/img.png)
+
    
 搭建内网dns服务器  
 ```shell
@@ -58,6 +59,8 @@ docker logs -f dnsmasq
  
 # 可以访问地址：http://192.168.10.104:5380/ 用户：admin/1
 ```
+
+### win主机 配置创建好的dns服务器
 修改自己电脑dns  
 这里提供winddows11的修改方式，首选dns改成10.60.44.54  
 ![img_2.png](./wsl.assets/img_2.png)
@@ -71,6 +74,23 @@ ping sunht.fingard.vm
 nslookup aaa.sunht.fingard.vm
 ping aaa.sunht.fingard.vm
 ```
+
+### linux主机 配置创建好的dns服务器
+在 /etc/resolv.conf 里配置
+[/etc/resolv.conf配置文件详解](https://blog.csdn.net/liujinwei2005/article/details/119922678)
+```shell
+domain  51osos.com
+search  www.51osos.com  51osos.com
+nameserver 202.102.192.68
+nameserver 202.102.192.69
+```
+domain: 这个用来指定本地的域名，在没有设置search的情况下，search默认为domain的值。这个值可以随便配，
+        目前在我看来，domain除了当search的默认值外，没有其它用途。也就说一旦配置search，那domain就没用了
+search：当访问的域名不能被DNS解析时，resolver会将该域名加上search指定的参数，重新请求DNS，
+        直到被正确解析或试完search指定的列表为止
+
+
+
 
 ### nslookup 命令  
 ![img_7.png](img_7.png)  
