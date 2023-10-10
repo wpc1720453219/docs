@@ -32,12 +32,19 @@ service可以实现“pod的发现和副本间负载均衡”，但访问service
 service 的ip  通过这个 clusterIP: 10.43.135.181 进行配置    
 service 生成的 域名 与 service 的 ip 进行 映射    
 nacos pod  通过mysql的服务名 找到mysql的service 对应的clusterIP ，后mysql的service会分发给自己的pod  
+[Kubernetes（k8s）DNS（CoreDNS）介绍](https://blog.csdn.net/qq_35745940/article/details/120639888)
+CoreDNS 是存储 service 生成的 域名 与 service 的 clusterIP 进行 映射
+
 
 ### Ingress
+ingress 解决问题：nodeport不能代理https（客户端的角度）；
+nodeport需要暴露service所属每个node节点上端口，当需求越来越多，端口数量越多，导致维护成本过高  
+ingress yaml 会关联到对应service的服务名
 [Ingress的概念和原理](https://blog.csdn.net/m0_46172263/article/details/121079156)
 ingress对象 yaml 运行后,内部会调用 ingress-controller负责具体转发的组件，  
 ingress-controller并不是k8s自带的组件，实际上ingress-controller只是一个统称，用户可以选择不同的ingress-controller实现  
-ingress组件: 公司默认用这个 Traefik  当然还有其他 比如 nginx ingress
+ingress组件: 公司默认用这个 Traefik  当然还有其他 比如 nginx ingress 
+
 
 
 
