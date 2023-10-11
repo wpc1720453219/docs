@@ -22,7 +22,14 @@
 [容器link](https://blog.csdn.net/qq_28903377/article/details/124042044)
 
 ### docker原理
-[Linux Namespace](https://www.cnblogs.com/sally-zhou/p/13398260.html)  
+[Linux Namespace](https://www.cnblogs.com/sally-zhou/p/13398260.html)
+[一文彻底搞懂Docker中的namespace](https://blog.csdn.net/songguangfan/article/details/121727435)
+Namespace 是 Linux 内核的一个特性，该特性可以实现在同一主机系统中，对进程 ID、主机名、用户 ID、文件名、网络和进程间通信等资源的隔离。  
+Docker 利用 Linux 内核的 Namespace 特性，实现了每个容器的资源相互隔离，从而保证容器内部只能访问到自己 Namespace 的资源  
+
+通过这些 namespace 的隔离，Docker 可以实现容器之间的资源隔离和安全隔离，防止容器之间的干扰和攻击
+
+
 [Docker中网络的使用和配置用法详解](https://blog.csdn.net/weixin_44799217/article/details/128167248)  
 [Docker四大网络&自定义网络](https://blog.csdn.net/sinat_34104446/article/details/125057941)  
 Namespace 实现资源隔离的目的  
