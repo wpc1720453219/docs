@@ -47,7 +47,7 @@ ingress组件: 公司默认用这个 Traefik  当然还有其他 比如 nginx in
 
 
 
-
+### CoreDNS
 ```shell
 Kubernetes Kube-DNS是Kubernetes集群中用于服务发现和DNS解析的核心组件之一。它负责将服务名称解析为相应的IP地址，并确保服务之间可以通过名称进行通信。
 
@@ -63,6 +63,17 @@ Kube-DNS的工作原理如下：
 ![img_1.png](img_1.png)
 [CoreDNS简介（非常详细）](http://c.biancheng.net/view/9842.html)
 
+
+### cni iptables ivps
+Kube-proxy：service 的clusterip，通过kube-proxy（内部iptables NAT来完成转发或ivps映射）负载策略，转发到后端的Pod
+[kubernetes 组件之 kube-proxy](https://blog.csdn.net/qq_43762191/article/details/125126090)
+[kube-proxy 详解](https://blog.csdn.net/m0_57223716/article/details/125167416)
+[k8s中iptables与ipvs详解](https://blog.csdn.net/weixin_64124795/article/details/130952239)  
+![img_2.png](img_2.png)
+
+跨主机通信：    
+CNI 只关心 Pod IP   让 pod之间跨主机访问  
+[部署 CNI网络组件](https://blog.csdn.net/qzzqzzqzz111/article/details/131472495)  
 
 
 
