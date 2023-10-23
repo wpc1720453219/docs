@@ -1,6 +1,5 @@
 # Zookeeper
-## Zookeeper安装
-### zookeeper单机版安装
+## zookeeper单机版安装
 首先确保正确安装了java 8。`JAVA_HOME`、`JRE_HOME`环境变量指向正常。
 `java -version`能正确输出。
 
@@ -37,7 +36,7 @@ bin/zkServer.sh status
 bin/zkServer.sh stop
 ```
 
-### zookeeper集群安装
+## zookeeper集群安装
 zookeeper一般用3节点集群保证高可用。
 
 除配置外，其他步骤与单机版相同。
@@ -76,6 +75,4 @@ server.1=10.60.44.54:2881:3881
 server.2=10.60.44.54:2882:3882
 server.3=10.60.44.54:2883:3883
 ```
-
-### zookeeper集群
 

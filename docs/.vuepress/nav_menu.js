@@ -1,9 +1,11 @@
 module.exports = [
     {text: 'java', link: '/microservice/'},
 
-    { text: 'devops', items: [
-            { text: 'Linux',link: '/linux/linux.md' ,items: [
-                    {text: 'linux' , link: '/linux/linux.md'},
+    {
+        text: 'devops', items: [
+            {
+                text: 'Linux', link: '/linux/linux.md', items: [
+                    {text: 'linux', link: '/linux/linux.md'},
                     {text: 'sshd', link: '/linux/0.ssh&&sshd_config.md'},
                     {text: 'iptables', link: '/linux/iptables.md'},
                     {text: 'systemd', link: '/linux/2.systemd.md'},
@@ -18,20 +20,36 @@ module.exports = [
                     {text: '硬盘分区', link: '/linux/硬盘分区.md.md'},
                 ]
             },
-            { text: 'docker',link: '/docker/docker.md',items:[
-                    {text: 'docker' , link: '/docker/docker.md'},
+            {
+                text: 'docker', link: '/docker/docker.md', items: [
+                    {text: 'docker', link: '/docker/docker.md'},
                     {text: 'docker配置', link: '/docker/docker_config.md'},
-             ]},
-            { text: 'kubernetes',link: '/kubernetes/k8s总结.md',items: [
-                    {text: 'k8s' , link: '/kubernetes/k8s总结.md'},
+                ]
+            },
+            {
+                text: 'kubernetes', link: '/kubernetes/k8s总结.md', items: [
+                    {text: 'k8s', link: '/kubernetes/k8s总结.md'},
                     {text: 'k8s配置', link: '/kubernetes/k8s.md'},
                     {text: 'k3s', link: '/kubernetes/k3s.md'}
-                ]}
+                ]
+            }
         ]
     },
 
     {
         text: '中间件', items: [
+            {text: 'jdk', link: '/jdk/jdk.md'},
+            {text: 'zookeeper', link: '/zookeeper/'},
+
+            {
+                text: 'redis', link: '/redis/redis.md', items: [
+                    {text: 'redis', link: '/redis/redis.md'},
+                    {text: 'redis配置', link: '/redis/redis_conf.md'},
+                    {text: 'docker-redis', link: '/redis/docker-redis.md'}
+                ]
+            },
+
+
             {
                 text: 'jdk', link: '/jdk/jdk.md', items: [
                     {text: 'jdk', link: '/jdk/jdk.md'},
@@ -43,15 +61,6 @@ module.exports = [
                     {text: '日志顺序精确到毫秒级以下', link: '/elk/order_under_ms.md'},
                 ]
             },
-
-            {
-                text: 'redis', link: '/redis/redis.md', items: [
-                    {text: 'redis', link: '/redis/redis.md'},
-                    {text: 'redis配置', link: '/redis/redis_conf.md'},
-                    {text: 'docker-redis', link: '/redis/docker-redis.md'}
-                ]
-            },
-
 
             {
                 text: 'Skywalking', items: [
@@ -144,8 +153,10 @@ module.exports = [
         ]
     },
 
-    { text: '其他软件', items: [
-            { text: 'Linux',link: '/linux/' ,items: [
+    {
+        text: '其他软件', items: [
+            {
+                text: 'Linux', link: '/linux/', items: [
                     {text: 'iptables', link: '/linux/iptables.md'},
                     {text: 'systemd', link: '/linux/systemd.md'},
                     {text: 'rpm与yum的区别', link: '/linux/yan_rpm_apt.md'},
@@ -154,8 +165,8 @@ module.exports = [
                     {text: '硬盘分区', link: '/linux/硬盘分区.md.md'},
                 ]
             },
-            { text: 'shell',link: '/shell/' },
-            { text: 'docker',link: '/docker/'}
+            {text: 'shell', link: '/shell/'},
+            {text: 'docker', link: '/docker/'}
         ]
     },
 ]
