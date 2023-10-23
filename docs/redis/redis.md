@@ -73,7 +73,7 @@ redisConfig('requirepass', getDeployConfig(env_redis_password).toString(), true)
 5. slave 挂了不影响其他 slave 的读和 master 的读和写，重新启动后会将数据从 master 同步过来
 6. master 挂了以后，不影响 slave 的读，但 redis 不再提供写服务，master 恢复后 redis 将重新对外提供写服务
 7. master 挂了以后，不会在 slave 节点中重新选一个 master
-![img.png](img.png)
+![img.png](./img.png)
 
 工作机制： - 当slave启动后，主动向master发送SYNC命令。master接收到SYNC命令后在后台保存快照（RDB持久化）和缓存保存快照这段时间的命令，
 然后将保存的快照文件和缓存的命令发送给slave。slave接收到快照文件和命令后加载快照文件和缓存的执行命令。 
@@ -92,7 +92,7 @@ sentinel中文含义为哨兵，顾名思义，它的作用就是监控redis集�
 * 一个sentinel或sentinel集群可以管理多个主从Redis，多个sentinel也可以监控同一个redis；
 * sentinel最好不要和Redis部署在同一台机器，不然Redis的服务器挂了以后，sentinel也可能会挂掉。
 
-![img_1.png](img_1.png)
+![img_1.png](./img_1.png)
 其工作的流程如下所示： - 每个sentinel以每秒钟一次的频率向它所知的master，slave以及其他sentinel实例发送一个 PING 命令； 
 - 如果一个实例距离最后一次有效回复 PING 命令的时间超过 down-after-milliseconds 选项所指定的值， 则这个实例会被sentinel标记为主观下线；
 - 如果一个master被标记为主观下线，则正在监视这个master的所有sentinel要以每秒一次的频率确认master的确进入了主观下线状态； 
@@ -130,7 +130,7 @@ Redis 的哨兵模式基本已经可以实现高可用，读写分离 ，但是�
   因为Redis的数据是根据一定规则分配到cluster的不同机器的，当数据量过大时，可以新增机器进行扩容。
 * 使用集群，只需要将redis配置文件中的cluster-enable配置打开即可，每个集群中至少需要三个主数据库才能正常运行，新增节点非常方便。
 
-![img_2.png](img_2.png)
+![img_2.png](./img_2.png)
 [Redis集群原理篇之图文并茂](https://blog.51cto.com/u_14035463/5584244)
 可以看到，Cluster 集群模式有如下一些特点： 
 - 多个redis节点网络互联，数据共享； 

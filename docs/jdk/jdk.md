@@ -9,7 +9,7 @@
 [Java 归档下载 - Java SE 8 (oracle.com)](https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html)  
 ![img.png](./images/img.png)
 
-![img2.png](images/img4.png)
+![img2.png](./images/img4.png)
 
 ###  openjdk  默认win安装的jdk
 官方：https://openjdk.org/install/  
@@ -18,7 +18,7 @@ https://adoptium.net/zh-CN/temurin/releases/?version=8
 ![img_1.png](./images/img2.png)
 
 
-![img.png](images/img3.png)
+![img.png](./images/img3.png)
 
 ### 环境配置
 jdk安装路径

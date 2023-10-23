@@ -33,8 +33,8 @@ module.exports = [
     {
         text: '中间件', items: [
             {
-                text: 'jdk', link: '/jdk/', items: [
-                    {text: 'ELK', link: '/elk/'},
+                text: 'jdk', link: '/jdk/jdk.md', items: [
+                    {text: 'jdk', link: '/jdk/jdk.md'},
                     {text: 'ELK简要安装文档', link: '/elk/install.md'},
                     {text: 'Filebeat', link: '/elk/filebeat_install.md'},
                     {text: 'logstash', link: '/elk/logstash.md'},
@@ -43,6 +43,15 @@ module.exports = [
                     {text: '日志顺序精确到毫秒级以下', link: '/elk/order_under_ms.md'},
                 ]
             },
+
+            {
+                text: 'redis', link: '/redis/redis.md', items: [
+                    {text: 'redis', link: '/redis/redis.md'},
+                    {text: 'redis配置', link: '/redis/redis_conf.md'},
+                    {text: 'docker-redis', link: '/redis/docker-redis.md'}
+                ]
+            },
+
 
             {
                 text: 'Skywalking', items: [
