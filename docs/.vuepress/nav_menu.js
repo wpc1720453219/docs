@@ -39,6 +39,7 @@ module.exports = [
         text: '中间件', items: [
             {text: 'jdk', link: '/jdk/jdk.md'},
             {text: 'zookeeper', link: '/zookeeper/'},
+            {text: 'mysql', link: '/mysql/mysql.md'},
             {
                 text: 'redis', link: '/redis/redis.md', items: [
                     {text: 'redis', link: '/redis/redis.md'},
