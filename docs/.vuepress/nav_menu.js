@@ -33,7 +33,7 @@ module.exports = [
     {
         text: '中间件', items: [
             {
-                text: 'ELK', link: '/elk/', items: [
+                text: 'jdk', link: '/jdk/', items: [
                     {text: 'ELK', link: '/elk/'},
                     {text: 'ELK简要安装文档', link: '/elk/install.md'},
                     {text: 'Filebeat', link: '/elk/filebeat_install.md'},
@@ -43,6 +43,7 @@ module.exports = [
                     {text: '日志顺序精确到毫秒级以下', link: '/elk/order_under_ms.md'},
                 ]
             },
+
             {
                 text: 'Skywalking', items: [
                     {text: 'Skywalking', link: '/skywalking/'},
