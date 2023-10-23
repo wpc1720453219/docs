@@ -93,7 +93,7 @@ search：当访问的域名不能被DNS解析时，resolver会将该域名加上
 
 
 ### nslookup 命令  
-![img_7.png](img_7.png)  
+![img_7.png](./images/img_7.png)  
 Server： 指的是10.60.44.54对应的主机名  
 Address:  dns服务器ip  10.60.44.54#53
 [nslookup](https://www.cnblogs.com/machangwei-8/p/10353137.html)

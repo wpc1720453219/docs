@@ -1,34 +1,31 @@
 module.exports = [
-    {text: '微服务', link: '/microservice/'},
-    {
-        text: '运维', items: [
+    {text: 'java', link: '/microservice/'},
+
+    { text: 'devops', items: [
             { text: 'Linux',link: '/linux/' ,items: [
+                    {text: 'linux' , link: '/linux/linux.md'},
+                    {text: 'sshd', link: '/linux/0.ssh&&sshd_config.md'},
                     {text: 'iptables', link: '/linux/iptables.md'},
-                    {text: 'systemd', link: '/linux/systemd.md'},
-                    {text: 'rpm与yum的区别', link: '/linux/yan_rpm_apt.md'},
-                    {text: 'ssh详情', link: '/linux/ssh&&sshd_config.md'},
-                    {text: '远程操作wget与curl', link: '/linux/wget_curl.md'},
+                    {text: 'systemd', link: '/linux/2.systemd.md'},
+                    {text: 'rpm与yum', link: '/linux/1.yan_rpm_apt.md'},
+                    {text: 'wget与curl', link: '/linux/3.wget_curl.md'},
+                    {text: '系统日志', link: '/linux/系统日志.md'},
+                    {text: '软连接数据迁移', link: '/linux/软连接数据迁移.md'},
+                    {text: 'DNS', link: '/linux/DNS.md'},
+                    {text: 'crontab', link: '/linux/crontab.md'},
+                    {text: 'centos7服务器初始化', link: '/linux/Centos 7 服务器初始化脚本（公司内网通用）.md'},
+                    {text: 'Almalinux8服务器初始化', link: '/linux/Almalinux 8 服务器初始化脚本（公司内网通用）.md'},
                     {text: '硬盘分区', link: '/linux/硬盘分区.md.md'},
                 ]
             },
-            { text: 'shell',link: '/shell/' },
-            { text: 'docker',link: '/docker/'}
+            { text: 'shell',link: '/shell/', items: [
+
+
+            ]},
+            { text: 'docker',link: '/docker/'},
+            { text: 'kubernetes',link: '/kubernetes/'}
         ]
     },
-
-    {
-        text: 'Jenkins', items: [
-            {text: 'Jenkins', link: '/jenkins/'},
-            {text: '截图及功能说明', link: '/jenkins/manual.md'},
-            {text: '插件介绍', link: '/jenkins/plugins.md'},
-            {text: 'jenkins kubernetes插件', link: '/jenkins/kubernetes.md'},
-            {text: '问题解决备忘', link: '/jenkins/faq.md'},
-            {text: '环境变量参考：env-vars', link: '/jenkins/env-vars.md'},
-            {text: '单元测试相关', link: '/jenkins/unit-test.md'},
-            {text: 'jenkins docker镜像相关', link: '/jenkins/docker.md'},
-        ]
-    },
-
 
     {
         text: '中间件', items: [
@@ -91,20 +88,9 @@ module.exports = [
             {text: 'Zookeeper', link: '/zookeeper/'},
         ]
     },
+
     {
-        text: 'Jenkins', items: [
-            {text: 'Jenkins', link: '/jenkins/'},
-            {text: '截图及功能说明', link: '/jenkins/manual.md'},
-            {text: '插件介绍', link: '/jenkins/plugins.md'},
-            {text: 'jenkins kubernetes插件', link: '/jenkins/kubernetes.md'},
-            {text: '问题解决备忘', link: '/jenkins/faq.md'},
-            {text: '环境变量参考：env-vars', link: '/jenkins/env-vars.md'},
-            {text: '单元测试相关', link: '/jenkins/unit-test.md'},
-            {text: 'jenkins docker镜像相关', link: '/jenkins/docker.md'},
-        ]
-    },
-    {
-        text: 'Kubernetes', items: [
+        text: '问题排查', items: [
             {
                 text: 'Linux', items: [
                     {text: 'Linux相关', link: '/linux/'},
@@ -144,71 +130,19 @@ module.exports = [
             },
         ]
     },
-    {
-        text: '前端', items: [
-            {text: '前端技术', link: '/frontend/'},
-            {text: 'VuePress', link: '/frontend/vuepress.md'},
-            {text: 'Vue', link: '/frontend/vue.md'},
-            {text: 'Electron', link: '/frontend/electron.md'},
-            {text: 'amis', link: '/frontend/amis.md'},
-            {text: 'Echarts', link: '/frontend/echarts.md'},
-            {text: 'TypeScript', link: '/frontend/TypeScript.md'},
-            {text: '国内镜像', link: '/frontend/mirror.md'},
-            {text: '持久化', link: '/frontend/persistent.md'},
-            {text: 'Markdown', link: '/frontend/markdown.md'},
-            {text: '图形、动画', link: '/frontend/graphics.md'},
-        ]
-    },
-    {
-        text: '技术学习', items: [
-            {
-                text: '反应式', items: [
-                    {text: '反应式', link: '/actor/'},
-                    {text: 'WebFlux', link: '/actor/webflux.md'},
-                    {text: 'Reactor中文文档', link: 'http://devops.gitlab.fingard.cn/docs/actor/spring-reactor-core-zh-doc/reference.html', target:'_blank'},
-                ]
-            },
-            {
-                text: 'Java', items: [
-                    {text: 'jvm相关', link: '/jvm/'},
-                    {text: 'Java', link: '/jvm/java/'},
-                    {text: 'Spring', link: '/jvm/java/spring'},
-                    {text: 'Groovy', link: '/jvm/groovy/'},
-                    {text: 'Kotlin', link: '/jvm/kotlin/'},
-                    {text: 'Scala', link: '/scala/'},
-                    {text: 'JProfiler', link: '/jvm/jprofiler/'},
-                ]
-            },
-            {
-                text: '工作流', items: [
-                    {text: '工作流', link: '/workflow/'},
-                    {text: 'Activiti 5.16 用户手册', link: '/workflow/activiti5/doc_zh/'},
-                    {text: 'jBpm 4 中文文档', link: '/workflow/jbpm4/doc_zh/'},
-                ]
-            },
 
-            {
-                text: '各语言', items: [
-                    {text: 'Python', link: '/python/'},
-                    {text: 'Golang', link: '/go/'},
-                    {text: 'Erlang', link: '/erlang/'},
+    { text: '其他软件', items: [
+            { text: 'Linux',link: '/linux/' ,items: [
+                    {text: 'iptables', link: '/linux/iptables.md'},
+                    {text: 'systemd', link: '/linux/systemd.md'},
+                    {text: 'rpm与yum的区别', link: '/linux/yan_rpm_apt.md'},
+                    {text: 'ssh详情', link: '/linux/ssh&&sshd_config.md'},
+                    {text: '远程操作wget与curl', link: '/linux/wget_curl.md'},
+                    {text: '硬盘分区', link: '/linux/硬盘分区.md.md'},
                 ]
             },
-            {
-                text: '其他单独', items: [
-                    {text: '区块链', link: '/blockchain/'},
-                    {text: 'IDEA', link: '/ide/idea.md'},
-                    {text: 'Git(或其他VCS)', link: '/vcs/'},
-                    {text: 'Wiki(知识库、文档管理)', link: '/wiki/'},
-                ]
-            },
-            {
-                text: 'GUI', items: [
-                    {text: 'GUI', link: '/gui/'},
-                    {text: 'wxWidgets', link: '/gui/wxWidgets.md'},
-                    {text: 'Qt', link: '/gui/qt.md'},
-                ]
-            },
+            { text: 'shell',link: '/shell/' },
+            { text: 'docker',link: '/docker/'}
         ]
     },
 ]
