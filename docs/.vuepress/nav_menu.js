@@ -2,7 +2,7 @@ module.exports = [
     {text: 'java', link: '/microservice/'},
 
     { text: 'devops', items: [
-            { text: 'Linux',link: '/linux/' ,items: [
+            { text: 'Linux',link: '/linux/linux.md' ,items: [
                     {text: 'linux' , link: '/linux/linux.md'},
                     {text: 'sshd', link: '/linux/0.ssh&&sshd_config.md'},
                     {text: 'iptables', link: '/linux/iptables.md'},
@@ -18,12 +18,15 @@ module.exports = [
                     {text: '硬盘分区', link: '/linux/硬盘分区.md.md'},
                 ]
             },
-            { text: 'shell',link: '/shell/', items: [
-
-
-            ]},
-            { text: 'docker',link: '/docker/'},
-            { text: 'kubernetes',link: '/kubernetes/'}
+            { text: 'docker',link: '/docker/docker.md',items:[
+                    {text: 'docker' , link: '/docker/docker.md'},
+                    {text: 'docker配置', link: '/docker/docker_config.md'},
+             ]},
+            { text: 'kubernetes',link: '/kubernetes/k8s总结.md',items: [
+                    {text: 'k8s' , link: '/kubernetes/k8s总结.md'},
+                    {text: 'k8s配置', link: '/kubernetes/k8s.md'},
+                    {text: 'k3s', link: '/kubernetes/k3s.md'}
+                ]}
         ]
     },
 

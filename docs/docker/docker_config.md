@@ -17,7 +17,7 @@
 [Docker跨主机网络通信](https://blog.csdn.net/qq_36733838/article/details/130533447)
 
 ###  进入容器内部
-![img.png](img.png)
+![img.png](./images/img.png)
 ### 一个主机下容器之间的访问
 [容器link](https://blog.csdn.net/qq_28903377/article/details/124042044)
 
@@ -66,10 +66,10 @@ chroot的过程是将/bin/bash进程的Home目录切换成了/var/lib/docker/auf
 
 
 docker内部:  
-![img_2.png](img_2.png)
+![img_2.png](./images/img_2.png)
 
 docker外部:  
-![img_3.png](img_3.png)
+![img_3.png](./images/img_3.png)
 
 ### 如何从docker镜像里提取dockerfile
 1.  docker history xx     [无法查询详情]
@@ -120,10 +120,10 @@ docker run -d --network host --name fat_10.60.44.16_docker_RabbitmqNode-3_rabbit
 ### docker pid 映射  
 "Pid": 86579  是当前jar包在主机的pid,他对应docker内部 pid 1  
 如果我在docker内部启动一个新的进程，那边在主机里面，会有个新的pid 和 "Pid": 86579 并行 同时继承一个父进程  
-![img_4.png](img_4.png)  
+![img_4.png](./images/img_4.png)  
 
 ### docker inspect xxx 详情
-![img_1.png](img_1.png)
+![img_1.png](./images/img_1.png)
 ```shell
 [
     {

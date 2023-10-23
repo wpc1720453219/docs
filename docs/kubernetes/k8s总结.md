@@ -59,8 +59,8 @@ Kube-DNS的工作原理如下：
 5. 当容器内的应用程序尝试通过服务名称访问其他服务时，它会向Kube-DNS发起DNS查询请求。  
 6. Kube-DNS将查询转发给CoreDNS，并返回相应的IP地址给应用程序。  
 ```
-![img.png](img.png)
-![img_1.png](img_1.png)
+![img.png](./img.png)
+![img_1.png](./img_1.png)
 [CoreDNS简介（非常详细）](http://c.biancheng.net/view/9842.html)
 
 
@@ -69,7 +69,7 @@ Kube-proxy：service 的clusterip，通过kube-proxy（内部iptables NAT来完�
 [kubernetes 组件之 kube-proxy](https://blog.csdn.net/qq_43762191/article/details/125126090)
 [kube-proxy 详解](https://blog.csdn.net/m0_57223716/article/details/125167416)
 [k8s中iptables与ipvs详解](https://blog.csdn.net/weixin_64124795/article/details/130952239)  
-![img_2.png](img_2.png)
+![img_2.png](./img_2.png)
 
 跨主机通信：    
 CNI 只关心 Pod IP   让 pod之间跨主机访问  
