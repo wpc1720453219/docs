@@ -1,6 +1,5 @@
 module.exports = [
     {text: 'java', link: '/microservice/'},
-
     {
         text: 'devops', items: [
             {
@@ -40,12 +39,18 @@ module.exports = [
         text: '中间件', items: [
             {text: 'jdk', link: '/jdk/jdk.md'},
             {text: 'zookeeper', link: '/zookeeper/'},
-
             {
                 text: 'redis', link: '/redis/redis.md', items: [
                     {text: 'redis', link: '/redis/redis.md'},
                     {text: 'redis配置', link: '/redis/redis_conf.md'},
                     {text: 'docker-redis', link: '/redis/docker-redis.md'}
+                ]
+            },
+            {
+                text: 'nginx', link: '/nginx/', items: [
+                    {text: 'nginx', link: '/nginx/'},
+                    {text: '性能优化', link: '/nginx/性能优化.md'},
+                    {text: '证书', link: '/nginx/证书.md'}
                 ]
             },
 
