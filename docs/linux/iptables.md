@@ -10,9 +10,17 @@ Linux平台下的 包过滤防火墙、免费、完成封包过滤、封包重�
 
 [iptables基础知识详解](https://blog.csdn.net/u011537073/article/details/82685586?spm=1001.2101.3001.6650.5&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-5-82685586-blog-109674599.pc_relevant_recovery_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-5-82685586-blog-109674599.pc_relevant_recovery_v2&utm_relevant_index=10)
 
+IPTABLES 规则(Rules)  
+* Rules包括一个条件和一个目标(target)  
+* 如果满足条件，就执行目标(target)中的规则或者特定值  
+* 如果不满足条件，就判断下一条Rules  
 
+目标值（Target Values）  
+* ACCEPT  – 允许防火墙接收数据包  
+* DROP - 防火墙丢弃包  
+* QUEUE – 防火墙将数据包移交到用户空间  
+* RETURN – 防火墙停止执行当前链中的后续Rules，并返回到调用链(the calling chain)中  
 
-iptables 规则
 
 > 规则一般的定义为“如果数据包头符合这样的条件，就这样处理这个数据包”。规则存储在内核空间的信息 包过滤表中，这些规则分别指定了源地址、目的地址、传输协议（如TCP、UDP、ICMP）和服务类型（如HTTP、FTP和SMTP）等。当数据包与规则匹配时， iptables就根据规则所定义的方法来处理这些数据包，如放行（accept）、拒绝（reject）和丢弃（drop）等。配置防火墙的 主要工作就是添加、修改和删除这些规则。
 
