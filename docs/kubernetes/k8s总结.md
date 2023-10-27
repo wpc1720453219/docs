@@ -67,10 +67,22 @@ Kube-DNS的工作原理如下：
 
 ### cni iptables ivps
 Kube-proxy：service 的clusterip，通过kube-proxy（内部iptables NAT来完成转发或ivps映射）负载策略，转发到后端的Pod
-[kubernetes 组件之 kube-proxy](https://blog.csdn.net/qq_43762191/article/details/125126090)
-[kube-proxy 详解](https://blog.csdn.net/m0_57223716/article/details/125167416)
+[kubernetes 组件之 kube-proxy](https://blog.csdn.net/qq_43762191/article/details/125126090)  
+[kube-proxy 详解](https://blog.csdn.net/m0_57223716/article/details/125167416)  
 [k8s中iptables与ipvs详解](https://blog.csdn.net/weixin_64124795/article/details/130952239)  
-![img_2.png](./img_2.png)
+![img_2.png](./img_2.png)    
+[k8s 中的 service 如何找到绑定的 Pod](https://www.cnblogs.com/ricklz/p/16796385.html)  
+```shell
+k8s 中的负载均衡主要借助于 endpoint 和 kube-proxy 来实现；
+
+endpoint 是 k8s 集群中的一个资源对象，存储在 etcd 中，用来记录一个 service 对应的所有 pod 的访问地址，当一个 service 关联的 pod 被删除，更新，新增，对应的 endpoint 资源都会更新；
+
+kube-proxy 是 Kubernetes 的核心组件，部署在每个 Node 节点上，它是实现 Kubernetes Service 的通信与负载均衡机制的重要组件; kube-proxy 负责为 Pod 创建代理服务，从 apiserver 获取所有 server 信息，并根据 server 信息创建代理服务，实现server到Pod的请求路由和转发，从而实现K8s层级的虚拟转发网络；
+
+kube-proxy 的路由转发规则是通过其后端的代理模块实现的，其中 kube-proxy 的代理模块目前有四种实现方案，userspace、iptables、ipvs、kernelspace ；
+
+service 的 endpoints 和 kube-proxy 解决了容器的发现和负载均衡的问题，但是 service 服务如何被内部的服务找到呢，Kubernetes 支持两种基本的服务发现模式 —— 环境变量和 DNS；
+```
 
 跨主机通信：    
 CNI 只关心 Pod IP   让 pod之间跨主机访问  
