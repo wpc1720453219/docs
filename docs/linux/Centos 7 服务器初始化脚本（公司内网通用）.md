@@ -94,7 +94,7 @@ systemctl restart sshd.service
 
 
 
-##配置保融内网yum源
+## 配置保融内网yum源
 
 ```shell
 env_date=`date +"%Y-%m-%d"`
@@ -168,6 +168,26 @@ EOF
 cat /etc/yum.repos.d/fingard.repo
 yum makecache fast
 ```
+
+## 配置外网yum源
+```shell
+
+mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+# yum源配置
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+yum makecache
+```
+
+## 配置外网docker源
+```shell
+echo '配置docker源'
+yum install -y yum-utils device-mapper-persistent-data lvm2
+yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+#不再改动docker的默认源，现在镜像很慢
+sed -i "s/download.docker.com/mirror.azure.cn\/docker-ce/g" /etc/yum.repos.d/docker-ce.repo
+```
+
+
 
 
 

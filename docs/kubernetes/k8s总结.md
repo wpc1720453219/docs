@@ -65,6 +65,27 @@ Kube-DNS的工作原理如下：
 [CoreDNS简介（非常详细）](http://c.biancheng.net/view/9842.html)
 
 
+### Kube-router替代kube-proxy可行性分析
+kube-proxy的作用主要是用于监听API server中 service 和 endpoint的变化情况，并通过iptables等来为服务配置负载均衡（仅支持TCP和UDP）。  
+kube-proxy 可以直接运行在物理机上，也可以以 static pod 或者 daemonset 的方式运行。目前，在集群内部，kube-proxy是直接部署在物理机上，作为独立的服务运行。  
+Kube-proxy主要有以下技术特点：
+底层默认使用iptables进行流量的转发
+通过监听api server服务中的对象变化，实现service发现功能。
+而kuberouter采用了基于相同技术但增加了更多负载均衡策略的IPVS来实现流量转发，服务发现的实现与kubeproxy一致。因此可以直接替代kubeproxy。
+
+### Kube-router代替flannel/Calico可行性分析
+kube-router  性能最高
+一致的ip分配  
+传输  
+1. 封包：
+   - tcp包裹一层
+   - 性能差
+   - 例子：flannel
+2. 路由：
+   - 不改变tcp，按规则路由
+   - 性能好
+   - 例子：kube-router
+
 ### cni iptables ivps
 Kube-proxy：service 的clusterip，通过kube-proxy（内部iptables NAT来完成转发或ivps映射）负载策略，转发到后端的Pod
 [kubernetes 组件之 kube-proxy](https://blog.csdn.net/qq_43762191/article/details/125126090)  
