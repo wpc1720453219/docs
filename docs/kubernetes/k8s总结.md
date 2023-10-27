@@ -112,10 +112,22 @@ CNI 只关心 Pod IP   让 pod之间跨主机访问
 
 
 
+### hostPort  
+[hostPort](https://blog.csdn.net/zongshan_csdn/article/details/113251737)  
 
-
-
-
+PodPreset  将一些公用的参数设置到pod中去，例如 时区统一设置为东八区等    
+```shell
+apiVersion: settings.k8s.io/v1alpha1
+kind: PodPreset
+metadata:
+  name: allow-tz-env
+spec:
+  selector:
+    matchLabels:
+  env:
+    - name: TZ
+      value: Asia/Shanghai
+```  
 
 
 
