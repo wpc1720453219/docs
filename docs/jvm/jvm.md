@@ -45,7 +45,22 @@ java -Xmx3550m -Xms3550m -Xmn2g -Xss128k
 [JVM（Java虚拟机）优化大全和案例实战](https://blog.csdn.net/kthq/article/details/8618052)
 
 
-##tomcat中间件
+## jstack  
+进入jdk bin目录下  jstack -l pid > xxx.log  
+[jstack命令解析](https://blog.csdn.net/weixin_44588186/article/details/124680586)  
+使用jstack需要注意以下几点：  
+1. 需要有对Java进程的读取权限，否则会出现“Unable to attach to 1010: Access Denied”错误。         
+2. jstack会暂停Java进程中的所有线程，直到打印出所有线程的堆栈信息为止。因此，在生产环境中，需要谨慎使用，避免影响正常业务。      
+3. jstack可以将堆栈信息输出到控制台或文件中，可以通过命令行参数指定输出文件路径。       
+4. jstack打印的堆栈信息中，会包含大量的Java库、JVM内部方法的调用链，需要结合具体业务代码进行分析，才能发现问题所在。      
+5. 总之，jstack是一款非常实用的Java性能分析工具，掌握它的使用方法和技巧，对于定位Java应用程序的性能问题具有很重要的作用。  
+
+
+
+
+
+
+## tomcat中间件
 
 在部署tomcat的时候，会修改bin/catalina.sh 脚本
 
