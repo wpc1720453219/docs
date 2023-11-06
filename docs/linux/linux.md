@@ -64,3 +64,5 @@ rm -rf /home/avatar
 #建立软连接
 ln -s /data/avatar-true/avatar/avatar /home/avatar
 ```
+## 查看文件创建时间
+stat xxx
