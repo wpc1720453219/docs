@@ -1,0 +1,2598 @@
+<!DOCTYPE html>
+<!-- saved from url=(0126)http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#alibaba-java-coding-guidelines -->
+<html lang="zh" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+      
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="ChenJie">
+      
+      <link rel="shortcut icon" href="./IDEA 插件 - Java 研发体系说明文档_files/favicon.jpg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
+    
+    
+      
+        <title>IDEA 插件 - Java 研发体系说明文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="./IDEA 插件 - Java 研发体系说明文档_files/main.a2408e81.min.css">
+      
+        <link rel="stylesheet" href="./IDEA 插件 - Java 研发体系说明文档_files/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin="">
+        <link rel="stylesheet" href="./IDEA 插件 - Java 研发体系说明文档_files/css">
+        <style>body,input{font-family:"Microsoft YaHei",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Courier New",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header" data-md-state="shadow">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="http://10.14.2.171:51110/" title="Java 研发体系说明文档" class="md-header-nav__button md-logo" aria-label="Java 研发体系说明文档">
+      
+  <img src="./IDEA 插件 - Java 研发体系说明文档_files/favicon.jpg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title" data-md-state="active">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Java 研发体系说明文档
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              IDEA 插件
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">键入以开始搜索</div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" style="height: 832px; top: 48px;">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="http://10.14.2.171:51110/" title="Java 研发体系说明文档" class="md-nav__button md-logo" aria-label="Java 研发体系说明文档">
+      
+  <img src="./IDEA 插件 - Java 研发体系说明文档_files/favicon.jpg" alt="logo">
+
+    </a>
+    Java 研发体系说明文档
+  </label>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      首页
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="首页" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        首页
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/" title="介绍" class="md-nav__link">
+      介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/1-%E9%A6%96%E9%A1%B5/ChangeLog/" title="更新记录" class="md-nav__link">
+      更新记录
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/1-%E9%A6%96%E9%A1%B5/Java%20%E5%AD%A6%E4%B9%A0%E5%A0%86%E6%A0%88/" title="学习堆栈" class="md-nav__link">
+      学习堆栈
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/1-%E9%A6%96%E9%A1%B5/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E6%9C%8D%E5%8A%A1%E5%88%97%E8%A1%A8/" title="微服务基础服务列表" class="md-nav__link">
+      微服务基础服务列表
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      源代码
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="源代码" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        源代码
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/2-%E6%BA%90%E4%BB%A3%E7%A0%81/%E6%BA%90%E4%BB%A3%E7%A0%81%E7%BA%A6%E5%AE%9A/" title="(强制)源代码约定" class="md-nav__link">
+      (强制)源代码约定
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/2-%E6%BA%90%E4%BB%A3%E7%A0%81/Git%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="Git 环境" class="md-nav__link">
+      Git 环境
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/2-%E6%BA%90%E4%BB%A3%E7%A0%81/TortoiseGit/" title="Git 工具" class="md-nav__link">
+      Git 工具
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/2-%E6%BA%90%E4%BB%A3%E7%A0%81/Git%20FLow/" title="Git Flow" class="md-nav__link">
+      Git Flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/2-%E6%BA%90%E4%BB%A3%E7%A0%81/Git%20Flow%E4%B8%AD%E5%BF%83/" title="(研发部强制)中心 Git Flow" class="md-nav__link">
+      (研发部强制)中心 Git Flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/2-%E6%BA%90%E4%BB%A3%E7%A0%81/Git%20%E5%A4%87%E6%B3%A8%E8%A7%84%E8%8C%83/" title="(研发部强制)Git 备注规范" class="md-nav__link">
+      (研发部强制)Git 备注规范
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/2-%E6%BA%90%E4%BB%A3%E7%A0%81/GitIgnore%20%E6%A0%87%E5%87%86%E9%85%8D%E7%BD%AE/" title="(强制)GitIgnore 标准配置" class="md-nav__link">
+      (强制)GitIgnore 标准配置
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      依赖管理
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="依赖管理" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        依赖管理
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/3-%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/Maven%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="Maven 环境" class="md-nav__link">
+      Maven 环境
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/3-%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/Maven%20%E7%BA%A6%E5%AE%9A/" title="(强制)Maven 约定" class="md-nav__link">
+      (强制)Maven 约定
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/3-%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/Maven%20%E7%A7%81%E6%9C%8D/" title="(强制)Maven 私服" class="md-nav__link">
+      (强制)Maven 私服
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      解决方案结构
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="解决方案结构" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        解决方案结构
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/4-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E7%BB%93%E6%9E%84/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/" title="解决方案说明" class="md-nav__link">
+      解决方案说明
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/4-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E7%BB%93%E6%9E%84/%E5%8D%95Group%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/" title="(强制)单项目解决方案" class="md-nav__link">
+      (强制)单项目解决方案
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/4-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E7%BB%93%E6%9E%84/%E5%A4%9AGroup%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/" title="(强制)多项目解决方案" class="md-nav__link">
+      (强制)多项目解决方案
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/4-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E7%BB%93%E6%9E%84/%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" title="项目构建工具" class="md-nav__link">
+      项目构建工具
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/4-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E7%BB%93%E6%9E%84/IDEA%20%E5%8A%A0%E8%BD%BD%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/" title="(强制)IDEA 加载项目结构" class="md-nav__link">
+      (强制)IDEA 加载项目结构
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      模块代码结构
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="模块代码结构" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        模块代码结构
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/5-%E6%A8%A1%E5%9D%97%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84/SSM%20%E9%A1%B9%E7%9B%AE%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/" title="(强制)SSM 项目的项目结构" class="md-nav__link">
+      (强制)SSM 项目的项目结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/5-%E6%A8%A1%E5%9D%97%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84/boot%20dependencies/" title="(强制)中心根 POM" class="md-nav__link">
+      (强制)中心根 POM
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked="">
+    
+    <label class="md-nav__link" for="nav-6">
+      开发环境
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="开发环境" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        开发环境
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Java%20%E7%8E%AF%E5%A2%83/Java%20%E7%8E%AF%E5%A2%83/" title="Java 环境" class="md-nav__link">
+      Java 环境
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2" checked="">
+    
+    <label class="md-nav__link" for="nav-6-2">
+      IDEA
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="IDEA" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        IDEA
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E5%AE%89%E8%A3%85/" title="IDEA 安装" class="md-nav__link">
+      IDEA 安装
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%202020.1%20%E6%BF%80%E6%B4%BB/" title="IDEA 破解2020.1" class="md-nav__link">
+      IDEA 破解2020.1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%202020.2%20%E6%BF%80%E6%B4%BB/" title="IDEA 破解2020.2" class="md-nav__link">
+      IDEA 破解2020.2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        IDEA 插件
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"></path></svg>
+        </span>
+      </label>
+    
+    <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/" title="IDEA 插件" class="md-nav__link md-nav__link--active">
+      IDEA 插件
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list">
+      
+        <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#_1" class="md-nav__link">
+    强制插件
+  </a>
+  
+    <nav class="md-nav" aria-label="强制插件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#lombok" class="md-nav__link">
+    Lombok
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#alibaba-java-coding-guidelines" class="md-nav__link">
+    Alibaba Java Coding Guidelines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#javadoc2" class="md-nav__link">
+    JavaDoc2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#maven-helper" class="md-nav__link">
+    Maven Helper
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#_2" class="md-nav__link">
+    推荐插件
+  </a>
+  
+    <nav class="md-nav" aria-label="推荐插件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#free-mybatis-plugin" class="md-nav__link">
+    Free MyBatis Plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#grep-console" class="md-nav__link">
+    Grep Console
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#gsonformat" class="md-nav__link">
+    GsonFormat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#generateallsetter" class="md-nav__link">
+    GenerateAllSetter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#rainbow-brackets" class="md-nav__link">
+    Rainbow Brackets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#codota" class="md-nav__link">
+    Codota
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#restfultool" class="md-nav__link">
+    RestfulTool
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#translation" class="md-nav__link">
+    Translation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#camelcase" class="md-nav__link">
+    CamelCase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#key-promoter-x" class="md-nav__link">
+    Key promoter X
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#auto-filling-java-call-arguments" class="md-nav__link">
+    Auto filling Java call arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#java-stream-debugger" class="md-nav__link">
+    Java Stream Debugger
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E9%85%8D%E7%BD%AE/" title="(部分强制)IDEA 配置" class="md-nav__link">
+      (部分强制)IDEA 配置
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Windows%20%E5%B7%A5%E5%85%B7/windows%20tools/" title="Windows 工具" class="md-nav__link">
+      Windows 工具
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      编码
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="编码" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        编码
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+    
+    <label class="md-nav__link" for="nav-7-1">
+      Java 规范
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Java 规范" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        Java 规范
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E7%BC%96%E7%A0%81/%E8%A7%84%E8%8C%83/EditConfig%20%E6%A0%87%E5%87%86%E9%85%8D%E7%BD%AE/" title="(强制)统一代码环境" class="md-nav__link">
+      (强制)统一代码环境
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E7%BC%96%E7%A0%81/%E8%A7%84%E8%8C%83/Java%20%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/" title="(强制)Java 编码规范" class="md-nav__link">
+      (强制)Java 编码规范
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E7%BC%96%E7%A0%81/%E8%A7%84%E8%8C%83/%E9%98%BF%E9%87%8C%20Java%20%E6%89%8B%E5%86%8C/" title="(强制)阿里 Java 手册" class="md-nav__link">
+      (强制)阿里 Java 手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E7%BC%96%E7%A0%81/%E8%A7%84%E8%8C%83/Jar%20%E7%89%88%E6%9C%AC%E5%8F%B7%E8%A7%84%E8%8C%83/" title="(研发部强制)Jar 版本号规范" class="md-nav__link">
+      (研发部强制)Jar 版本号规范
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      控制器层
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="控制器层" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        控制器层
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E7%BC%96%E7%A0%81/Controller%20%E5%B1%82/%E6%8E%A7%E5%88%B6%E5%99%A8%E5%B1%82%E8%A7%84%E8%8C%83/" title="(强制)控制器层规范" class="md-nav__link">
+      (强制)控制器层规范
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E7%BC%96%E7%A0%81/Controller%20%E5%B1%82/WebAPI%20%E6%8E%A5%E5%8F%A3%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/" title="接口权限控制" class="md-nav__link">
+      接口权限控制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E7%BC%96%E7%A0%81/Controller%20%E5%B1%82/Restful%20API%20%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" title="Restful API 单元测试" class="md-nav__link">
+      Restful API 单元测试
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      服务层
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="服务层" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        服务层
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E7%BC%96%E7%A0%81/Service%20%E5%B1%82/%E6%9C%8D%E5%8A%A1%E5%B1%82%E8%A7%84%E8%8C%83/" title="(强制)服务层规范" class="md-nav__link">
+      (强制)服务层规范
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
+    
+    <label class="md-nav__link" for="nav-7-4">
+      数据访问层
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="数据访问层" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        数据访问层
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E7%BC%96%E7%A0%81/Dao%20%E5%B1%82/%E6%95%B0%E6%8D%AE%E5%B1%82%E8%A7%84%E8%8C%83/" title="(强制)数据层规范" class="md-nav__link">
+      (强制)数据层规范
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E7%BC%96%E7%A0%81/Dao%20%E5%B1%82/ORM%20%E6%A1%86%E6%9E%B6%E9%80%89%E6%8B%A9/" title="ORM 框架选择" class="md-nav__link">
+      ORM 框架选择
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/6-%E7%BC%96%E7%A0%81/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/" title="时间处理" class="md-nav__link">
+      时间处理
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      程序打包
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="程序打包" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        程序打包
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/7-%E7%A8%8B%E5%BA%8F%E6%89%93%E5%8C%85/%E6%89%93%E5%8C%85/" title="打包" class="md-nav__link">
+      打包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+    
+    <label class="md-nav__link" for="nav-8-2">
+      部署
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="部署" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        部署
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/7-%E7%A8%8B%E5%BA%8F%E6%89%93%E5%8C%85/%E9%83%A8%E7%BD%B2/%E6%89%8B%E5%8A%A8%E9%83%A8%E7%BD%B2/" title="手动部署" class="md-nav__link">
+      手动部署
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/7-%E7%A8%8B%E5%BA%8F%E6%89%93%E5%8C%85/%E9%83%A8%E7%BD%B2/%E5%9F%BA%E4%BA%8E%20Putty%20%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" title="Putty 自动部署" class="md-nav__link">
+      Putty 自动部署
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/7-%E7%A8%8B%E5%BA%8F%E6%89%93%E5%8C%85/%E9%83%A8%E7%BD%B2/%E5%9F%BA%E4%BA%8E%20Maven%20%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" title="Maven 自动部署" class="md-nav__link">
+      Maven 自动部署
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      数据库
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="数据库" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        数据库
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/8-%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%84%E8%8C%83/" title="(强制)数据库规范" class="md-nav__link">
+      (强制)数据库规范
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/8-%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B7%A5%E5%85%B7/" title="数据库工具" class="md-nav__link">
+      数据库工具
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/8-%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%B9%E6%AF%94/" title="关系型数据库对比" class="md-nav__link">
+      关系型数据库对比
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-4" type="checkbox" id="nav-9-4">
+    
+    <label class="md-nav__link" for="nav-9-4">
+      Sql Server
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Sql Server" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        Sql Server
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/8-%E6%95%B0%E6%8D%AE%E5%BA%93/Sql%20Server/Sql%20Server%20%E5%8E%86%E5%8F%B2%E6%AD%BB%E9%94%81%E6%9F%A5%E8%AF%A2/" title="Sql Server 历史死锁查询" class="md-nav__link">
+      Sql Server 历史死锁查询
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-5" type="checkbox" id="nav-9-5">
+    
+    <label class="md-nav__link" for="nav-9-5">
+      人大金仓
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="人大金仓" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        人大金仓
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/8-%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BA%BA%E5%A4%A7%E9%87%91%E4%BB%93/%E4%BA%BA%E5%A4%A7%E9%87%91%E4%BB%93/" title="人大金仓" class="md-nav__link">
+      人大金仓
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      前后端分离
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="前后端分离" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        前后端分离
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/9-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/Restful%20%E8%A7%84%E8%8C%83/" title="(强制)Restful 规范" class="md-nav__link">
+      (强制)Restful 规范
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/9-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9%E4%BD%BF%E7%94%A8%20Restful/" title="为什么选择使用 Restful" class="md-nav__link">
+      为什么选择使用 Restful
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      前端交付标准
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="前端交付标准" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        前端交付标准
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/10-%E5%89%8D%E7%AB%AF%E4%BA%A4%E4%BB%98%E6%A0%87%E5%87%86/%E5%89%8D%E7%AB%AF%E4%BA%A4%E4%BB%98%E6%A0%87%E5%87%86%EF%BC%88%E7%BB%B4%E6%8A%A4%E7%B3%BB%E7%BB%9F%EF%BC%89/" title="前端交付标准" class="md-nav__link">
+      前端交付标准
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/10-%E5%89%8D%E7%AB%AF%E4%BA%A4%E4%BB%98%E6%A0%87%E5%87%86/URL%20%E6%A0%87%E5%87%86/" title="URL 标准" class="md-nav__link">
+      URL 标准
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+    
+    <label class="md-nav__link" for="nav-12">
+      序列号
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="序列号" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        序列号
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/11-License%E5%BA%8F%E5%88%97%E5%8F%B7/%E5%AE%9E%E6%96%BD/" title="实施" class="md-nav__link">
+      实施
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/11-License%E5%BA%8F%E5%88%97%E5%8F%B7/%E5%BC%80%E5%8F%91/" title="开发" class="md-nav__link">
+      开发
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      Venus
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Venus" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        Venus
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-1" type="checkbox" id="nav-13-1">
+    
+    <label class="md-nav__link" for="nav-13-1">
+      CoreStarter
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="CoreStarter" data-md-level="2">
+      <label class="md-nav__title" for="nav-13-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        CoreStarter
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/19-Venus/CoreStarter/Restful%20%E6%94%AF%E6%8C%81/" title="Restful 支持" class="md-nav__link">
+      Restful 支持
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/19-Venus/CoreStarter/%E7%B3%BB%E7%BB%9F%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" title="系统错误处理" class="md-nav__link">
+      系统错误处理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/19-Venus/CoreStarter/Swagger%20%E5%90%AF%E7%94%A8/" title="Swagger 启用" class="md-nav__link">
+      Swagger 启用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/19-Venus/CoreStarter/%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%9B%86%E6%88%90/" title="多模块集成" class="md-nav__link">
+      多模块集成
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-2" type="checkbox" id="nav-13-2">
+    
+    <label class="md-nav__link" for="nav-13-2">
+      Crypto
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Crypto" data-md-level="2">
+      <label class="md-nav__title" for="nav-13-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        Crypto
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/19-Venus/Crypto/Crypto/" title="加解密" class="md-nav__link">
+      加解密
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-3" type="checkbox" id="nav-13-3">
+    
+    <label class="md-nav__link" for="nav-13-3">
+      File
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="File" data-md-level="2">
+      <label class="md-nav__title" for="nav-13-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        File
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/19-Venus/File/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/" title="文件权限" class="md-nav__link">
+      文件权限
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-3-2" type="checkbox" id="nav-13-3-2">
+    
+    <label class="md-nav__link" for="nav-13-3-2">
+      Hadoop
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Hadoop" data-md-level="3">
+      <label class="md-nav__title" for="nav-13-3-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        Hadoop
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/19-Venus/File/Hadoop/Hadoop%E7%9A%84%E5%AE%89%E8%A3%85/" title="Hadoop的安装" class="md-nav__link">
+      Hadoop的安装
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/19-Venus/File/Hadoop/HttpFS%20%E5%8D%95%E7%82%B9%E9%85%8D%E7%BD%AE/" title="HttpFS 单点配置" class="md-nav__link">
+      HttpFS 单点配置
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/19-Venus/File/Hadoop/HttpFS%20%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE/" title="HttpFS 集群配置" class="md-nav__link">
+      HttpFS 集群配置
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/19-Venus/File/Hadoop/HttpFS%20%E5%A2%9E%E5%8A%A0COPY%20API/" title="HttpFS 增加COPY API" class="md-nav__link">
+      HttpFS 增加COPY API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-4" type="checkbox" id="nav-13-4">
+    
+    <label class="md-nav__link" for="nav-13-4">
+      Form
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Form" data-md-level="2">
+      <label class="md-nav__title" for="nav-13-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        Form
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/19-Venus/Form/%E8%A1%A8%E5%8D%95%E6%9C%8D%E5%8A%A1/" title="表单服务" class="md-nav__link">
+      表单服务
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-5" type="checkbox" id="nav-13-5">
+    
+    <label class="md-nav__link" for="nav-13-5">
+      Login&amp;Auth
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Login&amp;Auth" data-md-level="2">
+      <label class="md-nav__title" for="nav-13-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        Login&amp;Auth
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/19-Venus/Login%26Auth/%E5%B8%B8%E7%94%A8%20Web%20API/" title="常用 Web API" class="md-nav__link">
+      常用 Web API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/19-Venus/Login%26Auth/%E5%B8%B8%E7%94%A8%E5%BA%94%E7%94%A8%E9%97%B4%E5%AE%89%E5%85%A8%E9%AA%8C%E8%AF%81%E6%9C%BA%E5%88%B6%E4%BB%8B%E7%BB%8D/" title="常用应用间安全验证机制介绍" class="md-nav__link">
+      常用应用间安全验证机制介绍
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-6" type="checkbox" id="nav-13-6">
+    
+    <label class="md-nav__link" for="nav-13-6">
+      雪花Id
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="雪花Id" data-md-level="2">
+      <label class="md-nav__title" for="nav-13-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        雪花Id
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/19-Venus/%E9%9B%AA%E8%8A%B1Id/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/" title="雪花算法" class="md-nav__link">
+      雪花算法
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-7" type="checkbox" id="nav-13-7">
+    
+    <label class="md-nav__link" for="nav-13-7">
+      经验区
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="经验区" data-md-level="2">
+      <label class="md-nav__title" for="nav-13-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        经验区
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/19-Venus/%E7%BB%8F%E9%AA%8C%E5%8C%BA/Long%20%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1%E9%97%AE%E9%A2%98/" title="雪花算法" class="md-nav__link">
+      雪花算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/19-Venus/%E7%BB%8F%E9%AA%8C%E5%8C%BA/Request%20%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB%E5%8F%96/" title="Request 可重复读取" class="md-nav__link">
+      Request 可重复读取
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
+      OSMP
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="OSMP" data-md-level="1">
+      <label class="md-nav__title" for="nav-14">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        OSMP
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/20-OSMP/User/%E4%BA%BA%E5%91%98%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98/" title="User" class="md-nav__link">
+      User
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+    
+    <label class="md-nav__link" for="nav-15">
+      Linux
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Linux" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        Linux
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/98-Linux/Linux/" title="Linux 经验" class="md-nav__link">
+      Linux 经验
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/98-Linux/%E8%BD%AF%E4%BB%B6%E3%80%81%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E/" title="软件、中间件版本说明" class="md-nav__link">
+      软件、中间件版本说明
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
+    
+    <label class="md-nav__link" for="nav-16">
+      竞赛
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="竞赛" data-md-level="1">
+      <label class="md-nav__title" for="nav-16">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        竞赛
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-16-1" type="checkbox" id="nav-16-1">
+    
+    <label class="md-nav__link" for="nav-16-1">
+      研发部、二部
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="研发部、二部" data-md-level="2">
+      <label class="md-nav__title" for="nav-16-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+        </span>
+        研发部、二部
+      </label>
+      <ul class="md-nav__list">
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/100-%E7%AB%9E%E8%B5%9B/%E4%BA%8B%E4%B8%9A%E4%BA%8C%E9%83%A8%E4%B8%8E%E7%A0%94%E5%8F%91%E9%83%A8/2020-09-14%20%E4%BA%8B%E4%B8%9A%E4%BA%8C%E9%83%A8%E4%B8%8E%E7%A0%94%E5%8F%91%E9%83%A8%E7%AB%9E%E8%B5%9B%E9%A2%98%E7%9B%AE/" title="题目" class="md-nav__link">
+      题目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/100-%E7%AB%9E%E8%B5%9B/%E4%BA%8B%E4%B8%9A%E4%BA%8C%E9%83%A8%E4%B8%8E%E7%A0%94%E5%8F%91%E9%83%A8/2020-09-14%20%E4%BA%8B%E4%B8%9A%E4%BA%8C%E9%83%A8%E4%B8%8E%E7%A0%94%E5%8F%91%E9%83%A8%E7%AB%9E%E8%B5%9B%E9%A2%98%E7%9B%AE%28%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88%29/" title="参考答案" class="md-nav__link">
+      参考答案
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="http://10.14.2.171:51110/99-%E5%85%B3%E4%BA%8E/about/" title="关于" class="md-nav__link">
+      关于
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" style="height: 832px; top: 48px;">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list">
+      
+        <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#_1" class="md-nav__link" data-md-state="blur">
+    强制插件
+  </a>
+  
+    <nav class="md-nav" aria-label="强制插件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#lombok" class="md-nav__link" data-md-state="blur">
+    Lombok
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#alibaba-java-coding-guidelines" class="md-nav__link" data-md-state="blur">
+    Alibaba Java Coding Guidelines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#javadoc2" class="md-nav__link" data-md-state="blur">
+    JavaDoc2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#maven-helper" class="md-nav__link" data-md-state="blur">
+    Maven Helper
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#_2" class="md-nav__link" data-md-state="blur">
+    推荐插件
+  </a>
+  
+    <nav class="md-nav" aria-label="推荐插件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#free-mybatis-plugin" class="md-nav__link" data-md-state="blur">
+    Free MyBatis Plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#grep-console" class="md-nav__link md-nav__link--active" data-md-state="blur">
+    Grep Console
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#gsonformat" class="md-nav__link">
+    GsonFormat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#generateallsetter" class="md-nav__link">
+    GenerateAllSetter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#rainbow-brackets" class="md-nav__link">
+    Rainbow Brackets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#codota" class="md-nav__link">
+    Codota
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#restfultool" class="md-nav__link">
+    RestfulTool
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#translation" class="md-nav__link">
+    Translation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#camelcase" class="md-nav__link">
+    CamelCase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#key-promoter-x" class="md-nav__link">
+    Key promoter X
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#auto-filling-java-call-arguments" class="md-nav__link">
+    Auto filling Java call arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#java-stream-debugger" class="md-nav__link">
+    Java Stream Debugger
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                  <h1>IDEA 插件</h1>
+                
+                <h2 id="_1">强制插件<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#_1" title="Permanent link">¶</a></h2>
+<p>FindBugs 插件由于已经停止维护，不能适配 IDEA 2020，因此不再强制。</p>
+<h3 id="lombok">Lombok<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#lombok" title="Permanent link">¶</a></h3>
+<p>自动生成属性的 Get 和 Set 方法。中心的代码不允许手动添加 Get 和 Set 方法。</p>
+<hr>
+<h3 id="alibaba-java-coding-guidelines">Alibaba Java Coding Guidelines<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#alibaba-java-coding-guidelines" title="Permanent link">¶</a></h3>
+<p>中心使用 阿里巴巴的 代码规范，使用此工具进行检查。</p>
+<p>它会帮助你检查出很多隐患，督促你写更规范的代码。</p>
+<p><img alt="?wxfrom=5&amp;wx_lazy=1" src="./IDEA 插件 - Java 研发体系说明文档_files/p"></p>
+<hr>
+<h3 id="javadoc2">JavaDoc2<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#javadoc2" title="Permanent link">¶</a></h3>
+<p>在代码中按Alt+Inert选择生成指定或所有元素（方法和字段）的JavaDoc，也可以使用热键Ctrl+Alt+Shift+G生成，效果如下：</p>
+<p><img alt="img" src="./IDEA 插件 - Java 研发体系说明文档_files/1436191-20191028162050874-1874144124.png"></p>
+<hr>
+<h3 id="maven-helper">Maven Helper<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#maven-helper" title="Permanent link">¶</a></h3>
+<p>现在 Java 项目通常会使用 maven 或者 gradle 构建，对于maven 项目来说， jar 包冲突非常常见。</p>
+<p>那么如何更容易地查看和解决 jar 包冲突呢？
+<img alt="img" src="./IDEA 插件 - Java 研发体系说明文档_files/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9FbnF4SGEyRm54MlA5UVBsY0FhYUZMa1F2Wm1sTkhpYmJpYmtFVEpLeGVra1ZCaWFMUWtFWFp4RTVNNW5hWVdEbWtuZk12SjhRbTlPbUNwa3VYbGtkSGhwUS82NDA"></p>
+<p>大家可以安装该插件，安装后 IDEA 中打开 pom.xml 文件时，就会多出一个 “Dependency Analyzer” 选项卡。</p>
+<p>如上图所示，该插件支持值插件冲突的 jar 包，可以选择冲突的 jar 包将其 exclude 掉。</p>
+<hr>
+<h2 id="_2">推荐插件<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#_2" title="Permanent link">¶</a></h2>
+<p><font color="red" size="4">因为非常好用才推荐，强烈建议了解下以下插件。</font></p>
+<h3 id="free-mybatis-plugin">Free MyBatis Plugin<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#free-mybatis-plugin" title="Permanent link">¶</a></h3>
+<p>从Mapper接口跳转到xml文件
+将从mapper接口文件中的方法跳转到xml文件对应的方法</p>
+<p><img alt="img" src="./IDEA 插件 - Java 研发体系说明文档_files/20191101185641199.png"></p>
+<p>跳转到</p>
+<p><img alt="img" src="./IDEA 插件 - Java 研发体系说明文档_files/20191101185705882.png"></p>
+<p>3.2 从xml文件跳转到Mapper接口
+将从xml文件中的方法跳转到mapper接口中对应的方法处。</p>
+<p><img alt="img" src="./IDEA 插件 - Java 研发体系说明文档_files/20191101185850796.png"></p>
+<p>跳转到</p>
+<p><img alt="img" src="./IDEA 插件 - Java 研发体系说明文档_files/20191101185911691.png"></p>
+<p>可以通过箭头进行相互跳转，十分的方便。</p>
+<hr>
+<h3 id="grep-console">Grep Console<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#grep-console" title="Permanent link">¶</a></h3>
+<p><img alt="Screenshot 1" src="./IDEA 插件 - Java 研发体系说明文档_files/screenshot_17407.png"></p>
+<p><img alt="Screenshot 2" src="./IDEA 插件 - Java 研发体系说明文档_files/screenshot_16117.png"></p>
+<p><img alt="Screenshot 3" src="./IDEA 插件 - Java 研发体系说明文档_files/screenshot_18518.png"></p>
+<hr>
+<h3 id="gsonformat">GsonFormat<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#gsonformat" title="Permanent link">¶</a></h3>
+<p><img alt="UtWdDgynLdbZFqsbB1v6OUD8XjwnSgBG5O287IRibOlkoGjIq8Gp64CCI1IcgCQPH897sdPZeENGyHfibhwux1hQ" src="./IDEA 插件 - Java 研发体系说明文档_files/p"></p>
+<hr>
+<h3 id="generateallsetter">GenerateAllSetter<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#generateallsetter" title="Permanent link">¶</a></h3>
+<p>我们定义好从 A 类转换到 B 类的函数转换函数后，使用这两个插件可以自动调用 Getter 和 Setter 函数实行自动转换。</p>
+<p>实际开发中还有一个非常常见的场景：我们创建一个对象后，想依次调用 Setter 函数对属性赋值，如果属性较多很容易遗漏或者重复。
+<img alt="img" src="./IDEA 插件 - Java 研发体系说明文档_files/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9FbnF4SGEyRm54MlA5UVBsY0FhYUZMa1F2Wm1sTkhpYmIwUHNaUHNyWk1PajVoZjFrMkJud1pzdEpEYUw4d0N0UGliVVJuMndkZ2puVnFodndSS0ZqaWE4QS82NDA"></p>
+<p>可以使用这 GenerateAllSetter 提供的功能，自动调用所有 Setter 函数（可填充默认值），然后自己再跟进实际需求设置属性值。</p>
+<hr>
+<h3 id="rainbow-brackets">Rainbow Brackets<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#rainbow-brackets" title="Permanent link">¶</a></h3>
+<p>由于很多人没有养成好的编码风格，没有随手 format 代码的习惯，甚至有些同事会写代码超过几百行，阅读起来将非常痛苦。</p>
+<p>痛苦的原因之一就是找到上下文，由于括号太多，不确定当前代码行是否属于某个代码块，此时这个插件就会帮上大忙。</p>
+<p>插件 github 地址：<a href="https://github.com/izhangzhihao/intellij-rainbow-brackets">https://github.com/izhangzhihao/intellij-rainbow-brackets</a>。
+<img alt="img" src="./IDEA 插件 - Java 研发体系说明文档_files/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9FbnF4SGEyRm54MlA5UVBsY0FhYUZMa1F2Wm1sTkhpYmJ3MkVsRUJWbG5ZY0FHRDNlUzNLb1Y3SXRKbTI3THRRcEJ1VXp6QXBkS01BejZuemFueFozT1EvNjQw"></p>
+<p>大家可以观看其 github 首页的动图体会和学习其强大功能。</p>
+<p><img alt="img" src="./IDEA 插件 - Java 研发体系说明文档_files/1248990-10101e0c7de2781c.gif"></p>
+<hr>
+<h3 id="codota">Codota<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#codota" title="Permanent link">¶</a></h3>
+<p>辅助开发神器: Codota。</p>
+<p>可以点击下图所示“Add Codota to you IDEA” 了解安装步骤。</p>
+<p><img alt="img" src="./IDEA 插件 - Java 研发体系说明文档_files/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9FbnF4SGEyRm54MlA5UVBsY0FhYUZMa1F2Wm1sTkhpYmJJaWJnMGlhR0FrQkxkY051eG9iYVVGOHJ3WnlpYng5S21tUU1JWktVeGplSUdlVmU5cTFza3VZZncvNjQw">
+该插件的强大之处在于：</p>
+<ol>
+<li>支持智能代码自动提示，该功能可以增强 IDEA 的代码提示功能；</li>
+<li>支持 JDK 和知名第三方库的函数的使用方法搜索，可以看到其他知名开源项目对该函数的用法。</li>
+</ol>
+<p>当我们第一次使用某个类，对某个函数不够熟悉时，可以通过该插件搜索相关用法，快速模仿学习。
+<img alt="img" src="./IDEA 插件 - Java 研发体系说明文档_files/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9FbnF4SGEyRm54MlA5UVBsY0FhYUZMa1F2Wm1sTkhpYmI5NTJqdXpYODA3Nmo2b0Z5T1Z4ZjVTb1dBdUZ1cjNtaWNWVmFkM2dsRHRJNVZlUmdjeU5TUVZRLzY0MA"></p>
+<p>如上图所示，我们想了解 <code>Stream</code> 类中 <code>flatMap</code> 函数的用法，可以使用该插件查看知名开源项目的用法。</p>
+<p>插件窗口顶部还给出了该类最常用的函数，可以点击查看相关用法案例，每个案例右侧的 "view source"可以跳转到该片段对应的开源项目的源码中。</p>
+<hr>
+<h3 id="restfultool">RestfulTool<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#restfultool" title="Permanent link">¶</a></h3>
+<p>注意，这个工具以前为 RestfulToolKit，现在为 RestfulTool</p>
+<p><img alt="img" src="./IDEA 插件 - Java 研发体系说明文档_files/13658037-247725cf372a68a9.png"></p>
+<hr>
+<h3 id="translation">Translation<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#translation" title="Permanent link">¶</a></h3>
+<p>对于平常不怎么使用英语的同学，在给类、方法、变量起名的时候总需要打开网页查询单词，这也太麻烦了。这个插件可以让你直接在编辑器查询到想翻译的单词。</p>
+<p>使用方式：选出要翻译的单词，右键点击便可出现以下页面：</p>
+<p><img alt="img" src="./IDEA 插件 - Java 研发体系说明文档_files/b21bb051f8198618c341ba0a7b9ba8758ad4e6b3.jpeg"></p>
+<hr>
+<h3 id="camelcase">CamelCase<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#camelcase" title="Permanent link">¶</a></h3>
+<p>将不是驼峰格式的名称，快速转成驼峰格式，安装好后，选中要修改的名称，按快捷键shift+alt+u。</p>
+<hr>
+<h3 id="key-promoter-x">Key promoter X<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#key-promoter-x" title="Permanent link">¶</a></h3>
+<p>对于很多刚刚开始使用IDEA的开发者来说，最苦恼的就是不知道快捷键操作是什么。</p>
+<p><strong>使用IDEA，如果所有操作都使用鼠标，那么说明你还不是一个合格的程序员。</strong></p>
+<p>Key Promoter X 是一个提示插件，当你在IDEA里面使用鼠标的时候，如果这个鼠标操作是能够用快捷键替代的，那么Key Promoter X会弹出一个提示框，告知你这个鼠标操作可以用什么快捷键替代。对于想完全使用快捷键在IDEA的，这个插件就很有用。</p>
+<hr>
+<h3 id="auto-filling-java-call-arguments">Auto filling Java call arguments<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#auto-filling-java-call-arguments" title="Permanent link">¶</a></h3>
+<p>开发中，我们通常会调用其它已经编写好的函数，调用后需要填充参数，但是绝大多数情况下，传入的变量名称和该函数的参数名一致，当参数较多时，手动单个填充参数非常浪费时间。</p>
+<p>该插件就可以帮你解决这个问题。</p>
+<p>安装完该插件以后，调用一个函数，使用 Alt+Enter 组合键，调出 “Auto fill call parameters” 自动使用该函数定义的参数名填充。</p>
+<hr>
+<h3 id="java-stream-debugger">Java Stream Debugger<a class="headerlink" href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E6%8F%92%E4%BB%B6/#java-stream-debugger" title="Permanent link">¶</a></h3>
+<p>Stream 非常好用，可以灵活对数据进行操作，但是对很多刚接触的人来说，不好理解。</p>
+<p>那么 Java Stream Debugger 这款神器的 IDEA 就可以帮到你。它可以将 Stream 的操作步骤可视化，非常有助于我们的学习。
+<img alt="img" src="./IDEA 插件 - Java 研发体系说明文档_files/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9FbnF4SGEyRm54MlA5UVBsY0FhYUZMa1F2Wm1sTkhpYmI2aWJiNXNUc1BPak9zaWJJVXljNnJKQzJaVnp4Y2F3M1dtaEhoa25NcTBmN0dOSEhBYTRjdHEyUS82NDA"></p>
+<p><img alt="img" src="./IDEA 插件 - Java 研发体系说明文档_files/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9FbnF4SGEyRm54MlA5UVBsY0FhYUZMa1F2Wm1sTkhpYmJhaWFpYUFpYWFsSlZyaWJrRHI4MFhVN25PTk5RTWJJbjdNZWh6UXFwSFdSdXkxRnhsYmc2NVNTRDJ3LzY0MA"></p>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      最后更新: 2020-06-10 01:21:31
+    
+  </small>
+</div>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%202020.2%20%E6%BF%80%E6%B4%BB/" title="IDEA 破解2020.2" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                IDEA 破解2020.2
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="http://10.14.2.171:51110/6-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA/IDEA%20%E9%85%8D%E7%BD%AE/" title="(部分强制)IDEA 配置" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                (部分强制)IDEA 配置
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="./IDEA 插件 - Java 研发体系说明文档_files/vendor.d710d30a.min.js.下载"></script>
+      <script src="./IDEA 插件 - Java 研发体系说明文档_files/bundle.5f27aba8.min.js.下载"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.27c6a5e6.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  
+</body></html>
