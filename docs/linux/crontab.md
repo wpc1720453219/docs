@@ -1,7 +1,7 @@
 ## crontab
 linux 自带的定时任务
 
-[linux内置的cron定时任务](https://blog.csdn.net/womeng2009/article/details/125472964)
+[linux内置的cron定时任务](https://blog.csdn.net/womeng2009/article/details/125472964)  
 我们经常使用的是crontab命令是cron table的简写，它是cron的配置文件，也可以叫它作业列表，我们可以在以下文件夹内找到相关配置文件。  
 
 * /var/spool/cron/ 目录下存放的是每个用户包括root的crontab任务，每个任务以创建者的名字命名  
@@ -15,6 +15,10 @@ crontab [-u username]　　　　//省略用户表表示操作当前用户的cro
     -l      (列出工作表里的命令)
     -r      (删除工作作)
 ```
+一般定时任务在：
+crontab -e 编辑  
+vim /etc/crontab 里添加  
+或者放在 /etc/cron.d 里脚本，但这个脚本不能是隐藏文件  
 
 ```shell
 # 可以是有ntp（网络时间协议）与时间服务器(如：国家授时中心)同步
@@ -37,20 +41,20 @@ echo "* * * * * /usr/sbin/ntpdate -u ntp.api.bz >/dev/null &" >> /var/spool/cron
 crontab -l
 ```
 
-[Crontab（定时任务）命令详解](https://huaweicloud.csdn.net/63560690d3efff3090b58dd3.html)
+[Crontab（定时任务）命令详解](https://huaweicloud.csdn.net/63560690d3efff3090b58dd3.html)  
 [Linux定时启动运行程序的方法](https://zongxp.blog.csdn.net/article/details/77978328)
 
 ## 时间同步检查
 多台服务器执行  
 date  
-![img_2.png](img_2.png)
-看时间是否有较大差异
+![img_2.png](img_2.png)  
+看时间是否有较大差异  
 执行 ntp -p  
-![img_3.png](img_3.png)
-如图 这是正常同步的状态
+![img_3.png](img_3.png)   
+如图 这是正常同步的状态  
 运行：ntpstat  
-![img_4.png](img_4.png)
-说明：在第3层同步到NTP服务器(203.107.6.88)，时间在51毫秒内纠正，每隔1024秒轮询一次服务器。203.107.6.88是阿里云外网ip。
+![img_4.png](img_4.png)  
+说明：在第3层同步到NTP服务器(203.107.6.88)，时间在51毫秒内纠正，每隔1024秒轮询一次服务器。203.107.6.88是阿里云外网ip。  
 
 
 
