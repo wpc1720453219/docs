@@ -78,7 +78,13 @@ iptables的规则表和链：
 5. [Linux tun/tap 详解 | 没有理想的人不伤心 (typesafe.cn)](https://typesafe.cn/posts/linux-tun-tap/)  
 ![img_13.png](img_13.png)
 
+### nmap
+[Nmap常用命令详解](https://zhuanlan.zhihu.com/p/621645945)  
 
+1、端口状态filtered：端口状态为filtered时，端口处于过滤状态。  
+2、端口状态closed：端口状态为closed时，端口处于关闭状态。  
+
+[问题排查：应用程序服务已关闭，telnet 80端口，仍然能正常通信](https://blog.csdn.net/m0_58367408/article/details/133303808)
 
 
 
