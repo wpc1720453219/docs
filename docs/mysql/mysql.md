@@ -233,6 +233,12 @@ mysqld-safe-log-timestamps=SYSTEM
 socket=/home/avatar/fg-deploy/software/mysqlMaster/mysql-8.0.16-linux-glibc2.12-x86_64/mysql.sock
 default-character-set=utf8
 ```
+## 配置简单了解
+事务隔离级别：read-commited  
+skip-bin-log是否配置  
+
+## 补充  
+mysql字符集比较规则中utf8_bin和utf8_general_ci的区别在于比较时是否区分大小写  
 
 
 
