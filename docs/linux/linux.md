@@ -64,5 +64,32 @@ rm -rf /home/avatar
 #建立软连接
 ln -s /data/avatar-true/avatar/avatar /home/avatar
 ```
-## 查看文件创建时间
-stat xxx
+## 查看文件具体信息  
+stat xxx  
+[stat命令详解](https://www.lxlinux.net/1960.html)
+```shell
+[root@TENCENT64 ~]# stat Changelog
+  File: ‘Changelog'
+  Size: 1598     Blocks: 8     IO Block: 4096  regular file
+ Device: fd01h/64769d    Inode: 1579435   Links: 1
+ Access: (0644/-rw-r--r--) Uid: (  0/  root)  Gid: (  0/  root)
+ Access: 2018-11-06 22:39:54.110931887 +0800
+ Modify: 2018-11-06 22:39:54.110931887 +0800
+ Change: 2018-11-06 23:07:14.428548887 +0800
+```
+File: ‘Changelog’:文件名称为Changelog  
+Size: 1598:文件大小1598字节  
+Blocks: 8：文件占用的块数  
+Block size: 4096：块大小为4096字节  
+regular file：文件类型（普通文件） 
+Device: fd01h/64769d：文件所在设备号，分别以十六进制和十进制显示  
+Inode: 1579435：文件节点号  
+Links: 1：硬链接数  
+Access: (0644/-rw-r–r–)：访问权限  
+Uid：所有者ID与名称   
+Gid：所有者用户组ID与名称
+access time：表示我们最后一次访问（仅仅是访问，没有改动）文件的时间
+modify time：表示我们最后一次修改文件的时间
+change time：表示我们最后一次对文件属性改变的时间，包括权限，大小，属性等等
+Birth time : 文件创建时间，crtime，不过据查此属性linux已废弃，目前状态显示结果均为-
+[linux系统下如何获取文件的创建时间](https://blog.csdn.net/qq_37989070/article/details/134413866)
