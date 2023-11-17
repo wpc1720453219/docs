@@ -53,3 +53,34 @@ cat /etc/systemd/system/k3s-agent.service
 # 重启
 systemctl daemon-reload && systemctl restart k3s-agent
 ```
+
+
+### 给普通用户赋予k8s权限
+```shell
+cat /etc/group   查看所有任务组
+cat /etc/passwd  查看所有用户
+
+
+sudo groupadd docker          		 #添加docker用户组
+sudo gpasswd -a $USER docker  	 #将当前用户添加至docker用户组
+newgrp docker                		 #更新docker用户组
+
+将kuebctl权限 添加到普通用户
+http://t.zoukankan.com/faithH-p-14277935.html
+
+
+将docker权限添加给普通用户
+https://www.jianshu.com/p/b0245f0360ca
+             
+
+如果没有kubectl权限，则让客户在root用户执行下面语句
+
+mkdir -p /home/avatar/.kube/config/
+cp /etc/kubernetes/admin.conf  /home/avatar/.kube/config/
+chown -R avatar:avatar /home/avatar/.kube/
+cat <<EOF >> /home/avatar/.bashrc
+export KUBECONFIG=/home/avatar/.kube/config/admin.conf
+source <(kubectl comletion bash)
+EOF
+source /home/avatar/.bashrc
+```
