@@ -58,6 +58,23 @@ java -Xmx3550m -Xms3550m -Xmn2g -Xss128k
 ## dump文件分析
 [使用 MAT 分析 .hprof](https://blog.csdn.net/qq_33204709/article/details/128029367)
 
+## 远程debug
+### war包
+用这个命令启动tomcat可以开启tomcat的远程debug，在把jira涉及的jar包路径、class路径全导到idea里面，可以debug调试  
+```shell
+catalina.bat jpda start
+```
+[Tomcat远程调试 -- 通过IDEA远程Debug调试线上代码](https://blog.csdn.net/smilerro/article/details/107781670)
+
+### jar包
+![img_1.png](img_1.png)
+启动jar包命令示例  
+```shell
+java -Xms4G -Xmx4G  -DdefaultMaxMemory=1024  -Djava.net.preferIPv4Stack=true 
+-agentlib:jdwp=transport=dt_socket,server=y,address=8050,suspend=y -Djava.net.preferIPv4Stack=true -jar /home/avatar/onekey-deploy/avatar-server.jar
+```
+[简单三步，实现idea远程debug](https://blog.csdn.net/qq_48804275/article/details/126021431)
+
 
 
 
