@@ -12,7 +12,7 @@ available 列显示还可以被应用程序使用的物理内存大小
 总内存=used + free +系统内存(buffer+cache)
 ```
 
-Linux中Swap（即：交换分区），类似于Windows的虚拟内存，就是当内存不足的时候，把一部分硬盘空间虚拟成内存使用,从而解决内存容量不足的情况。  
+Linux中Swap（即：交换分区），类似于Windows的虚拟内存，就是当内存不足的时候，把一部分硬盘空间虚拟成内存使用,从而解决内存容量不足的情况。    
 
 top 及 free 命令都是从 /proc/meminfo 获取数据的  
 ![img_8.png](img_8.png)

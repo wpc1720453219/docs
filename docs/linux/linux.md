@@ -66,6 +66,17 @@ rm -rf /home/avatar
 ln -s /data/avatar-true/avatar/avatar /home/avatar
 ```
 ## 查看文件具体信息  
+硬盘的最小存储单位叫做"扇区"（Sector）。每个扇区储存512字节（相当于0.5KB）
+即连续八个 sector组成一个"块"（block）4KB
+文件数据都储存在"块"中，那么很显然，我们还必须找到一个地方储存文件的元信息，
+比如文件的创建者、文件的创建日期、文件的大小等等。这种储存文件元信息的区域就叫做inode，中文译名为"索引节点"。  
+[inode的内容](https://www.linuxprobe.com/linux-inode-record.html)
+文件名只是inode号码便于识别的别称或 者绰号。表面上，用户通过文件名，打开文件。实际上，系统内部这个过程分成三步：
+首先，系统找到这个文件名对应的inode号码；其次，通过inode号 码，获取inode信息；最后，根据inode信息，
+找到文件数据所在的block，读出数据  
+
+由于每个文件都必须有一个inode，因此有可能发生inode已经用光，但是硬盘还未存满的情况。这时，就无法在硬盘上创建新文件  
+
 stat xxx  
 [stat命令详解](https://www.lxlinux.net/1960.html)
 ```shell
