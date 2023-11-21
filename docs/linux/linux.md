@@ -5,6 +5,7 @@ python2 -m SimpleHTTPServer 5000
 python3 -m http.server 5000
 
 cp 命令
+[Linux 使用 cp 命令强制覆盖功能](https://blog.csdn.net/xinluke/article/details/52229431)
 -p : 保留复制前文件的用户属性    -r : 递归复制
 ```shell
 [root@cxm test]# cp -p 1.txt 3.txt
