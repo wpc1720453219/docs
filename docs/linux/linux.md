@@ -105,3 +105,15 @@ modify time：表示我们最后一次修改文件的时间
 change time：表示我们最后一次对文件属性改变的时间，包括权限，大小，属性等等
 Birth time : 文件创建时间，crtime，不过据查此属性linux已废弃，目前状态显示结果均为-
 [linux系统下如何获取文件的创建时间](https://blog.csdn.net/qq_37989070/article/details/134413866)
+
+
+### 怎么查看一个java线程的资源耗用？
+linux下，所有的java内部线程，其实都对应了一个进程id，也就是说，linux上的ivm将java程序中的线程映射为操作系统进程。
+```shell
+1、jps-lvm或者ps-ef I grep java查看当前机器上运行的Java应用进程
+2、top-Hp pid可以查看Java所有线程的资源耗用
+3、printf"%x\n"pid等到线程ID的16进制
+4、istack Java应用进程ID I grep线程ID的16进制
+```
+### Load过高的可能性有哪些？
+cpu load的飙升，一方面可能和full gc的次数增大有关，一方面可能和死循环有关系
