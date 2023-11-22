@@ -107,6 +107,10 @@ Birth time : 文件创建时间，crtime，不过据查此属性linux已废弃�
 [linux系统下如何获取文件的创建时间](https://blog.csdn.net/qq_37989070/article/details/134413866)
 
 
+
+### 恢复仍在活动进程中的已删除文件
+[如何在 Linux 中恢复仍在活动进程中的已删除文件](https://linux.cn/article-8709-1.html)
+
 ### 怎么查看一个java线程的资源耗用？
 linux下，所有的java内部线程，其实都对应了一个进程id，也就是说，linux上的ivm将java程序中的线程映射为操作系统进程。
 ```shell
@@ -117,3 +121,52 @@ linux下，所有的java内部线程，其实都对应了一个进程id，也就
 ```
 ### Load过高的可能性有哪些？
 cpu load的飙升，一方面可能和full gc的次数增大有关，一方面可能和死循环有关系
+
+
+#### 批量杀进程
+传入一批进程中间包含的唯一字符串即可，一般是严格匹配的文件夹路径
+
+```bash
+function stop_process() {
+  if [ -z $2 ]; then
+    kill_arg=''
+    cmd_contain=$1
+  else
+    kill_arg=$1
+    cmd_contain=$2
+  fi
+  appid=$(ps -ef |grep "$cmd_contain" |grep -v grep | awk '{print $2}')
+  echo appid=$appid
+  if [ -n "$appid" ];
+  then
+    echo stopping $kill_arg $cmd_contain
+    kill $kill_arg $appid
+  fi
+}
+```
+
+### 判断文件是否存在的shell脚本代码
+[判断文件是否存在的shell脚本代码](https://www.jb51.net/article/34330.htm)
+
+### 将top命令的输出，写入到文件中
+https://blog.csdn.net/ice_beauty1/article/details/82919944
+
+top -b -n 1 -d 3 >>file.txt
+
+
+
+### [Linux查看物理CPU个数、核数、逻辑CPU个数](https://www.cnblogs.com/emanlee/p/3587571.html)
+
+```bash
+# 总核数 = 物理CPU个数 X 每颗物理CPU的核数 
+# 总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
+
+# 查看物理CPU个数
+cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l
+
+# 查看每个物理CPU中core的个数(即核数)
+cat /proc/cpuinfo| grep "cpu cores"| uniq
+
+# 查看逻辑CPU的个数
+cat /proc/cpuinfo| grep "processor"| wc -l
+```

@@ -78,6 +78,7 @@ ping aaa.sunht.fingard.vm
 ### linux主机 配置创建好的dns服务器
 在 /etc/resolv.conf 里配置
 [/etc/resolv.conf配置文件详解](https://blog.csdn.net/liujinwei2005/article/details/119922678)
+[CentOS 7 下，如何设置DNS服务器](https://www.cnblogs.com/dadadechengzi/p/6670530.html)  
 ```shell
 domain  51osos.com
 search  www.51osos.com  51osos.com
