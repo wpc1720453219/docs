@@ -17,11 +17,13 @@ Linux中Swap（即：交换分区），类似于Windows的虚拟内存，就是�
 top 及 free 命令都是从 /proc/meminfo 获取数据的  
 ![img_8.png](img_8.png)
 
+```shell
 MemTotal:       65249828 kB
 MemFree:          804724 kB
 MemAvailable:   20043592 kB
 Buffers:            2240 kB
 Cached:         20668824 kB
+```
 
 
 理想状态下 available  = free + buffer + cache  
