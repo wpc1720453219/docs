@@ -3,8 +3,12 @@
 ## Filebeat安装
 ### 下载页面
 https://www.elastic.co/cn/downloads/past-releases/filebeat-6-4-2
-
+go语言写的
 ### 启动命令
+前台启动  
+```shell
+filebeat -e -c filebeat.yml
+```
 后台启动
 ```bash
 nohup ./filebeat -c filebeat.yml >> filebeat.out 2>&1 &
@@ -29,6 +33,7 @@ output.elasticsearch:
 xpack.monitoring.enabled: true
 
 ```
+
 说明：
 >- filebeat.inputs paths 配置filebeat打印格式的日志位置，可以用通配符
 >- setup.* 里面的配置无所谓，用不到，但没这些会启动报错
