@@ -1,8 +1,10 @@
 ## linux 核心命令
-快速在一个文件夹起一个http服务器：  
+### 快速在一个文件夹起一个http服务器：
+```shell
 npm i -g -d serve ; serve -p 5000  
 python2 -m SimpleHTTPServer 5000  
 python3 -m http.server 5000
+```
 
 cp 命令
 [Linux 使用 cp 命令强制覆盖功能](https://blog.csdn.net/xinluke/article/details/52229431)
@@ -15,7 +17,6 @@ cp 命令
 -rw-r--r--. 1 root root 0 3月   6 19:59 2.txt    （没保留属性）
 -rw-r--r--. 1 cxm  cxm  0 3月   6 19:55 3.txt    （保留属性）
 ```
-[Linux 使用 cp 命令强制覆盖功能](https://blog.csdn.net/xinluke/article/details/52229431)
 
 ### pid 1  
 [Linux中的特殊进程：idle进程(0号进程)、init进程(1号进程，被systemd 取代 )、kthreadd进程(2号进程)](https://blog.csdn.net/m0_45406092/article/details/130657532)  
