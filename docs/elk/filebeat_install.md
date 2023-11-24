@@ -16,22 +16,39 @@ nohup ./filebeat -c filebeat.yml >> filebeat.out 2>&1 &
 
 ### 配置示例
 ```yaml
-filebeat.inputs:
-  - type: log
-    enabled: true
-    paths:
-      - /data/gardpay/logs/*/filebeat/**/*.log
-    json.keys_under_root: true
-    json.overwrite_keys: true
-setup.template.name: "gardpay"
-setup.template.pattern: "gardpay-*"
+filebeat.inputs:       #日志文件输入设置
+  - type: log          #文件的输入类型
+    enabled: true      #开启服务
+    paths:             #日志文件路径
+      - "/home/avatar/luna/logs/**/*filebeat*.log"
+    json.keys_under_root: true    # 默认情况下，解码的 JSON 位于“json”键下 在输出文档中。如果启用此设置，则密钥将复制到顶部 输出文档中的级别。默认值为 false
+    json.overwrite_keys: true     # 如果启用了 和 此设置，则 解码的 JSON 对象中的值会覆盖 Filebeat 的字段 通常在发生冲突时添加（类型、源、偏移量等）  https://www.5axxw.com/questions/simple/vxbvrj
+setup.ilm.enabled: false          # 索引生命周期 ilm 功能默认开启，开启情况下索引名称只能为 filebeat-*
+setup.template.name: "log"        # 定义模板名称
+setup.template.pattern: "log-*"   # 定义模板的匹配索引名称
+setup.template.append_fields:     #  要添加到模板和kibana索引模式的字段列表，此设置添加新字段。它不会覆盖或更改现有字段  
+  - name: stack_trace
+    type: text
+  - name: thread_name
+    type: text
+  - name: logger_name
+    type: text
+  - name: level
+    type: text
+  - name: appname
+    type: text
+  - name: TraceId
+    type: text
+  - name: LUNA_TID
+    type: text
 setup.kibana:
-  host: "10.60.45.174:5601"
+  host: "10.60.44.51:5601"
 output.elasticsearch:
-  hosts: ["10.60.45.174:9200"]
-  index: "gardpay-test-%{[beat.version]}-%{+yyyy.MM.dd}"
-xpack.monitoring.enabled: true
-
+  hosts: ["10.60.44.51:9200"]
+  username: "elastic"
+  password: "5PdOsAFf7GdFnzYsIrgu"
+  index: "log-fg-%{+yyyy.MM.dd}" #索引名称
+xpack.monitoring.enabled: true   # 启动 xpack,基础安全免费
 ```
 
 说明：
