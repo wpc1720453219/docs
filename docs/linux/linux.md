@@ -41,6 +41,21 @@ ps -ef 和ps -aux的区别：查询用ef，详细信息以及更多进程用aux
 jps -v 查看启动参数
 rsync  远程和本地文件备份      
 ```
+### top
+
+### cpu查看 vmstat
+
+### cpu查看 pidstat 
+
+### 内存查看 free
+
+### 硬盘查看 df
+
+### 磁盘IO查看 ifstat
+
+### 网络IO查看 iostat
+
+
 
 ### netstat 命令输出
 [netstat命令输出详解](https://www.jianshu.com/p/443e6267dc47)
