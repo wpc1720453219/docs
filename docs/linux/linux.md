@@ -41,19 +41,33 @@ ps -ef 和ps -aux的区别：查询用ef，详细信息以及更多进程用aux
 jps -v 查看启动参数
 rsync  远程和本地文件备份      
 ```
-### top
 
-### cpu查看 vmstat
+### top  
+[top命令详解](https://blog.csdn.net/xiaoxiao_chen945/article/details/121038280)  
+[Linux系统平均负载](https://blog.csdn.net/qq_37989070/article/details/134703456)  
 
-### cpu查看 pidstat 
+### vmstat  
+vmstat（VirtualMeomoryStatistics，虚拟内存统计）是Linux中监控内存的常用工具，可对操作系统的虚拟内存、进程、CPU等的整体情况进行监视。    
+![img_23.png](img_23.png)
+```shell
+Procs(进程)：r: 运行队列中进程数量   |  b: 等待IO的进程数量   
+Memory(内存)： swpd: 使用虚拟内存大小 | free: 可用内存大小 | buff: 用作缓冲的内存大小 | cache: 用作缓存的内存大小   
+Swap： si: 每秒从交换区写到内存的大小  |  so: 每秒写入交换区的内存大小  
+IO：(现在的Linux版本块的大小为1024bytes)     bi: 每秒读取的块数  |  bo: 每秒写入的块数  
+system：（系统信息） in: 每秒中断数，包括时钟中断  |  cs: 每秒上下文切换数  
+CPU(以百分比表示)：us: 用户进程执行时间(user time) |  sy: 系统进程执行时间(system time)  |  id: 空闲时间(包括IO等待时间),中央处理器的空闲时间 ，以百分比表示  | wa: 等待IO时间
+```
+[优化命令----Vmstat命令](https://blog.csdn.net/gcc001224/article/details/125313217)
+[vmstat命令详解](https://blog.csdn.net/shugyin/article/details/127434367)
 
+###  pidstat 
+[pidstat](https://blog.csdn.net/m0_61066945/article/details/126568206)
 ### 内存查看 free
 
 ### 硬盘查看 df
 
-### 磁盘IO查看 ifstat
-
-### 网络IO查看 iostat
+### 磁盘IO查看 ifstat  网络IO查看 iostat
+[stat系列命令(vmstat,iostat,ifstat,netstat,dstat)](https://blog.csdn.net/qq_43072797/article/details/105552803)
 
 
 
