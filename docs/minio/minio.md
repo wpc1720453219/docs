@@ -175,5 +175,43 @@ docker run --restart=always  -d \
   --entrypoint "" \
   minio/mc /bin/sh /shell.sh
 docker logs -f minio-confluence-bak
+
+
+
+
+## 例子
+## 将要你备份的东西，添加时间后缀，放在另外个文件夹里 
+cat << EOF > /data/minio-etcd-bak/copy-bak-cron.sh
+#!/bin/bash
+cur_date="`date +%Y-%m-%d`"
+cp /var/lib/etcd/member/snap/db /data/minio-etcd-bak/etcd-bak/etcd-db-$cur_date
+EOF
+chmod +x /data/minio-etcd-bak/copy-bak-cron.sh
+
+## 定时本地备份
+crontab -e
+crontab -l
+[root@kube-box2 minio-etcd-bak]# crontab -l
+0 1 * * * /bin/bash /data/minio-etcd-bak/copy-bak-cron.sh
+
+
+mkdir -p /data/minio-etcd-bak
+ ## 生成远程备份脚本
+cat << EOF > /data/minio-etcd-bak/mirror-start.sh
+set -ex
+mc config host add hadoop3 http://10.60.44.54:8000/ tfp fingard@2 --api S3v4
+mc mirror -w /data/minio-etcd-bak/etcd-bak hadoop3/luna-k8s-etcd-backup
+EOF
+chmod +x /data/minio-etcd-bak/mirror-start.sh
+ 
+docker rm -f minio-etcd-bak
+docker run --restart=always -d \
+  --name minio-etcd-bak \
+  -e "TZ=Asia/Shanghai" \
+  -v /data/minio-etcd-bak:/data/minio-etcd-bak \
+  --entrypoint "" \
+  minio/mc \
+  /bin/sh /data/minio-etcd-bak/mirror-start.sh
+docker logs -f minio-etcd-bak
 ```
 
