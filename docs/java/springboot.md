@@ -24,4 +24,7 @@ spring-boot-configuration-processor的作用就是将自己的配置你自己创
   </dependency>
 ```
 
+## spring-cloud-starter-bootstrap
+帮助 Spring Boot 应用程序从配置服务器（例如 Spring Cloud Config）中加载配置文件，并在应用程序启动时将其解析为 Spring Boot 属性  
+[spring-cloud-starter-bootstrap](https://juejin.cn/s/spring-cloud-starter-bootstrap%20%E7%89%88%E6%9C%AC)
 
