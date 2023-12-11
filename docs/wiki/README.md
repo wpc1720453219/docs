@@ -24,3 +24,5 @@ wiki可用作知识库，和blog的概念有点不一样，wordpress是典型的
 1. [Eolinker](https://www.eolinker.com/)
     - 这个的最新开源版功能极不完善，像个demo；而功能完全版的java版已经变收费的了。
 
+[关于OpenAPI，Swagger，SpringFox，springdoc-openapi区别](https://www.jianshu.com/p/8572924f52ae)
+
