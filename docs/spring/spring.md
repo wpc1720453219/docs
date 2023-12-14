@@ -48,3 +48,18 @@
    1. WEB 项目中,Spring 创建一个 Bean 的对象,将对象存入到 session 域中
    2. 同一session环境下，不管你从bean容器中获取对应bean定义的实例多少次，你取到的总是一个相同的实例
 5. global-session：作用于集群环境的会话范围（全局会话范围），当不是集群环境时，它就是session
+
+### bean的生命周期
+所谓的生命周期就是：对象从创建开始到最终销毁的整个过程  
+（1）Bean生命周期的管理，可以参考Spring的源码：AbstractAutowireCapableBeanFactory类的doCreateBean()方法   
+（2）Bean生命周期可以划分为十大步：   
+ * 第一步： 实例化Bean
+ * 第二步： Bean属性赋值
+ * 第三步： 检查Bean是否实现了Aware的相关接口，并设置相关依赖
+ * 第四步： **Bean后处理器 before 执行**
+ * 第五步： 检查Bean是否实现InitializingBean接口，并调用接口方法
+ * 第六步： 初始化Bean
+ * 第七步： **Bean后处理器 after 执行**
+ * 第八步： 使用Bean
+ * 第九步： 检查Bean是否实现了DisposableBean接口，并调用接口方法
+ * 第十步： 销毁Bean
