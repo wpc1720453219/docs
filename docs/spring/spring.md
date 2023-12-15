@@ -75,4 +75,55 @@
         1. Spring只负责创建,当容器创建Bean的实例后，Bean的实例就交给客户端代码管理，Spring容器将不再跟踪其生命周期  
         2. 对象出生：当使用对象时，创建新的对象实例。  
         3. 对象活着：只要对象在使用中，就一直活着。  
-        4. 对象死亡：当对象长时间不用时，被 java 的垃圾回收器回收了。  
+        4. 对象死亡：当对象长时间不用时，被 java 的垃圾回收器回收了。 
+
+### 注解
+#### 创建bean
+Component:
+```shell
+作用：用于把当前类对象存入spring容器中
+属性：
+     value：用于指定 bean的id。当我们不写时，它的默认值是当前类名，且首字母改小写。
+     Controller：一般用在表现层
+     Service：   一般用在业务层
+     Repository：一般用在持久层
+     以上三个注解他们的作用和属性与Component是一模一样。 三个注解里只有value且都是指定bean的id
+```
+#### 注入bean对象  
+@Autowired  
+* 作用： 自动按照类型注入，只要容器中有唯一的一个bean对象类型和要注入的变量类型匹配，就可以注入成功
+    * 如果ioc容器中没有任何bean的类型和要注入的变量类型匹配，则报错
+    * 如果Ioc容器中有多个类型匹配时
+* 出现位置：
+    * 可以是变量上，也可以是方法上
+* 细节：
+    * 在使用注解注入时,set方法就不是必须的了
+```shell
+Autowired 注解 源码
+			@Target({ElementType.CONSTRUCTOR, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.ANNOTATION_TYPE})
+			@Retention(RetentionPolicy.RUNTIME)
+			@Documented
+			public @interface Autowired {
+				boolean required() default true;
+			}
+    required属性
+		@Autowired(required=true)：当使用@Autowired注解的时候，其实默认就是@Autowired(required=true)，表示注入的时候，该bean必须存在，否则就会注入失败
+		@Autowired(required=false)：表示忽略当前要注入的bean，如果有直接注入，没有跳过，不会报错。			
+```
+
+@Qualifier
+* 作用：在按照类中注入的基础之上再按照名称注入。它在给类成员注入时不能单独使用。但是在给方法参数注入时可以可以独立使用  
+  * 属性： value：用于指定注入bean的id  
+```shell
+        public interface IpfProductService
+			@service ("pfProductservice1")
+			public class PfProductServicel implements IPfProductservice
+			@service ("pfProductservice2")
+			public class PfProductServicel implements IPfProductservice
+			@Qualifier("pfProductService1")   //通过这个标示，表明了哪个实现类才是我们所需要的,添加@Qualifier注解,需要注意的是@Qualifier的参数名称为我们之前定义@Service注解的名称之一
+			IPfProductService pfProductService;
+```
+
+@Resource
+* 作用：直接按照bean的id注入。它可以独立使用  
+     * 属性： name：用于指定bean的id  
