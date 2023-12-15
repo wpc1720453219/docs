@@ -93,7 +93,7 @@ Component:
 @Autowired  
 * 作用： 自动按照类型注入，只要容器中有唯一的一个bean对象类型和要注入的变量类型匹配，就可以注入成功
     * 如果ioc容器中没有任何bean的类型和要注入的变量类型匹配，则报错
-    * 如果Ioc容器中有多个类型匹配时
+    * 如果Ioc容器中有多个类型匹配时,需要结合@Qualifier，不然启动项目报错【亲手实验过】
 * 出现位置：
     * 可以是变量上，也可以是方法上
 * 细节：
@@ -127,3 +127,34 @@ Autowired 注解 源码
 @Resource
 * 作用：直接按照bean的id注入。它可以独立使用  
      * 属性： name：用于指定bean的id  
+
+区别：
+@Autowired是按照先byType 后 byName @Resources是按照先byName后byType
+@Qualifier: spring的注解，按名字注入 一般当出现两个及以上bean时,不知道要注入哪个，作为@Autowired()的修饰用  
+
+### 其他注解
+@Configuration  
+指定当前类是一个配置类,因为@Configuration注解里继承@Component，所以这个类会加入spring容器。但这个配置类里的方法生成的对象还是需要用@Bean注解加载到spring容器 
+@Configuration标识的配置类中，重复调用@Bean标识的工厂方法，Spring会对创建的对象进行缓存。仅在缓存中不存在时，
+才会通过工厂方法创建对象。后续重复调用工厂方法创建对象，先去缓存中找，不直接创建对象。从而让@Bean工厂方法，有了"幂等的能力"
+[@Configuration配置类](https://blog.csdn.net/m0_71777195/article/details/128797965)  
+
+@Bean
+```shell
+作用：用于把当前方法的返回值作为bean对象存入spring的ioc容器中
+属性:
+     name:用于指定bean的id。当不写时，默认值是当前方法的名称
+细节：
+     当我们使用注解配置方法时，如果方法有参数，spring框架会去容器中查找有没有可用的bean对象。
+     查找的方式和Autowired注解的作用是一样的
+```
+
+@Import
+让导入的类里的方法 变成 被@Bean的方法加载到spring容器里，说白了就是导入的类里的方法生成的对象加载到spring 容器里  
+[@Import注解把类注入容器的四种方式](https://blog.csdn.net/qq_45076180/article/details/119653676)  
+
+
+
+
+
+
