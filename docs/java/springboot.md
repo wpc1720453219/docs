@@ -29,5 +29,15 @@ spring-cloud-starter-bootstrap 已经被弃用，取而代之的是 spring-cloud
 帮助 Spring Boot 应用程序从配置服务器（例如 Spring Cloud Config）中加载配置文件，并在应用程序启动时将其解析为 Spring Boot 属性    
 [spring-cloud-starter-bootstrap](https://juejin.cn/s/spring-cloud-starter-bootstrap%20%E7%89%88%E6%9C%AC)  
 
+## spring-boot-starter-mustache
+模版引擎
 
+## spring-cloud-dependencies
+控制 cloud 各组件版本
+```shell
+  <groupId>org.springframework.cloud</groupId>
+  <artifactId>spring-cloud-dependencies</artifactId>
+  <version>${spring.cloud.version}</version>
+```
+[https://blog.csdn.net/timeguys/article/details/106865375](https://blog.csdn.net/timeguys/article/details/106865375)
 
