@@ -41,13 +41,16 @@ spring-cloud-starter-bootstrap 已经被弃用，取而代之的是 spring-cloud
 ```
 [https://blog.csdn.net/timeguys/article/details/106865375](https://blog.csdn.net/timeguys/article/details/106865375)
 
-## auto-service
-先说说spi:
-SPI全称Service Provider Interface, 实际上是“基于接口的编程＋策略模式＋配置文件”组合实现的动态加载机制
-调用方只管对接口进行调用，至于接口的实现采用不同的依赖有对应的实现方法[JDBC加载不同类型数据库的驱动]， SPI的核心思想就是解耦。
+## auto-service  
+先说说spi:  
+SPI全称Service Provider Interface, 实际上是“基于接口的编程＋策略模式＋配置文件”组合实现的动态加载机制  
+调用方只管对接口进行调用，至于接口的实现采用不同的依赖有对应的实现方法[JDBC加载不同类型数据库的驱动]， SPI的核心思想就是解耦。  
 [高级开发必须理解的Java中SPI机制](https://www.jianshu.com/p/46b42f7f593c)  
-auto-service 作用：
-AutoService框架的作用是自动生成SPI清单文件(也就是META-INF/services目录下的文件)。
-如果不使用它就需要手动去创建这个文件、手动往这个文件里添加服务(接口实现)，为了免去手动操作，才有了AutoService。
+auto-service 作用：  
+AutoService框架的作用是自动生成SPI清单文件(也就是META-INF/services目录下的文件)。  
+如果不使用它就需要手动去创建这个文件、手动往这个文件里添加服务(接口实现)，为了免去手动操作，才有了AutoService。  
 [auto-service 帮我们自动生成实现类内容](https://www.cnblogs.com/rongfengliang/p/11695684.html)
+APT是编译时技术，SPI是运行时技术。AutoService是APT的实现(或者叫应用)， 它运用了APT技术来解析程序中 @AutoService注解并且
+自动生成SPI清单文件，SPI清单文件中保存了接口(服务)的实现，SPI清单文件是在程序运行时由ServiceLoader读取。  
+[Google AutoService的使用与源码解析](https://blog.csdn.net/devnn/article/details/126837081)  
 
