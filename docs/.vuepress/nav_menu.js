@@ -14,8 +14,8 @@ module.exports = [
                     {text: '软连接数据迁移', link: '/linux/软连接数据迁移.md'},
                     {text: 'DNS', link: '/linux/DNS.md'},
                     {text: 'crontab', link: '/linux/crontab.md'},
-                    {text: 'centos7服务器初始化', link: '/linux/Centos 7 服务器初始化脚本（公司内网通用）.md'},
-                    {text: 'Almalinux8服务器初始化', link: '/linux/Almalinux 8 服务器初始化脚本（公司内网通用）.md'},
+                    {text: 'centos7服务器初始化', link: '/linux/Centos 7 服务器初始化脚本.md'},
+                    {text: 'Almalinux8服务器初始化', link: '/linux/Almalinux 8 服务器初始化脚本.md'},
                     {text: '硬盘分区', link: '/linux/硬盘分区.md.md'},
                 ]
             },

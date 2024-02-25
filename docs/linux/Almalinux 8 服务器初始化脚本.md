@@ -31,14 +31,12 @@ centos 8 替代品
 
 【注意】先执行下面命令看看硬盘是否符合要求，不符合立即重装系统吧，调整硬盘比重装系统麻烦多了，并且在服务器用起来后再调整，丢数据风险极大！
 
-```she
+```shell
 df -h
 ```
 
 
-
 ## 设置主机名
-
 ``````
 # 【注意】输入主机名，更改这个变量
 env_hostname="主机名"
@@ -55,7 +53,7 @@ ip a
 # 填有服务器内网ip的网卡名
 export env_ifname=`nmcli connection show -active | grep ethernet | awk '{print $1}'`
 echo 当前网卡：$env_ifname
-nmcli con mod $env_ifname ipv4.dns "10.60.44.54 223.5.5.5" 10.60.44.54
+nmcli con mod $env_ifname ipv4.dns "192.168.0.54 223.5.5.5" 192.168.0.54
 # 【注意】确认输出无误，才重启网卡，否则ssh连不上网，需要到机房
 systemctl restart NetworkManager.service
 cat /etc/resolv.conf
@@ -94,7 +92,7 @@ systemctl restart sshd.service
 
 
 
-## 配置保融内网yum源
+## 配置内网yum源
 
 [almalinux镜像_almalinux下载地址_almalinux安装教程-阿里巴巴开源镜像站 (aliyun.com)](https://developer.aliyun.com/mirror/almalinux?spm=a2c6h.13651102.0.0.1d1d1b11FeX6AP)
 
@@ -104,12 +102,12 @@ mv /etc/yum.repos.d /etc/yum.repos.d.$env_date.bak
 mkdir /etc/yum.repos.d
  
 cat > /etc/yum.repos.d/fingard.repo <<EOF
-# http://10.60.44.54:8081/repository/yum-aliyun/
+# http://192.168.0.54:8081/repository/yum-aliyun/
  
 [baseos]
 name=AlmaLinux \$releasever - BaseOS
 #mirrorlist=https://mirrors.almalinux.org/mirrorlist/\$releasever/baseos
-baseurl=http://10.60.44.54:8081/repository/yum-aliyun/almalinux/\$releasever/BaseOS/\$basearch/os/
+baseurl=http://192.168.0.54:8081/repository/yum-aliyun/almalinux/\$releasever/BaseOS/\$basearch/os/
 enabled=1
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux
@@ -117,7 +115,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux
 [appstream]
 name=AlmaLinux \$releasever - AppStream
 # mirrorlist=https://mirrors.almalinux.org/mirrorlist/\$releasever/appstream
-baseurl=http://10.60.44.54:8081/repository/yum-aliyun/almalinux/\$releasever/AppStream/\$basearch/os/
+baseurl=http://192.168.0.54:8081/repository/yum-aliyun/almalinux/\$releasever/AppStream/\$basearch/os/
 enabled=1
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux
@@ -125,7 +123,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux
 [extras]
 name=AlmaLinux \$releasever - Extras
 # mirrorlist=https://mirrors.almalinux.org/mirrorlist/\$releasever/extras
-baseurl=http://10.60.44.54:8081/repository/yum-aliyun/almalinux/\$releasever/extras/\$basearch/os/
+baseurl=http://192.168.0.54:8081/repository/yum-aliyun/almalinux/\$releasever/extras/\$basearch/os/
 enabled=1
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux
@@ -134,7 +132,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux
 name=Extra Packages for Enterprise Linux 8 - \$basearch
 # It is much more secure to use the metalink, but if you wish to use a local mirror
 # place its address here.
-baseurl=http://10.60.44.54:8081/repository/yum-aliyun/epel/8/Everything/\$basearch
+baseurl=http://192.168.0.54:8081/repository/yum-aliyun/epel/8/Everything/\$basearch
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-8&arch=\$basearch&infra=\$infra&content=\$contentdir
 enabled=1
 gpgcheck=0
@@ -143,14 +141,14 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
  
 [docker-ce-stable]
 name=Docker CE Stable - \$basearch
-baseurl=http://10.60.44.54:8081/repository/yum-aliyun/docker-ce/linux/centos/\$releasever/\$basearch/stable
+baseurl=http://192.168.0.54:8081/repository/yum-aliyun/docker-ce/linux/centos/\$releasever/\$basearch/stable
 enabled=1
 gpgcheck=0
 gpgkey=https://download.docker.com/linux/centos/gpg
  
 [kubernetes]
 name=Kubernetes
-baseurl=http://10.60.44.54:8081/repository/TsingYumProxy/kubernetes/yum/repos/kubernetes-el7-\$basearch
+baseurl=http://192.168.0.54:8081/repository/TsingYumProxy/kubernetes/yum/repos/kubernetes-el7-\$basearch
 enabled=1
 gpgcheck=0
 repo_gpgcheck=0
@@ -223,7 +221,7 @@ yum-utils \
 zip
  
 # 安装q
-wget http://10.60.44.54:8000/download/pkg/q-text-as-data-3.1.6.x86_64.rpm
+wget http://192.168.0.54:8000/download/pkg/q-text-as-data-3.1.6.x86_64.rpm
 rpm -ivh q-text-as-data-3.1.6.x86_64.rpm
 ps -ef | q -H "SELECT UID, COUNT(*) cnt FROM - GROUP BY UID ORDER BY cnt DESC LIMIT 3"
 ``````
@@ -283,7 +281,7 @@ sysctl -p /etc/sysctl.d/k8s.conf
 timedatectl set-timezone Asia/Shanghai
  
 # 或者：ntp.aliyun.com
-export conf_ntp_server_ip="10.60.44.214"
+export conf_ntp_server_ip="192.168.0.214"
  
 cat << EOF > /etc/chrony.conf
 # Use public servers from the pool.ntp.org project.
@@ -343,11 +341,11 @@ yum install -y docker-ce kubectl
 # 配置dockerd
 echo '起docker daemon'
 mkdir -p /etc/docker/
-# 在/etc/hosts 里面加一条: 10.60.44.54 k8s-test
+# 在/etc/hosts 里面加一条: 192.168.0.54 k8s-test
 cat << EOF > /etc/docker/daemon.json
 {
     "registry-mirrors": ["http://k8s-test:4801"],
-    "insecure-registries":["k8s-test:4800", "k8s-test:4801","10.60.44.127:4800","dx.fingard.com:4800"],
+    "insecure-registries":["k8s-test:4800", "k8s-test:4801","192.168.0.127:4800","dx.fingard.com:4800"],
     "max-concurrent-downloads": 20,
     "log-opts": {
        "max-size": "500m",
@@ -382,7 +380,7 @@ export HOST_IP="这里填本机ip"
 # 安装启动node_exporter
 mkdir -p /data/prometheus
 cd /data/prometheus || exit
-wget http://10.60.44.54:8000/download/pkg/node_exporter-1.3.0.linux-amd64.tar.gz
+wget http://192.168.0.54:8000/download/pkg/node_exporter-1.3.0.linux-amd64.tar.gz
 tar -zxvf node_exporter-1.3.0.linux-amd64.tar.gz
  
 cat << EOF >/etc/systemd/system/node_exporter.service
@@ -409,9 +407,9 @@ export port=9100;
 export check=http://$HOST_IP:$port/metrics;
 curl -X PUT -H "Content-Type: application/json" \
   -d "{\"id\": \"$id\",\"name\": \"$name\",\"address\": \"$address\",\"port\": $port,\"tags\": [\"test\"],\"checks\": [{\"http\": \"$check\", \"interval\": \"5s\"}]}" \
-   http://10.60.44.58:8500/v1/agent/service/register
+   http://192.168.0.58:8500/v1/agent/service/register
 # 从consul注册中心下掉：
-echo curl --request PUT http://10.60.44.58:8500/v1/agent/service/deregister/node-exporter-$HOST_IP
+echo curl --request PUT http://192.168.0.58:8500/v1/agent/service/deregister/node-exporter-$HOST_IP
 ``````
 
 
@@ -421,8 +419,6 @@ echo curl --request PUT http://10.60.44.58:8500/v1/agent/service/deregister/node
 ## 卸载旧版本k8s
 
 #### 卸载原生k8s节点
-
-如luna-k8s
 
 ``````
 kubeadm reset -f
@@ -439,30 +435,25 @@ reboot
 
 
 ### 卸载k3s节点
-
-如avatar-k8s
-
 ```
 /usr/local/bin/k3s-agent-uninstall.sh
 ```
 
-## 添加为avatar-k8s节点
-
-技术细节参考 [k3s 探索](http://jira.fingard.com:6002/pages/viewpage.action?pageId=2203068)
+## 添加为主机节点
 
 ``````
 # 首先必须初始化好docker
 docker info
  
-wget -O /usr/local/bin/k3s http://10.60.44.54:8000/download/pkg/k3s/v1.22.5%2Bk3s1/k3s
+wget -O /usr/local/bin/k3s http://192.168.0.54:8000/download/pkg/k3s/v1.22.5%2Bk3s1/k3s
 chmod +x /usr/local/bin/k3s
  
  
 # 如果要设置pod>110 ，下面命令添加参数：--kubelet-arg=max-pods=300
-# 配置节点限制 node-limit，一般：核心 rdc；企金 qj；保险 insurance；
+# 配置节点限制 node-limit，一般：核心 rdc ；
 curl -sfL https://get.k3s.io | INSTALL_K3S_SKIP_DOWNLOAD=true INSTALL_K3S_MIRROR=cn INSTALL_K3S_VERSION="v1.22.5+k3s1" sh -s - agent \
   --token "c26b2a1384b6285d888b20b0750da1ec" \
-  --server "https://10.60.44.214:6443" \
+  --server "https://192.168.0.214:6443" \
   --docker \
   --node-label node-limit=rdc
  

@@ -15,7 +15,6 @@ curPath=$(dirname $(readlink -f "$0"))
         clear
 msgbox "pam" "  ┌----------------------------------------┐";echo
 msgbox "pam" "  |****   ********【Centos7】********* ****|";echo
-msgbox "pam" "  |****    ****【企金技术支持组】****  ****|";echo
 msgbox "pam" "  |****     ****---------------****    ****|";echo
 msgbox "pam" "  |****        【 $curPath 】             ****|";echo
 msgbox "pam" "  └----------------------------------------┘";echo
