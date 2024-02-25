@@ -22,7 +22,7 @@ log-queries
 no-resolv
 #use cloudflare as default nameservers, prefer 1^4
 # 公司内dns地址
-server=10.60.44.54
+server=192.168.0.54
 # 国内dns
 server=114.114.114.114
 # 微软dns
@@ -34,7 +34,7 @@ server=/company/10.0.0.1
 address=/myhost.company/10.0.0.2
  
 # 一些自定义配置
-address=/.sunht.fingard.cn/192.168.10.104
+address=/.sunht.xyyweb.cn/192.168.10.104
  
 EOF
  
@@ -62,17 +62,17 @@ docker logs -f dnsmasq
 
 ### win主机 配置创建好的dns服务器
 修改自己电脑dns  
-这里提供winddows11的修改方式，首选dns改成10.60.44.54  
+这里提供winddows11的修改方式，首选dns改成192.168.0.54  
 ![img_2.png](./images/img_2.png)
 ```shell
 #验证
 #windows启动cmd命令行
 # 指定域名验证
-nslookup sunht.fingard.vm
-ping sunht.fingard.vm
+nslookup sunht.xyyweb.vm
+ping sunht.xyyweb.vm
 # 通配域名验证
-nslookup aaa.sunht.fingard.vm
-ping aaa.sunht.fingard.vm
+nslookup aaa.sunht.xyyweb.vm
+ping aaa.sunht.xyyweb.vm
 ```
 
 ### linux主机 配置创建好的dns服务器
@@ -95,16 +95,16 @@ search：当访问的域名不能被DNS解析时，resolver会将该域名加上
 
 ### nslookup 命令  
 ![img_7.png](./images/img_7.png)  
-Server： 指的是10.60.44.54对应的主机名  
-Address:  dns服务器ip  10.60.44.54#53
+Server： 指的是192.168.0.54对应的主机名  
+Address:  dns服务器ip  192.168.0.54#53
 [nslookup](https://www.cnblogs.com/machangwei-8/p/10353137.html)
 
 dnsmasq
 - [jpillora/dnsmasq 一个docker镜像，介绍页有教程](https://hub.docker.com/r/jpillora/dnsmasq)
 - [高效搭建基于dnsmasq通过webui管理的dns服务器](https://blog.csdn.net/firehadoop/article/details/83860191)
-- 维护地址： [http://10.60.44.54:5380](http://10.60.44.54:5380/)
+- 维护地址： [http://192.168.0.54:5380](http://192.168.0.54:5380/)
 - 用户名：admin
-- 密码：fingard@2
+- 密码：xyyweb@2
 
 ```shell
 docker rm -f dnsmasq
@@ -117,7 +117,7 @@ docker run \
     -v /data/dnsmasq/dnsmasq.conf:/etc/dnsmasq.conf \
     --log-opt "max-size=100m" \
     -e "HTTP_USER=admin" \
-    -e "HTTP_PASS=fingard@2" \
+    -e "HTTP_PASS=xyyweb@2" \
     -e TZ=Asia/Shanghai \
     --restart always \
     jpillora/dnsmasq:1.1
@@ -152,23 +152,23 @@ strict-order
 #explicitly define host-ip mappings
 #address=/myhost.company/10.0.0.2
  
-address=/k8s-test/10.60.44.54
-address=/kube-master-vip/10.60.44.219
-address=/kube-master1/10.60.44.214
-address=/kube-master2/10.60.44.216
-address=/kube-box1/10.60.44.243
-address=/kube-box2/10.60.44.251
-address=/kube-box3/10.60.44.252
-address=/hadoop3/10.60.44.54
-address=/hadoop2/10.60.44.55
-address=/rdc-test-57/10.60.44.57
-address=/rdc-test-58/10.60.44.58
-address=/rdc-test-59/10.60.44.59
-address=/rdc-devops-14/10.60.44.14
-address=/rdc-devops-15/10.60.44.15
-address=/rdc-devops-16/10.60.44.16
-address=/james.local/10.60.44.16
-address=/mirrors.jenkins-ci.org/10.60.44.54
+address=/k8s-test/192.168.0.54
+address=/kube-master-vip/192.168.0.219
+address=/kube-master1/192.168.0.214
+address=/kube-master2/192.168.0.216
+address=/kube-box1/192.168.0.243
+address=/kube-box2/192.168.0.251
+address=/kube-box3/192.168.0.252
+address=/hadoop3/192.168.0.54
+address=/hadoop2/192.168.0.55
+address=/rdc-test-57/192.168.0.57
+address=/rdc-test-58/192.168.0.58
+address=/rdc-test-59/192.168.0.59
+address=/rdc-devops-14/192.168.0.14
+address=/rdc-devops-15/192.168.0.15
+address=/rdc-devops-16/192.168.0.16
+address=/james.local/192.168.0.16
+address=/mirrors.jenkins-ci.org/192.168.0.54
 ```
 
 
