@@ -48,7 +48,7 @@ rsync  远程和本地文件备份
 
 ### vmstat  
 vmstat（VirtualMeomoryStatistics，虚拟内存统计）是Linux中监控内存的常用工具，可对操作系统的虚拟内存、进程、CPU等的整体情况进行监视。    
-![img_23.png](img_23.png)
+![img_23.png](images/img_23.png)
 ```shell
 Procs(进程)：r: 运行队列中进程数量   |  b: 等待IO的进程数量   
 Memory(内存)： swpd: 使用虚拟内存大小 | free: 可用内存大小 | buff: 用作缓冲的内存大小 | cache: 用作缓存的内存大小   

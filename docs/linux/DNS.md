@@ -5,8 +5,8 @@ DNS （Domain Name System 的缩写）的作用非常简单，就是根据域名
 
 [DNS域名解析过程](https://huaweicloud.csdn.net/635604a0d3efff3090b58b54.html)  
 检查浏览器缓存-> 操作系统缓存(在内存里)--> 读取hosts文件-->本地dns服务器--> 根服务器-->1级域名服务器-->2级域名服务器-->3级域名服务器
-![img_1.png](./images/img_1.png)
-![img.png](./images/img.png)
+![img_1.png](./images/img_21.png)
+![img.png](./images/img66.png)
 
    
 搭建内网dns服务器  
@@ -63,7 +63,7 @@ docker logs -f dnsmasq
 ### win主机 配置创建好的dns服务器
 修改自己电脑dns  
 这里提供winddows11的修改方式，首选dns改成192.168.0.54  
-![img_2.png](./images/img_2.png)
+![img_2.png](./images/img_32.png)
 ```shell
 #验证
 #windows启动cmd命令行
@@ -94,7 +94,7 @@ search：当访问的域名不能被DNS解析时，resolver会将该域名加上
 
 
 ### nslookup 命令  
-![img_7.png](./images/img_7.png)  
+![img_7.png](./images/img_27.png)  
 Server： 指的是192.168.0.54对应的主机名  
 Address:  dns服务器ip  192.168.0.54#53
 [nslookup](https://www.cnblogs.com/machangwei-8/p/10353137.html)

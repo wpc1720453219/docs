@@ -47,13 +47,13 @@ crontab -l
 ## 时间同步检查
 多台服务器执行  
 date  
-![img_2.png](img_2.png)  
+![img_2.png](images/img_2.png)  
 看时间是否有较大差异  
 执行 ntp -p  
-![img_3.png](img_3.png)   
+![img_3.png](images/img_3.png)   
 如图 这是正常同步的状态  
 运行：ntpstat  
-![img_4.png](img_4.png)  
+![img_4.png](images/img_4.png)  
 说明：在第3层同步到NTP服务器(203.107.6.88)，时间在51毫秒内纠正，每隔1024秒轮询一次服务器。203.107.6.88是阿里云外网ip。  
 
 
@@ -64,7 +64,7 @@ date
 yum -y install ntp ntpdate  
 echo "*/5 * * * * /usr/sbin/ntpdate ntp1.aliyun.com &>/dev/null" >> /var/spool/cron/root
 ntpstat  
-![img_5.png](img_5.png)
+![img_5.png](images/img_5.png)
 
 情况二：ping不通阿里云（没有网）
 如果连不到阿里云，向客户申请一个在内网可以访问外网的时间同步服务器然后去指时间同步服务器的ip

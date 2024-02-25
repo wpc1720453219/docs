@@ -46,7 +46,7 @@ iptables -A INPUT -j DROP
 service iptables save
 ```
 4表5链  
-![img_12.png](img_12.png)
+![img_12.png](images/img_12.png)
 
 [Linux iptables用法与NAT - 风住 - 博客园 (cnblogs.com)](https://www.cnblogs.com/whych/p/9147900.html)
 [追查iptables规则失效原因 - jeremy的技术点滴 (jeremyxu2010.github.io)](https://jeremyxu2010.github.io/2018/10/%E8%BF%BD%E6%9F%A5iptables%E8%A7%84%E5%88%99%E5%A4%B1%E6%95%88%E5%8E%9F%E5%9B%A0/)
@@ -76,7 +76,7 @@ iptables的规则表和链：
 3. [Linux Bridge 详解 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/293667316)  
 4. [Linux 环回网络接口 | 没有理想的人不伤心 (typesafe.cn)](https://typesafe.cn/posts/linux-loopback/)  
 5. [Linux tun/tap 详解 | 没有理想的人不伤心 (typesafe.cn)](https://typesafe.cn/posts/linux-tun-tap/)  
-![img_13.png](img_13.png)
+![img_13.png](images/img_13.png)
 
 ### nmap
 [Nmap常用命令详解](https://zhuanlan.zhihu.com/p/621645945)  
