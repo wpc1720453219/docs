@@ -22,7 +22,7 @@ vsftpd是一款运行在Linux操作系统上的FTP服务程序，具有很高的
   
 
 非容器部署：  
-部署流程可看avatar-cd或者sftp.sh文件  
+部署流程可看sftp.sh文件  
 
 容器部署：  
 [stilliard/pure-ftpd - Docker Image | Docker Hub](https://hub.docker.com/r/stilliard/pure-ftpd)
