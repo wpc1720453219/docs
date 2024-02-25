@@ -1,6 +1,6 @@
 ## 服务器初始化脚本
 1. 设置主机名
-2. 配置dns，服务器：http://10.60.44.54:5380
+2. 配置dns，服务器：http://192.168.0.54:5380
 3. 禁用防火墙、selinux
 4. 换ssh端口/密码
 5. 改内核参数
@@ -46,7 +46,7 @@ cat /etc/sysconfig/network-scripts/ifcfg-$env_ifname
 #清空dns
 sed -i '/DNS1=.*/d' /etc/sysconfig/network-scripts/ifcfg-$env_ifname
 #配置内网dns
-sed -i '$a\DNS1=10.60.44.54' /etc/sysconfig/network-scripts/ifcfg-$env_ifname
+sed -i '$a\DNS1=192.168.0.54' /etc/sysconfig/network-scripts/ifcfg-$env_ifname
 cat /etc/sysconfig/network-scripts/ifcfg-$env_ifname
 # 【注意】确认输出无误，才重启网卡，否则ssh连不上网，需要到机房
 systemctl restart network
@@ -94,7 +94,7 @@ systemctl restart sshd.service
 
 
 
-## 配置保融内网yum源
+## 配置内网yum源
 
 ```shell
 env_date=`date +"%Y-%m-%d"`
@@ -104,43 +104,43 @@ mkdir /etc/yum.repos.d
 cat > /etc/yum.repos.d/fingard.repo <<EOF
 [base]
 name=base
-baseurl=http://10.60.44.54:8081/repository/TsingYumProxy/centos/\$releasever/os/\$basearch/
+baseurl=http://192.168.0.54:8081/repository/TsingYumProxy/centos/\$releasever/os/\$basearch/
 enabled=1  ## 当某个软件仓库被配置成 enabled=0 时，yum 在安装或升级软件包时不会将该仓库做为软件包提供源。使用这个选项，可以启用或禁用软件仓库 默认是1;设置enabled = 0，这样就可以禁用priorities插件。从而能够安装任意源上的包。
 gpgcheck=0 ##/ 有1和0两个选择，分别代表是否进行gpg(GNU Private Guard) 校验，以确定rpm 包的来源是有效和安全的。这个选项如果设置在[main]部分，则对每个repository 都有效。默认值为0。
 priority=0  ## priority=N   # N的值为1-99；数字越低优先级越高，数字越大优先级越低，安装包选择优先级高的开始安装。
  
 [updates]
 name=updates
-baseurl=http://10.60.44.54:8081/repository/TsingYumProxy/centos/\$releasever/updates/\$basearch/
+baseurl=http://192.168.0.54:8081/repository/TsingYumProxy/centos/\$releasever/updates/\$basearch/
 enabled=1
 gpgcheck=0
 priority=0
  
 [extras]
 name=extras
-baseurl=http://10.60.44.54:8081/repository/TsingYumProxy/centos/\$releasever/extras/\$basearch/
+baseurl=http://192.168.0.54:8081/repository/TsingYumProxy/centos/\$releasever/extras/\$basearch/
 enabled=1
 gpgcheck=0
 priority=0
  
 [epel]
 name=epel
-baseurl=http://10.60.44.54:8081/repository/TsingYumProxy/epel/7/\$basearch
+baseurl=http://192.168.0.54:8081/repository/TsingYumProxy/epel/7/\$basearch
 enabled=1
 gpgcheck=0
 priority=0
  
 [docker-ce]
 name=docker-ce
-baseurl=http://10.60.44.54:8081/repository/TsingYumProxy/docker-ce/linux/centos/\$releasever/\$basearch/stable
+baseurl=http://192.168.0.54:8081/repository/TsingYumProxy/docker-ce/linux/centos/\$releasever/\$basearch/stable
 enabled=1
 gpgcheck=0
 priority=0
-gpgkey=http://10.60.44.54:8081/repository/TsingYumProxy/docker-ce/linux/centos/gpg
+gpgkey=http://192.168.0.54:8081/repository/TsingYumProxy/docker-ce/linux/centos/gpg
  
 [kubernetes]
 name=kubernetes
-baseurl=http://10.60.44.54:8081/repository/TsingYumProxy/kubernetes/yum/repos/kubernetes-el7-\$basearch
+baseurl=http://192.168.0.54:8081/repository/TsingYumProxy/kubernetes/yum/repos/kubernetes-el7-\$basearch
 enabled=1
 gpgcheck=0
 repo_gpgcheck=0
@@ -149,7 +149,7 @@ gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
  
 [elrepo]
 name=ELRepo.org Community Enterprise Linux Repository - el7
-baseurl=http://10.60.44.54:8081/repository/TsingYumProxy/elrepo/elrepo/el7/\$basearch/
+baseurl=http://192.168.0.54:8081/repository/TsingYumProxy/elrepo/elrepo/el7/\$basearch/
 mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo.el7
 enabled=1
 gpgcheck=0
@@ -157,7 +157,7 @@ protect=0
  
 [elrepo-kernel]
 name=ELRepo.org Community Enterprise Linux Kernel Repository - el7
-baseurl=http://10.60.44.54:8081/repository/TsingYumProxy/elrepo/kernel/el7/\$basearch/
+baseurl=http://192.168.0.54:8081/repository/TsingYumProxy/elrepo/kernel/el7/\$basearch/
 mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo-kernel.el7
 enabled=0
 gpgcheck=0
@@ -321,7 +321,7 @@ sysctl -p /etc/sysctl.d/k8s.conf
 ## 设置ntp
 
 ```shell
-export conf_ntp_server_ip="10.60.44.214"
+export conf_ntp_server_ip="192.168.0.214"
  
 cat << EOF > /etc/ntp.conf
 driftfile /var/lib/ntp/drift
@@ -372,11 +372,11 @@ yum install -y docker-ce kubectl
 # 配置dockerd
 echo '起docker daemon'
 mkdir -p /etc/docker/
-# 在/etc/hosts 里面加一条: 10.60.44.54 k8s-test
+# 在/etc/hosts 里面加一条: 192.168.0.54 k8s-test
 cat << EOF > /etc/docker/daemon.json
 {
     "registry-mirrors": ["http://k8s-test:4801"],
-    "insecure-registries":["k8s-test:4800", "k8s-test:4801","10.60.44.127:4800","dx.fingard.com:4800"],
+    "insecure-registries":["k8s-test:4800", "k8s-test:4801","192.168.0.127:4800","dx.fingard.com:4800"],
     "max-concurrent-downloads": 20,
     "log-opts": {
        "max-size": "500m",
