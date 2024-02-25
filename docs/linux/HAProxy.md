@@ -42,7 +42,4 @@ HAProxy提供了L4(TCP)和L7(HTTP)两种负载均衡能力，具备丰富的功�
 
 
 
-作者：kelgon
 链接：https://www.jianshu.com/p/c9f6d55288c0
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
