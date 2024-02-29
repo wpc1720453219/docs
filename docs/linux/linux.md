@@ -1,5 +1,5 @@
 ## linux 核心命令
-### 快速在一个文件夹起一个http服务器：
+### 快速在一个文件夹起一个http服务器[ide](..%2Fide)：
 ```shell
 npm i -g -d serve ; serve -p 5000  
 python2 -m SimpleHTTPServer 5000  
