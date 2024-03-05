@@ -372,7 +372,9 @@ public class TeacherDaoProxy implements ITeacherDao {
     }
 }
 ```
-![img_12.png](img_12.png)
+![img_12.png](img_12.png)  
+Cglib 包的底层是通过使用字节码处理框架 ASM 来转换字节码并生成新的类  
+
 
 
 ![img_15.png](img_15.png)
