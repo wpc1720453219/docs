@@ -23,7 +23,7 @@ kind: Namespace
 # api通用字段
 metadata:
   # 名称
-  name: luna-sunht-dev
+  name: luna-pc-dev
 ```
 
 ### redis
@@ -38,7 +38,7 @@ metadata:
   # 名称
   name: redis
   # 命名空间
-  namespace: luna-sunht-dev
+  namespace: luna-pc-dev
 # 这个api特有的字段
 spec:
   # NodePort类型可以提供端口映射，把k8s内部的端口映射到所有宿主机
@@ -62,7 +62,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis
-  namespace: luna-sunht-dev
+  namespace: luna-pc-dev
 spec:
   # 选择器，这个是固定格式，一般不变
   selector:
@@ -129,7 +129,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: zookeeper
-  namespace: luna-sunht-dev
+  namespace: luna-pc-dev
 spec:
   # 这里使用默认的Service类型：ClusterIP，这个只能k8s内部访问
   ports:
@@ -143,7 +143,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: zookeeper
-  namespace: luna-sunht-dev
+  namespace: luna-pc-dev
 spec:
   selector:
     matchLabels:
@@ -190,7 +190,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nacos
-  namespace: luna-sunht-dev
+  namespace: luna-pc-dev
   labels:
     app: nacos
 spec:
@@ -205,11 +205,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: nacos
-  namespace: luna-sunht-dev
+  namespace: luna-pc-dev
 spec:
   rules:
       # 通过这个域名，把http服务映射出去
-    - host: "nacos.luna-sunht-dev.sunht.xyyweb.vm"
+    - host: "nacos.luna-pc-dev.pc.xyyweb.vm"
       http:
         paths:
           - backend:
@@ -225,7 +225,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nacos
-  namespace: luna-sunht-dev
+  namespace: luna-pc-dev
 spec:
   selector:
     matchLabels:
@@ -256,7 +256,7 @@ spec:
             - name: MYSQL_SERVICE_PORT
               value: "3306"
             - name: MYSQL_SERVICE_DB_NAME
-              value: "luna_sunht_dev_nacos"
+              value: "luna_pc_dev_nacos"
             - name: MYSQL_SERVICE_USER
               value: "root"
             - name: MYSQL_SERVICE_PASSWORD
@@ -275,9 +275,9 @@ spec:
 redis：
 redis:6379
 简单域名，也就是service名称
-redis.luna-sunht-dev:6379
+redis.luna-pc-dev:6379
 带上命名空间
-redis.luna-sunht-dev.svc.cluster.local:6379
+redis.luna-pc-dev.svc.cluster.local:6379
 全路径域名
 zookeeper：
 zookeeper:2181
@@ -291,7 +291,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: ui
-  namespace: luna-sunht-dev
+  namespace: luna-pc-dev
 data:
   # configmap典型的k-v格式
   holder: "占位符"
@@ -360,7 +360,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: gateway
-  namespace: luna-sunht-dev
+  namespace: luna-pc-dev
   labels:
     app: gateway
 spec:
@@ -374,7 +374,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ui
-  namespace: luna-sunht-dev
+  namespace: luna-pc-dev
   labels:
     app: ui
 spec:
@@ -388,10 +388,10 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ui
-  namespace: luna-sunht-dev
+  namespace: luna-pc-dev
 spec:
   rules:
-    - host: "ui.luna-sunht-dev.sunht.xyyweb.vm"
+    - host: "ui.luna-pc-dev.pc.xyyweb.vm"
       http:
         paths:
           - backend:
@@ -407,7 +407,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ui
-  namespace: luna-sunht-dev
+  namespace: luna-pc-dev
 spec:
   selector:
     matchLabels:
@@ -421,7 +421,7 @@ spec:
       containers:
         - name: ui
           # 这里填全路径的镜像名，由于不知道最新版是多少，初始化的时候一般用latest
-          image: 192.168.10.104:4800/luna-sunht-dev/ui:latest
+          image: 192.168.10.104:4800/luna-pc-dev/ui:latest
           ports:
             - containerPort: 80
               name: http
@@ -457,21 +457,21 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: java-common-config
-  namespace: luna-sunht-dev
+  namespace: luna-pc-dev
 data:
   # configmap典型的k-v格式
   holder: "占位符"
   # 【>-】符号下面可以是多行文本，这段多行文本会自动删除换行符、替换为空格。参考教程：【https://ruanyifeng.com/blog/2016/07/yaml.html】
   ENV_JVM_FLAGS: >-
-    -Dspring.cloud.nacos.server-addr=nacos.luna-sunht-dev:8848
+    -Dspring.cloud.nacos.server-addr=nacos.luna-pc-dev:8848
     -Dspring.cloud.nacos.username=nacos
     -Dspring.cloud.nacos.password=nacos
     -Dspring.cloud.nacos.config.group=1.3
     -Dspring.cloud.nacos.config.shared-configs[0].data-id=PUBLIC-COMMON.properties
     -Dspring.cloud.nacos.config.shared-configs[0].refresh=false
     -Dspring.cloud.nacos.config.shared-configs[0].group=1.3
-    -Dspring.cloud.nacos.discovery.namespace=luna-sunht-dev
-    -Dspring.cloud.nacos.config.namespace=luna-sunht-dev
+    -Dspring.cloud.nacos.discovery.namespace=luna-pc-dev
+    -Dspring.cloud.nacos.config.namespace=luna-pc-dev
     -Dluna.framework.starter.configcenter.nacos.enable=true
 ---
 
@@ -479,7 +479,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: gateway
-  namespace: luna-sunht-dev
+  namespace: luna-pc-dev
   labels:
     app: gateway
 spec:
@@ -493,10 +493,10 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: gateway
-  namespace: luna-sunht-dev
+  namespace: luna-pc-dev
 spec:
   rules:
-    - host: "gateway.luna-sunht-dev.sunht.xyyweb.vm"
+    - host: "gateway.luna-pc-dev.pc.xyyweb.vm"
       http:
         paths:
           - backend:
@@ -512,7 +512,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gateway
-  namespace: luna-sunht-dev
+  namespace: luna-pc-dev
 spec:
   selector:
     matchLabels:
@@ -525,7 +525,7 @@ spec:
     spec:
       containers:
         - name: gateway
-          image: 192.168.10.104:4800/luna-sunht-dev/gateway:latest
+          image: 192.168.10.104:4800/luna-pc-dev/gateway:latest
           ports:
             - containerPort: 8080
               name: http
@@ -842,7 +842,7 @@ spec:
   # 映射规则，可以填多个，不过一般填一个
   rules:
       # 域名，后面必需跟上域名通配
-    - host: kuboard.sunht.xyyweb.vm
+    - host: kuboard.pc.xyyweb.vm
       # http映射
       http:
         # http的路径，可以填多个，不过一般只填根路径【/】

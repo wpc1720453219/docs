@@ -25,7 +25,7 @@ rabbitmq-plugins list
 
 ## spring amqp下的用法
 原始用法参考官方github文档，这里只介绍spring rabbitTemplate下的用法。
-demo项目地址[mq-demo](http://gitlab.xyyweb.cn/sunht/mq-demo)，
+demo项目地址[mq-demo](http://gitlab.xyyweb.cn/pc/mq-demo)，
 关于延时队列的内容都在包`com.example.sht.mq.mqdemo.wait`里面，
 测试方法`com.example.sht.mq.mqdemo.wait.MessageWaitTest#testDelay`
 

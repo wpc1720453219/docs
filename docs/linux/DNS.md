@@ -34,7 +34,7 @@ server=/company/10.0.0.1
 address=/myhost.company/10.0.0.2
  
 # 一些自定义配置
-address=/.sunht.xyyweb.cn/192.168.10.104
+address=/.pc.xyyweb.cn/192.168.10.104
  
 EOF
  
@@ -68,11 +68,11 @@ docker logs -f dnsmasq
 #验证
 #windows启动cmd命令行
 # 指定域名验证
-nslookup sunht.xyyweb.vm
-ping sunht.xyyweb.vm
+nslookup pc.xyyweb.vm
+ping pc.xyyweb.vm
 # 通配域名验证
-nslookup aaa.sunht.xyyweb.vm
-ping aaa.sunht.xyyweb.vm
+nslookup aaa.pc.xyyweb.vm
+ping aaa.pc.xyyweb.vm
 ```
 
 ### linux主机 配置创建好的dns服务器

@@ -8,7 +8,7 @@ wget -O /usr/local/bin/k3s http://10.60.44.54:8000/download/pkg/k3s/v1.22.5%2Bk3
 chmod +x /usr/local/bin/k3s
   
 curl -sfL https://get.k3s.io | INSTALL_K3S_SKIP_DOWNLOAD=true INSTALL_K3S_MIRROR=cn INSTALL_K3S_VERSION="v1.22.5+k3s1" sh -s - server \
-  --datastore-endpoint="mysql://root:xyyweb1@tcp(192.168.10.104:3306)/sunht_k3s" \
+  --datastore-endpoint="mysql://root:xyyweb1@tcp(192.168.10.104:3306)/pc_k3s" \
   --docker \
   --service-node-port-range="10000-32767" \
   --write-kubeconfig-mode=644
@@ -27,7 +27,7 @@ curl -sfL http://rancher-mirror.cnrancher.com/k3s/k3s-install.sh | INSTALL_K3S_M
 
 从节点：
 获取token
-这里在主节点 k8s-sunht-104 执行
+这里在主节点 k8s-pc-104 执行
 
 在主机点文件/var/lib/rancher/k3s/server/token内，【server:】后面的部分
 ```shell
@@ -39,7 +39,7 @@ cat /var/lib/rancher/k3s/server/token | tr ':' '\n' | tail -n 1
 
 
 ```shell
-# k8s-sunht-102服务器执行
+# k8s-pc-102服务器执行
 wget -O /usr/local/bin/k3s http://10.60.44.54:8000/download/pkg/k3s/v1.22.5%2Bk3s1/k3s
 chmod +x /usr/local/bin/k3s
   

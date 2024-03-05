@@ -14,7 +14,7 @@ docker run -d --name yapi-prod \
     -e TZ=Asia/Shanghai \
     --restart=always \
     -p 3000:3000 \
-    -e YAPI_ADMIN_ACCOUNT=sunht@xyyweb.com \
+    -e YAPI_ADMIN_ACCOUNT=pc@xyyweb.com \
     -e YAPI_ADMIN_PASSWORD=* \
     -e YAPI_CLOSE_REGISTER=true \
     -e YAPI_NPM_REGISTRY=https://registry.npm.taobao.org \

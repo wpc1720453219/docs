@@ -1,12 +1,12 @@
 ## redis
 ```shell
-docker rm -f luna-sunht-dev-redis
-docker run -d --name luna-sunht-dev-redis \
+docker rm -f luna-pc-dev-redis
+docker run -d --name luna-pc-dev-redis \
   -p 6379:6379 \
   -e TZ=Asia/Shanghai \
   --restart=always \
   redis:5.0.13
-docker logs -f luna-sunht-dev-redis
+docker logs -f luna-pc-dev-redis
 ```
 ### 废弃
 ```shell
@@ -19,13 +19,13 @@ docker run -p 6380:6379 --name myredis \
 
 ## zookeeper
 ```shell
-docker rm -f luna-sunht-dev-zookeeper
-docker run -d --name luna-sunht-dev-zookeeper \
+docker rm -f luna-pc-dev-zookeeper
+docker run -d --name luna-pc-dev-zookeeper \
   -p 2181:2181 \
   -e TZ=Asia/Shanghai \
   --restart=always \
   zookeeper:3.6.3
-docker logs -f luna-sunht-dev-zookeeper
+docker logs -f luna-pc-dev-zookeeper
 ```
 
 ## mysql
@@ -57,8 +57,8 @@ chmod 777 /home/xyyweb/nacos/docker-data
  
 docker pull nacos/nacos-server:1.4.2
  
-docker rm -f luna-sunht-dev-nacos
-docker run -d --name luna-sunht-dev-nacos \
+docker rm -f luna-pc-dev-nacos
+docker run -d --name luna-pc-dev-nacos \
   -p 8848:8848 \
   -v /home/xyyweb/nacos/docker-data:/home/nacos/data \
   -e MODE=standalone \
@@ -66,7 +66,7 @@ docker run -d --name luna-sunht-dev-nacos \
   --restart=always \
   nacos/nacos-server:1.4.2
  
-docker logs -f luna-sunht-dev-nacos
+docker logs -f luna-pc-dev-nacos
 ```
 ### nacos  mysql数据库
 ```shell

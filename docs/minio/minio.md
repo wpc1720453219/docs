@@ -44,7 +44,7 @@ curl --output mc http://10.60.52.141:3000/mc
 chmod +x mc
 mc config host add myminio http://10.60.44.54:8000 tfp xyyweb@2 --api S3v4
 mc admin policy list myminio
-mc admin policy set myminio consoleAdmin user="cn=sunht,ou=user,dc=xyyweb,dc=com"
+mc admin policy set myminio consoleAdmin user="cn=pc,ou=user,dc=xyyweb,dc=com"
 mc admin policy set myminio consoleAdmin group="cn=HX,ou=group,dc=xyyweb,dc=com"
 mc admin policy set myminio consoleAdmin group="cn=xyyweb,ou=group,dc=xyyweb,dc=com"
 mc admin policy set myminio consoleAdmin group="cn=xyyweb,ou=crowd,ou=group,dc=xyyweb,dc=com"

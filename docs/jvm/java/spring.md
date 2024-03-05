@@ -111,7 +111,7 @@ prototype的多例bean，会在gc的时候回收掉，如果没地方引用的�
 1. [《Spring Cloud与Docker微服务架构实战 第二版》1-11章配套代码](https://gitee.com/itmuch/spring-cloud-docker-microservice-book-code)
     1. [博客](http://www.itmuch.com/)
     1. [Zuul相关文章](http://www.itmuch.com/tags/Zuul/)
-1. [consul和zuul使用的demo - sunht](http://gitlab.xyyweb.cn/sunht/spring-cloud-h-demo.git)
+1. [consul和zuul使用的demo - pc](http://gitlab.xyyweb.cn/pc/spring-cloud-h-demo.git)
 1. [spring cloud starter：可以到这里看spring cloud与boot对应的版本](https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter)
 1. [spring cloud与dubbo网络传输性能对比](https://www.cnblogs.com/chen110xi/p/6349580.html)
 
