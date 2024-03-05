@@ -4,14 +4,14 @@ wiki可用作知识库，和blog的概念有点不一样，wordpress是典型的
 ## wiki 知识库
 1. [Confluence](https://www.atlassian.com/zh/software/confluence)
     1. [JIRA8 Confluence7 Ubuntu安装](http://iyiguo.net/blog/2020/01/04/jira8-confluence7-ubuntu-install/)
-1. [Fingard Confluence - 公司已经搭建在用了的](http://dx.fingard.com:6002/)
+1. [xyyweb Confluence - 公司已经搭建在用了的](http://dx.xyyweb.com:6002/)
 1. [为什么都认为confluence非常好，好在哪里？ - 知乎](https://www.zhihu.com/question/326681142)
 1. [WikiMatrix - 各种wiki产品的比较](https://www.wikimatrix.org/)
 1. [blog、wiki、项目管理和项目知识管理](https://blog.csdn.net/fantasyagain/article/details/47040857)
     - wiki和blog间微妙的差别
 
 ## blog 博客
-1. [WordPress](http://saas.gitlab.fingard.cn/document/deployment/wordpress.html)
+1. [WordPress](http://saas.gitlab.xyyweb.cn/document/deployment/wordpress.html)
 1. [Hexo](https://hexo.io/zh-cn/)
 
 ## api接口文档

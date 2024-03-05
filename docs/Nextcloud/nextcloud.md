@@ -78,7 +78,7 @@ Options:
 
 nextcloud自带ldap插件，不过默认是禁用状态，在应用管理里面启用即可。
 
-nextcloud已经和云效的ldap对接，用jira用户密码登录过一次云效后，可以用jira用户密码登录nextcloud。 云效地址：<http://avatar.luna.fingard.cn/> nextcloud地址：<http://10.60.44.54:8001/>
+nextcloud已经和云效的ldap对接，用jira用户密码登录过一次云效后，可以用jira用户密码登录nextcloud。 云效地址：<http://avatar.luna.xyyweb.cn/> nextcloud地址：<http://10.60.44.54:8001/>
 
 ![Snipaste_2022-09-03_15-45-03](.\img\Snipaste_2022-09-03_15-45-03.png)
 

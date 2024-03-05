@@ -37,7 +37,7 @@
     1. [kibana页面搜索框查询语法](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/query-dsl-query-string-query.html#query-string-syntax)    
 1. [kibana 6.x中文文档 (这个除了上面那个新增查询语法外，基本都有翻译)](https://www.elastic.co/guide/cn/kibana/current/index.html)
 1. [kibana 7.x官方支持中文界面](https://www.elastic.co/guide/en/kibana/current/i18n-settings-kb.html)
-    1. [kibana 7.x搭建的样例地址](http://efk7.k8s.fingard.cn/)
+    1. [kibana 7.x搭建的样例地址](http://efk7.k8s.xyyweb.cn/)
     1. [同时skywalking 6.6也支持es 7了](http://skywalking.apache.org/downloads/)
 1. [kibana 7在docker下启动](https://www.elastic.co/guide/en/kibana/7.x/docker.html)
 #### filebeat

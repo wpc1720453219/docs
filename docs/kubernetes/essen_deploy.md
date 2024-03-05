@@ -90,7 +90,7 @@ kubectl apply -f 1.user-management-platform.yaml
 如果是更新项目的话，直接更新已部署的deployment即可
 
 ```bash
-kubectl --namespace=essen-product set image deployments/user-management-platform user-management-platform=k8s-test:4800/com.fingard.essen/user-management-platform-provider:$BUILD_TAG
+kubectl --namespace=essen-product set image deployments/user-management-platform user-management-platform=k8s-test:4800/com.xyyweb.essen/user-management-platform-provider:$BUILD_TAG
 kubectl --namespace=essen-product rollout status deployments/user-management-platform
 ```
 

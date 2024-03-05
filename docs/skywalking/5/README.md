@@ -9,8 +9,8 @@ Skywalking 5版本的一些信息，正在使用的版本，但新项目不建�
 
 - [Skywalking 5 安装文档](install.md)
 - [Skywalking 5 界面功能截图](manual.md)
-- [公司内部改造版的源码地址](http://gitlab.fingard.cn/rdp/skywalking-FG/tree/5.0.0-GA-FG-SNAPSHOT)
-- [官方中文文档](http://gitlab.fingard.cn/rdp/skywalking-FG/tree/5.0.0-GA-FG-SNAPSHOT/docs/README_ZH.md)
+- [公司内部改造版的源码地址](http://gitlab.xyyweb.cn/rdp/skywalking-FG/tree/5.0.0-GA-FG-SNAPSHOT)
+- [官方中文文档](http://gitlab.xyyweb.cn/rdp/skywalking-FG/tree/5.0.0-GA-FG-SNAPSHOT/docs/README_ZH.md)
 
 
 ### 现在公司改造的版本(skywalking 5)支持的组件

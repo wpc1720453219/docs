@@ -10,10 +10,10 @@ webflux是基于Reactor的。
 1. [Reactor](https://projectreactor.io/)
 1. [官方系列文档](https://projectreactor.io/docs)
 1. [reactor github](https://github.com/reactor/reactor-core)
-1. [Spring Reactor 3 中文文档](http://devops.gitlab.fingard.cn/docs/actor/spring-reactor-core-zh-doc/reference.html)
+1. [Spring Reactor 3 中文文档](http://devops.gitlab.xyyweb.cn/docs/actor/spring-reactor-core-zh-doc/reference.html)
     - 较旧，有些错误，但能看
     1. [中文文档 远程](http://htmlpreview.github.io/?https://github.com/get-set/reactor-core/blob/master-zh/src/docs/index.html)
-1. [如何包装一个同步阻塞的调用？](http://devops.gitlab.fingard.cn/docs/actor/spring-reactor-core-zh-doc/reference.html#faq.wrap-blocking)
+1. [如何包装一个同步阻塞的调用？](http://devops.gitlab.xyyweb.cn/docs/actor/spring-reactor-core-zh-doc/reference.html#faq.wrap-blocking)
     - 实在没办法改动的同步阻塞变异步教程
 1. [BlockHound：Project Reactor阻塞检测技术](https://github.com/reactor/BlockHound)
 

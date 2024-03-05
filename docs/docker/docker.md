@@ -12,8 +12,8 @@ docker logs -f luna-sunht-dev-redis
 ```shell
 # 可以将文件映射出来
 docker run -p 6380:6379 --name myredis \
--v /home/fingard/redis/redis.conf:/etc/redis/redis.conf \
--v /home/fingard/redis/data:/data
+-v /home/xyyweb/redis/redis.conf:/etc/redis/redis.conf \
+-v /home/xyyweb/redis/data:/data
 -d redis redis-server /etc/redis/redis.conf --appendonly yes
 ```
 
@@ -36,7 +36,7 @@ chmod 777 /data/mysql/data
 docker rm -f mysql
 docker run -d --name mysql \
   -p 3306:3306 \
-  -e MYSQL_ROOT_PASSWORD=fingard1 \
+  -e MYSQL_ROOT_PASSWORD=xyyweb1 \
   -v /data/mysql/data:/var/lib/mysql \
   -e TZ=Asia/Shanghai \
   --restart=always \
@@ -52,15 +52,15 @@ docker logs -f mysql
 ## nacos
 ### nacos 默认h2数据库
 ```shell
-mkdir -p /home/fingard/nacos/docker-data
-chmod 777 /home/fingard/nacos/docker-data
+mkdir -p /home/xyyweb/nacos/docker-data
+chmod 777 /home/xyyweb/nacos/docker-data
  
 docker pull nacos/nacos-server:1.4.2
  
 docker rm -f luna-sunht-dev-nacos
 docker run -d --name luna-sunht-dev-nacos \
   -p 8848:8848 \
-  -v /home/fingard/nacos/docker-data:/home/nacos/data \
+  -v /home/xyyweb/nacos/docker-data:/home/nacos/data \
   -e MODE=standalone \
   -e TZ=Asia/Shanghai \
   --restart=always \
@@ -122,8 +122,8 @@ nacos.naming.expireInstance=true
 ##RabbitMQ 3.8.23
 ```shell
 # 多了延时队列插件
-mkdir -p /home/fingard/rabbitmq38-5672/data
-chmod 777 /home/fingard/rabbitmq38-5672/data
+mkdir -p /home/xyyweb/rabbitmq38-5672/data
+chmod 777 /home/xyyweb/rabbitmq38-5672/data
   
 docker rm -f rabbitmq38-5672
   
@@ -133,9 +133,9 @@ docker run -d --name rabbitmq38-5672 \
     -p 15672:15672 \
     -p 5672:5672 \
     -e RABBITMQ_DEFAULT_USER=rabbit \
-    -e RABBITMQ_DEFAULT_PASS=fingard@2 \
+    -e RABBITMQ_DEFAULT_PASS=xyyweb@2 \
     -e TZ=Asia/Shanghai \
-    -v /home/fingard/rabbitmq38-5672/data:/var/lib/rabbitmq/mnesia/rabbit\@rabbit38 \
+    -v /home/xyyweb/rabbitmq38-5672/data:/var/lib/rabbitmq/mnesia/rabbit\@rabbit38 \
     rabbit:3.8.23-fg1-delay
 docker logs -f rabbitmq38-5672
 ```
@@ -157,11 +157,11 @@ docker run \
 --name nginx  \
 -e TZ=Asia/Shanghai \
 --restart always \
--v /home/fingard/nginx/nginx.conf:/etc/nginx/nginx.conf \
--v /home/fingard/nginx/conf:/etc/nginx/conf.d \
--v /home/fingard/nginx/log:/var/log/nginx \
--v /home/fingard/nginx/html:/usr/share/nginx/html \
--v /home/fingard/nginx/keys:/etc/nginx/keys \
+-v /home/xyyweb/nginx/nginx.conf:/etc/nginx/nginx.conf \
+-v /home/xyyweb/nginx/conf:/etc/nginx/conf.d \
+-v /home/xyyweb/nginx/log:/var/log/nginx \
+-v /home/xyyweb/nginx/html:/usr/share/nginx/html \
+-v /home/xyyweb/nginx/keys:/etc/nginx/keys \
 -d nginx:1.22.0
 ```
 ### nginx.conf
@@ -230,7 +230,7 @@ docker run --name seata-server \
         -p 8091:8091 \
         -e SEATA_IP=192.168.0.128 \
         -e SEATA_CONFIG_NAME=file:/root/seata-config/registry \
-        -v /home/fingard/seata:/root/seata-config  \
+        -v /home/xyyweb/seata:/root/seata-config  \
         -d seataio/seata-server:1.4.2
 ```
 
@@ -367,7 +367,7 @@ docker run -d --name skywalking-oap-server --restart=always \
   -e SW_STORAGE=mysql \
   -e SW_JDBC_URL="jdbc:mysql://192.168.10.103:3306/skywalking?useSSL=false" \
   -e SW_DATA_SOURCE_USER=root \
-  -e SW_DATA_SOURCE_PASSWORD=fingard1\
+  -e SW_DATA_SOURCE_PASSWORD=xyyweb1\
   -e SW_DATA_SOURCE_CACHE_PREP_STMTS="true" \
   -e SW_DATA_SOURCE_PREP_STMT_CACHE_SQL_SIZE=250 \
   -e SW_DATA_SOURCE_PREP_STMT_CACHE_SQL_LIMIT=2048 \

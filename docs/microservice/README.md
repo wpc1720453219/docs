@@ -71,13 +71,13 @@
 
 ![img](./images/38869216aa7b45c9603fe2da575ecb17.png)
 
-### [Docker](../kubernetes1/docker.md)
+### [Docker](../kubernetes/docker.md)
 `docker`提供运行时的隔离，把`操作系统`+`jdk`+`应用`+`启动方式`打包起来。
 docker的操作表现像虚拟机，但是里面跑着的应用的进程是跑在宿主里面的，docker仅仅是做了应用程序级别的隔离。
 
 ![ms21](./images/15172-20161225120509089-1131898325.png)
 
-### [Kubernetes](../kubernetes1/README.md)
+### [Kubernetes](../kubernetes/README.md)
 至于`kubernetes`（俗称`k8s`）是docker的集群管理软件，docker，不算上内置的另一个docker集群管理swarm的话，是没有集群功能的：
 不能跨主机网络访问，不能跨主机调度；swarm更简单，但之所以选择它，是因为kubernetes比swarm功能更全面、更强大。
 

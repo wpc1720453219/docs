@@ -6,7 +6,7 @@
 - [Skywalking 6 安装文档](install.md)
 - [Skywalking 6 界面功能截图](manual.md)
 - [Skywalking 6 java代码端的使用](./use-in-java.md)
-    - [扩展项目gitlab地址](http://gitlab.fingard.cn/rdp/skywalking-FG)
+    - [扩展项目gitlab地址](http://gitlab.xyyweb.cn/rdp/skywalking-FG)
     - 包括手动获取traceid、手动添加trace、跨线程、日志添加traceId等
 - [Skywalking 6 FAQ](./faq.md)
 - [~~现在弃用的 Skywalking 5 版本~~](./5/README.md)

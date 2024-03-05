@@ -342,22 +342,39 @@ jdk中Calender类中时间类
 
 ![img_11.png](img_11.png)
 
-这三种工厂模式：将实例化对象的代码提取出来，方到一个类中统一管理与维护。  
-
+这三种工厂模式：将实例化对象的代码提取出来，放到一个工厂类中统一管理与维护。工厂类一般就是被设计为单例  
 ### 原型模式
 其实就是浅拷贝和深拷贝  
 深拷贝可以通过创建新的对象赋值或者 序列化拷贝   
 
 ### 适配器模式  
 ![img_13.png](img_13.png)  
-感觉像是从适配器类的方法实现返回另外个被适配器类的数据。 
+感觉像是从适配器类的新接口的方法里 获取被适配器类的数据修改成新接口需要的数据 
 
 ### 代理模式  
-代理模式： 为一个对象提供一个替身，以控制对这个对象的使用，即通过代理对象访问目标对象，这样做的好处是：
+代理模式： 为一个对象提供一个替身，以控制对这个对象的使用，即通过代理对象访问目标对象，这样做的好处是：  
 可以在目标对象实现的基础上，增强额外的功能操作，即扩展目标对象的功能
+
+静态代理：代理类和被代理类需要实现相同接口。将被代理类传入代理类里，实现功能添加
+```java
+// public class TeacherDao implements ITeacherDao
+public class TeacherDaoProxy implements ITeacherDao {
+    private ITeacherDao target;
+
+    public TeacherDaoProxy(ITeacherDao target) {
+        this.target = target;
+    }
+
+    public void teach() {
+        System.out.println("开始代理  完成某些操作。。。。。 ");
+        this.target.teach();
+        System.out.println("提交。。。。。");
+    }
+}
+```
 ![img_12.png](img_12.png)
 
-### 策略模式
 
-
+![img_15.png](img_15.png)
+![img_16.png](img_16.png)
 

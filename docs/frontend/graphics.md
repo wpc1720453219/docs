@@ -39,7 +39,7 @@ yarn add @types/three --dev
 1. [three.js demo页面搜索points](https://threejs.org/examples/?q=points#webgl_points_sprites) ，
     可得几个类似[粒子波浪](https://threejs.org/examples/#webgl_points_waves) 的demo
 1. [官方示例源码：examples/webgl_points_waves](https://github.com/mrdoob/three.js/blob/dev/examples/webgl_points_waves.html)
-    1. [拷到本地的示例](http://devops.gitlab.fingard.cn/docs/frontend/threejs/points_waves/webgl_points_waves.html)
+    1. [拷到本地的示例](http://devops.gitlab.xyyweb.cn/docs/frontend/threejs/points_waves/webgl_points_waves.html)
 1. [vue 项目中引用three.js demo作为登录页的背景遇到的坑](https://blog.csdn.net/weixin_45455422/article/details/99627200)
     - 这个不是正规路子，上面有标准方法
     1. [three.js官网demo](https://threejs.org/examples/#webgl_points_waves)

@@ -41,12 +41,12 @@ CMD ["catalina.sh", "run"]
 把dockerfile及相关文件和编译好打好包的项目上传到有docker的远端服务器，`cd`到文件夹下
 
 ```bash
-docker build -f front.dockerfile -t k8s-test:4800/com.fingard/tomcat-example:1.0.0 .
+docker build -f front.dockerfile -t k8s-test:4800/com.xyyweb/tomcat-example:1.0.0 .
 ```
 
 上传镜像到私服
 ```bash
-docker push k8s-test:4800/com.fingard/tomcat-example:1.0.0
+docker push k8s-test:4800/com.xyyweb/tomcat-example:1.0.0
 ```
 #### 该方法点评
 以上步骤看似没什么毛病，但那个war包里面的参数是写死的，并且全部是手动的，仅仅改一个数据库的ip，都要从头开始再来一遍
@@ -114,7 +114,7 @@ ADD msfonts /usr/share/fonts/msfonts/
 ```
 镜像名：
 ```
-k8s-test:4800/com.fingard.baseimage/tomcat:saas-8.5-alpine
+k8s-test:4800/com.xyyweb.baseimage/tomcat:saas-8.5-alpine
 ```
 操作有：
 - 设置中国时区
@@ -189,7 +189,7 @@ k8s-test:4800/com.fingard.baseimage/tomcat:saas-8.5-alpine
                 </executions>
                 <configuration>
                     <from>
-                        <image>k8s-test:4800/com.fingard.baseimage/tomcat:saas-8.5-alpine</image>
+                        <image>k8s-test:4800/com.xyyweb.baseimage/tomcat:saas-8.5-alpine</image>
                     </from>
                     <to>
                         <image>${docker-registry-address}/${project.groupId}/${project.artifactId}</image>

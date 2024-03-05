@@ -32,7 +32,7 @@ this.execInInstallDir("${this.installPath}/bin/mysqld --defaults-file=${this.ins
 ```shell
 /home/avatar/fg-deploy/software/mysql/mysql-8.0.16-linux-glibc2.12-x86_64/bin/mysql --defaults-file=/home/avatar/fg-deploy/software/mysql/mysql-8.0.16-linux-glibc2.12-x86_64/my.cnf \
                                 -u root --skip-password -vv -e \
-                                "show databases;CREATE USER 'root'@'%' IDENTIFIED BY 'fingard123';GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';  flush privileges;"
+                                "show databases;CREATE USER 'root'@'%' IDENTIFIED BY 'xyyweb123';GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';  flush privileges;"
 ```
 --skip-password 跳过密码
 

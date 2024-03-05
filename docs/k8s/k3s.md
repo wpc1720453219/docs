@@ -8,7 +8,7 @@ wget -O /usr/local/bin/k3s http://10.60.44.54:8000/download/pkg/k3s/v1.22.5%2Bk3
 chmod +x /usr/local/bin/k3s
   
 curl -sfL https://get.k3s.io | INSTALL_K3S_SKIP_DOWNLOAD=true INSTALL_K3S_MIRROR=cn INSTALL_K3S_VERSION="v1.22.5+k3s1" sh -s - server \
-  --datastore-endpoint="mysql://root:fingard1@tcp(192.168.10.104:3306)/sunht_k3s" \
+  --datastore-endpoint="mysql://root:xyyweb1@tcp(192.168.10.104:3306)/sunht_k3s" \
   --docker \
   --service-node-port-range="10000-32767" \
   --write-kubeconfig-mode=644

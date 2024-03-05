@@ -11,7 +11,7 @@ docker run -d --name minio-9000 \
 -p 9001:9001 \
 -v /home/data/minio/:/data \
 -e "MINIO_ACCESS_KEY=avatar" \
--e "MINIO_SECRET_KEY=Fingard123" \
+-e "MINIO_SECRET_KEY=xyyweb123" \
 -e TZ=Asia/Shanghai \
 --restart=always \
 minio/minio server /data --console-address ":9001"
@@ -42,23 +42,23 @@ docker logs -f minio-8000
 cd /usr/local/bin/
 curl --output mc http://10.60.52.141:3000/mc
 chmod +x mc
-mc config host add myminio http://10.60.44.54:8000 tfp fingard@2 --api S3v4
+mc config host add myminio http://10.60.44.54:8000 tfp xyyweb@2 --api S3v4
 mc admin policy list myminio
-mc admin policy set myminio consoleAdmin user="cn=sunht,ou=user,dc=fingard,dc=com"
-mc admin policy set myminio consoleAdmin group="cn=HX,ou=group,dc=fingard,dc=com"
-mc admin policy set myminio consoleAdmin group="cn=Fingard,ou=group,dc=fingard,dc=com"
-mc admin policy set myminio consoleAdmin group="cn=Fingard,ou=crowd,ou=group,dc=fingard,dc=com"
+mc admin policy set myminio consoleAdmin user="cn=sunht,ou=user,dc=xyyweb,dc=com"
+mc admin policy set myminio consoleAdmin group="cn=HX,ou=group,dc=xyyweb,dc=com"
+mc admin policy set myminio consoleAdmin group="cn=xyyweb,ou=group,dc=xyyweb,dc=com"
+mc admin policy set myminio consoleAdmin group="cn=xyyweb,ou=crowd,ou=group,dc=xyyweb,dc=com"
 
 # openid配置，对接keycloak
 mc admin config set myminio identity_openid \
-   config_url="http://keycloak.main-data-prod.avatar.fingard.cn/auth/realms/MainData/.well-known/openid-configuration" \
+   config_url="http://keycloak.main-data-prod.avatar.xyyweb.cn/auth/realms/MainData/.well-known/openid-configuration" \
    client_id="minio" \
    client_secret="g4O5gjRm7IoU4nOhAp9of4yeboVMyDQw" \
    claim_name="policies" \
    claim_prefix="" \
    role_policy="" \
    scopes="openid email profile" \
-   redirect_uri="http://minio.avatar.fingard.cn/oauth_callback" \
+   redirect_uri="http://minio.avatar.xyyweb.cn/oauth_callback" \
    comment="Keycloak"
 mc admin service restart myminio 
  
@@ -86,7 +86,7 @@ docker run -d --name avatar-dev-minio \
   -p 8304:8304 \
   -v /data/avatar-dev-minio/data:/data \
   -e "MINIO_ACCESS_KEY=avatar" \
-  -e "MINIO_SECRET_KEY=fingard1" \
+  -e "MINIO_SECRET_KEY=xyyweb1" \
   -e TZ=Asia/Shanghai \
   --restart=always \
   minio/minio:RELEASE.2022-05-04T07-45-27Z \
@@ -199,7 +199,7 @@ mkdir -p /data/minio-etcd-bak
  ## 生成远程备份脚本
 cat << EOF > /data/minio-etcd-bak/mirror-start.sh
 set -ex
-mc config host add hadoop3 http://10.60.44.54:8000/ tfp fingard@2 --api S3v4
+mc config host add hadoop3 http://10.60.44.54:8000/ tfp xyyweb@2 --api S3v4
 mc mirror -w /data/minio-etcd-bak/etcd-bak hadoop3/luna-k8s-etcd-backup
 EOF
 chmod +x /data/minio-etcd-bak/mirror-start.sh

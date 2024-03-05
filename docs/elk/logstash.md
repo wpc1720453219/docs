@@ -206,7 +206,7 @@ filebeat.inputs:
   - type: log
     enabled: true
     paths:
-      - "D:/fingard/project/ats/BankLogs/202005/20/10/BOC01/**/*.txt"
+      - "D:/xyyweb/project/ats/BankLogs/202005/20/10/BOC01/**/*.txt"
     fields:
       appname: dsp
     fields_under_root: true

@@ -9,8 +9,8 @@
     1. [时区支持](https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html)
     1. [my.cnf使用说明](https://dev.mysql.com/doc/refman/5.7/en/option-files.html)
     1. [mysqld说明](https://dev.mysql.com/doc/refman/5.7/en/mysqld.html)
-1. [tfp项目 - mysql改造指南](http://saas.gitlab.fingard.cn/document/mysql/)
-1. [tfp项目 - Mysql部署信息](http://saas.gitlab.fingard.cn/document/deployment/mysql.html)
+1. [tfp项目 - mysql改造指南](http://saas.gitlab.xyyweb.cn/document/mysql/)
+1. [tfp项目 - Mysql部署信息](http://saas.gitlab.xyyweb.cn/document/deployment/mysql.html)
 ### 博客、帖子
 1. [mysql非交互执行sql](https://blog.csdn.net/Michael_lcf/article/details/103019734)
 1. [在MySQL 5.7日志时间与本地时间不一致的问题](https://www.cnblogs.com/if-then/p/7236686.html)

@@ -73,7 +73,7 @@ spring.datasource.platform=h2
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.fingard.rabbit.tfp</groupId>
+    <groupId>com.xyyweb.rabbit.tfp</groupId>
     <artifactId>cc-all</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>

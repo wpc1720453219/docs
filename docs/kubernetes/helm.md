@@ -23,8 +23,8 @@ helm completion bash > /usr/share/bash-completion/completions/helm
 helm repo add stable https://mirror.azure.cn/kubernetes/charts/
 # 中科大源
 # helm repo add stable https://kubernetes-charts.proxy.ustclug.org
-# fingard源
-helm repo add fingard http://devops.gitlab.fingard.cn/helm-charts
+# xyyweb源
+helm repo add xyyweb http://devops.gitlab.xyyweb.cn/helm-charts
 ```
 
 
@@ -35,8 +35,8 @@ helm repo add fingard http://devops.gitlab.fingard.cn/helm-charts
     helm install clunky-serval ./mychart/ 
     helm uninstall clunky-serval
     helm ls --all
-    helm show values fingard/tfp-war
-    helm search repo fingard
+    helm show values xyyweb/tfp-war
+    helm search repo xyyweb
     ```
 1. 试验chart
     ```bash
@@ -69,11 +69,11 @@ helm repo add fingard http://devops.gitlab.fingard.cn/helm-charts
 默认没缓存，只有最新版。
 
 #### 完整解决方案示例
-项目示例：[helm-charts](http://gitlab.fingard.cn/devops/helm-charts.git)
+项目示例：[helm-charts](http://gitlab.xyyweb.cn/devops/helm-charts.git)
 
-添加这个fingard源
+添加这个xyyweb源
 ```bash
-helm repo add fingard http://devops.gitlab.fingard.cn/helm-charts
+helm repo add xyyweb http://devops.gitlab.xyyweb.cn/helm-charts
 ```
 
 `.gitlab-ci.sh`内容：

@@ -18,7 +18,7 @@
 
 ### logback插件
 作用：把traceId打印到日志里面。
-[fingard-logback-plugin-6.3.0.jar](./plugins/fingard-logback-plugin-6.3.0.jar)
+[xyyweb-logback-plugin-6.3.0.jar](./plugins/xyyweb-logback-plugin-6.3.0.jar)
 
 然后把这个jar包放到`agent/plugins`文件夹下。
 

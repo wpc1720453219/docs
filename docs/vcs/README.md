@@ -14,10 +14,10 @@
 
 Git 全局设置
 git config --global user.name "孙恒涛"
-git config --global user.email "sunht@fingard.com"
+git config --global user.email "sunht@xyyweb.com"
 
 创建一个新仓库
-git clone http://gitlab.fingard.cn/sunht/push-test.git
+git clone http://gitlab.xyyweb.cn/sunht/push-test.git
 cd push-test
 touch README.md
 git add README.md
@@ -27,7 +27,7 @@ git push -u origin master
 推送现有文件夹
 cd existing_folder
 git init
-git remote add origin http://gitlab.fingard.cn/sunht/push-test.git
+git remote add origin http://gitlab.xyyweb.cn/sunht/push-test.git
 git add .
 git commit -m "Initial commit"
 git push -u origin master
@@ -36,14 +36,14 @@ git push -u origin master
 ```bash
 cd existing_repo
 git remote rename origin old-origin
-git remote add origin http://gitlab.fingard.cn/sunht/push-test.git
+git remote add origin http://gitlab.xyyweb.cn/sunht/push-test.git
 git push -u origin --all
 git push -u origin --tags
 
 ```
 
 ### gitlab ci
-- [gitlab ci 用户手册](http://gitlab.fingard.cn/help/ci/variables/README.md)
+- [gitlab ci 用户手册](http://gitlab.xyyweb.cn/help/ci/variables/README.md)
 里面包含示例、及注入runner的环境变量
 
 ## faq
@@ -55,7 +55,7 @@ git push -u origin --tags
 ```bash
 git clone --bare http://fg-sunhengtao:shXXX\!%40%23@bitbucket.mstech.com.cn:7990/scm/cmbs/acccore.git tfs
 cd tfs
-git push --mirror http://sunht:XXXXX@gitlab.fingard.cn/sunht/push-test2.git
+git push --mirror http://sunht:XXXXX@gitlab.xyyweb.cn/sunht/push-test2.git
 ```
 其他可能成功的方式的参考：
 1. [Sync two git repositories Jenkins Pipeline](https://stackoverflow.com/questions/46530742/sync-two-git-repositories-jenkins-pipeline)

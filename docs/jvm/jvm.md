@@ -220,7 +220,7 @@ JVM对一些特定的异常类型做了Fast Throw优化，如果检测到在代�
 | -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/opt/tmp/heapdump.txt | 在OOM时自动dump文件, 目录/文件名可自定义                |
 | ---------------------------------------- | ---------------------------------------- |
 | -Xloggc:/home/log/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps | 打印gc详情, 方便问题排查, 目录/文件名可自定义               |
-| -XX:+DisableExplicitGC                   | 禁止显示gc. 不添加可能会导致频繁fgc, 触发stw, 从而导致业务代码运行很慢, 参考[处理报告](http://jira.fingard.com:6002/pages/viewpage.action?pageId=64160024) |
+| -XX:+DisableExplicitGC                   | 禁止显示gc. 不添加可能会导致频繁fgc, 触发stw, 从而导致业务代码运行很慢, 参考[处理报告](http://jira.xyyweb.com:6002/pages/viewpage.action?pageId=64160024) |
 
 
 

@@ -1,6 +1,6 @@
 # Redis
 
-1. [Redis部署文档 内网](http://luna.gitlab.fingard.cn/luna-document/operations/redis/redis.html)
+1. [Redis部署文档 内网](http://luna.gitlab.xyyweb.cn/luna-document/operations/redis/redis.html)
     1. [Redis部署文档 - Iceberg_XTY](https://my.oschina.net/icebergxty/blog/3081955)
 1. [Redis ＂MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk＂问题的解决(转)](https://www.cnblogs.com/qq78292959/p/3994349.html)
     - redis爆内存会遇到这个问题

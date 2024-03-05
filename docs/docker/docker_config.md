@@ -132,7 +132,7 @@ docker run -d --network host --name fat_10.60.44.16_docker_RabbitmqNode-3_rabbit
         "Path": "docker-entrypoint.sh",
         "Args": [
             "--requirepass",
-            "Fingard@1"
+            "xyyweb@1"
         ],
         "State": {
             "Status": "running",
@@ -295,7 +295,7 @@ docker run -d --network host --name fat_10.60.44.16_docker_RabbitmqNode-3_rabbit
             ],
             "Cmd": [
                 "--requirepass",
-                "Fingard@1"
+                "xyyweb@1"
             ],
             "Image": "redis:5.0.14",
             "Volumes": {

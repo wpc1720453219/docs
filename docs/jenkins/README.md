@@ -19,7 +19,7 @@
 1. [Jenkins官方文档（中文）](https://jenkins.io/zh/doc/)
 1. [Jenkins中文文档-w3cschool](https://www.w3cschool.cn/jenkins/?)
 1. [jenkins 插件下载加速最终方案](https://my.oschina.net/VASKS/blog/3106314)
-    1. [tfp项目的一个实现](http://saas.gitlab.fingard.cn/document/environment/jenkins.html#jenkins插件更新源)
+    1. [tfp项目的一个实现](http://saas.gitlab.xyyweb.cn/document/environment/jenkins.html#jenkins插件更新源)
 1. [Jenkins出现No valid crumb was included in the reques【通常会在反向代理时出现】](https://blog.51cto.com/13589448/2066437)
 
 ### Jenkins Pipeline

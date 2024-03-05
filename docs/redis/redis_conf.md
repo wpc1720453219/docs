@@ -616,7 +616,7 @@ replica-priority 100
 #
  
 ## 请求密码
-requirepass Fingard@1
+requirepass xyyweb@1
  
 # Command renaming.
 #
@@ -2061,7 +2061,7 @@ replica-priority 100
 # 150k passwords per second against a good box. This means that you should
 # use a very strong password otherwise it will be very easy to break.
 #
-requirepass Fingard@1
+requirepass xyyweb@1
  
 # Command renaming.
 #

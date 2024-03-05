@@ -48,4 +48,4 @@
 1. [史上最强 Kubernetes 知识图谱（附链接）](https://www.processon.com/view/link/5ac64532e4b00dc8a02f05eb#map)
 
 ### 原创
-1. [k8s+docker部署文档](http://gitlab.fingard.cn/devops/k8s-auto)
+1. [k8s+docker部署文档](http://gitlab.xyyweb.cn/devops/k8s-auto)

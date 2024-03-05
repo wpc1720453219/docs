@@ -75,7 +75,7 @@ module.exports = [
                     {text: '界面功能截图', link: '/skywalking/manual.md'},
                     {text: 'java代码端的使用', link: '/skywalking/use-in-java.md'},
                     {text: 'FAQ', link: '/skywalking/faq.md'},
-                    {text: '扩展项目gitlab地址', link: 'http://gitlab.fingard.cn/rdp/skywalking-FG'},
+                    {text: '扩展项目gitlab地址', link: 'http://gitlab.xyyweb.cn/rdp/skywalking-FG'},
                 ]
             },
             {

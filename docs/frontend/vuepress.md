@@ -35,7 +35,7 @@
     },
     "repository": {
       "type": "git",
-      "url": "http://gitlab.fingard.cn/devops/docs.git"
+      "url": "http://gitlab.xyyweb.cn/devops/docs.git"
     }
   }
   ```

@@ -209,7 +209,7 @@ metadata:
 spec:
   rules:
       # 通过这个域名，把http服务映射出去
-    - host: "nacos.luna-sunht-dev.sunht.fingard.vm"
+    - host: "nacos.luna-sunht-dev.sunht.xyyweb.vm"
       http:
         paths:
           - backend:
@@ -260,7 +260,7 @@ spec:
             - name: MYSQL_SERVICE_USER
               value: "root"
             - name: MYSQL_SERVICE_PASSWORD
-              value: "fingard1"
+              value: "xyyweb1"
           resources:
             requests:
               memory: "1200Mi"
@@ -391,7 +391,7 @@ metadata:
   namespace: luna-sunht-dev
 spec:
   rules:
-    - host: "ui.luna-sunht-dev.sunht.fingard.vm"
+    - host: "ui.luna-sunht-dev.sunht.xyyweb.vm"
       http:
         paths:
           - backend:
@@ -496,7 +496,7 @@ metadata:
   namespace: luna-sunht-dev
 spec:
   rules:
-    - host: "gateway.luna-sunht-dev.sunht.fingard.vm"
+    - host: "gateway.luna-sunht-dev.sunht.xyyweb.vm"
       http:
         paths:
           - backend:
@@ -594,7 +594,7 @@ metadata:
   namespace: luna-lixp-dev
 spec:
   rules:
-    - host: "kibana.luna-lixp-dev.lixp.fingard.vm"
+    - host: "kibana.luna-lixp-dev.lixp.xyyweb.vm"
       http:
         paths:
           - backend:
@@ -724,7 +724,7 @@ metadata:
   namespace: luna-lixp-dev
 spec:
   rules:
-    - host: "gateway.luna-lixp-dev.lixp.fingard.vm"
+    - host: "gateway.luna-lixp-dev.lixp.xyyweb.vm"
       http:
         paths:
           - backend:
@@ -842,7 +842,7 @@ spec:
   # 映射规则，可以填多个，不过一般填一个
   rules:
       # 域名，后面必需跟上域名通配
-    - host: kuboard.sunht.fingard.vm
+    - host: kuboard.sunht.xyyweb.vm
       # http映射
       http:
         # http的路径，可以填多个，不过一般只填根路径【/】

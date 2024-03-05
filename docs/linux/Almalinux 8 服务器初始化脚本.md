@@ -101,7 +101,7 @@ env_date=`date +"%Y-%m-%d_%H-%M-%S"`
 mv /etc/yum.repos.d /etc/yum.repos.d.$env_date.bak
 mkdir /etc/yum.repos.d
  
-cat > /etc/yum.repos.d/fingard.repo <<EOF
+cat > /etc/yum.repos.d/xyyweb.repo <<EOF
 # http://192.168.0.54:8081/repository/yum-aliyun/
  
 [baseos]
@@ -157,7 +157,7 @@ gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
  
 EOF
  
-cat /etc/yum.repos.d/fingard.repo
+cat /etc/yum.repos.d/xyyweb.repo
 yum makecache
 ``````
 
@@ -345,7 +345,7 @@ mkdir -p /etc/docker/
 cat << EOF > /etc/docker/daemon.json
 {
     "registry-mirrors": ["http://k8s-test:4801"],
-    "insecure-registries":["k8s-test:4800", "k8s-test:4801","192.168.0.127:4800","dx.fingard.com:4800"],
+    "insecure-registries":["k8s-test:4800", "k8s-test:4801","192.168.0.127:4800","dx.xyyweb.com:4800"],
     "max-concurrent-downloads": 20,
     "log-opts": {
        "max-size": "500m",

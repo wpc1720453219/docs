@@ -317,8 +317,8 @@ http {
     listen 8089 ssl;
     server_name localhost;
     ssl_session_tickets on;
-    ssl_certificate /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.fingard.com.cn.pem;
-    ssl_certificate_key /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.fingard.com.cn.key;
+    ssl_certificate /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.xyyweb.com.cn.pem;
+    ssl_certificate_key /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.xyyweb.com.cn.key;
     ssl_session_timeout 5m;
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
@@ -426,8 +426,8 @@ http {
     proxy_buffers 16 5000k;
     server_name localhost;
     ssl_session_tickets on;
-    ssl_certificate /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.fingard.com.cn.pem;
-    ssl_certificate_key /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.fingard.com.cn.key;
+    ssl_certificate /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.xyyweb.com.cn.pem;
+    ssl_certificate_key /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.xyyweb.com.cn.key;
     ssl_session_timeout 5m;
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
@@ -489,8 +489,8 @@ http {
     client_body_buffer_size 5M;
     proxy_buffer_size 5000k;
     proxy_buffers 16 5000k;
-    ssl_certificate /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.fingard.com.cn.pem;
-    ssl_certificate_key /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.fingard.com.cn.key;
+    ssl_certificate /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.xyyweb.com.cn.pem;
+    ssl_certificate_key /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.xyyweb.com.cn.key;
     ssl_session_timeout 5m;
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
@@ -589,8 +589,8 @@ http {
     proxy_buffer_size 5000k;
     proxy_buffers 16 5000k;
     ssl_session_tickets on;
-    ssl_certificate /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.fingard.com.cn.pem;
-    ssl_certificate_key /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.fingard.com.cn.key;
+    ssl_certificate /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.xyyweb.com.cn.pem;
+    ssl_certificate_key /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.xyyweb.com.cn.key;
     ssl_session_timeout 5m;
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
@@ -666,8 +666,8 @@ http {
     listen 8060 ssl;
     server_name	app;
     ssl_session_tickets on;
-    ssl_certificate /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.fingard.com.cn.pem;
-    ssl_certificate_key /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.fingard.com.cn.key;
+    ssl_certificate /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.xyyweb.com.cn.pem;
+    ssl_certificate_key /data/home/avatar/fg-deploy/software/nginx/nginx-1.20.1/cert/2022.xyyweb.com.cn.key;
     ssl_session_timeout 5m;
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;

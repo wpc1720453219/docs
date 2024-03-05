@@ -277,7 +277,7 @@ k8s这边主要放一些无状态应用，无状态是指不写磁盘，就算�
 jenkins kubernetes 插件的应用
 - [jenkins kubernetes插件](../jenkins/kubernetes.md)
     - 一个ci的构建流程
-- [jenkins部署情况](http://saas.gitlab.fingard.cn/document/deployment/jenkins.html)
+- [jenkins部署情况](http://saas.gitlab.xyyweb.cn/document/deployment/jenkins.html)
 
 ### 开发者访问集群
 ~~[l2tp vpn](old/vpn.md)~~
@@ -301,7 +301,7 @@ jenkins kubernetes 插件的应用
     1. ingress组件，这里用traefik
 
 升级了一个版本，目前暂不可用，可以参考给出的几个教程来安装，或者直接运行代码里面的shell脚本。
-[k8s自动安装脚本](http://gitlab.fingard.cn/devops/k8s-auto)
+[k8s自动安装脚本](http://gitlab.xyyweb.cn/devops/k8s-auto)
 
 ## 上年`展望`的实现
 ### helm

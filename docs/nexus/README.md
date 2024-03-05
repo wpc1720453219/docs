@@ -2,7 +2,7 @@
 
 目前用作docker镜像仓库、maven仓库、npm仓库、yum源代理、helm源。
 
-[docker私服的搭建详情](http://saas.gitlab.fingard.cn/document/deployment/nexus3.html)
+[docker私服的搭建详情](http://saas.gitlab.xyyweb.cn/document/deployment/nexus3.html)
 
 ### nexus3 搭建
 https://blog.csdn.net/qq_44605317/article/details/109484604  

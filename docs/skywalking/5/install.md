@@ -207,7 +207,7 @@ cp -r agent ../agent/agent-default
 由于redis的访问量非常大，所以一般删掉redis插件：
 
 ```bash
-fingard-redisson-3.x-plugin-5.0.0-GA-FG-SNAPSHOT.jar
+xyyweb-redisson-3.x-plugin-5.0.0-GA-FG-SNAPSHOT.jar
 apm-jedis-2.x-plugin-5.0.0-GA-FG-SNAPSHOT.jar
 ```
 
