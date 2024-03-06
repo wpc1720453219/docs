@@ -376,6 +376,12 @@ public class TeacherDaoProxy implements ITeacherDao {
 Cglib 包的底层是通过使用字节码处理框架 ASM 来转换字节码并生成新的类  
 
 
+### 委派模式  
+可以看做是一种特殊情况下的静态代理的全权代理，但是代理模式注重过程，而委派模式注重结果。
+![img_20.png](img_20.png)
+boss把任务交给经理、经理相当于委派对象，把活在全交给员工    
+代理：目标方法不完善的，要在前前后后加点料  
+委派：目标方法是完善的，调用时增加了一层  
 
 ![img_15.png](img_15.png)
 ![img_16.png](img_16.png)
