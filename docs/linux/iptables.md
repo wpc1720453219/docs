@@ -1,9 +1,6 @@
 ## iptables详解  
-### NAT 网络地址转换  
-[网络地址转换NAT（详细）](https://blog.csdn.net/qq_983030560/article/details/128449410)     
-[NAT网络地址转换与配置](https://blog.csdn.net/wang_dian1/article/details/129715450)  
-传统NAT技术 不带端口号的, 私网ip和目的ip地址的 一一映射  
-后面发展，通过端口的方式， 可以让私网的多个ip相同端口对接目的ip的多个端口进行转发  
+### NAT 网络地址转换
+解决IPv4下ip资源不够，通过 私网的多个ip相同端口对接官网的一个ip的多个端口进行转发  
 
 ### iptables  
 Linux平台下的 包过滤防火墙、免费、完成封包过滤、封包重定向和网络地址转换（NAT）等功能
