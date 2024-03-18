@@ -13,7 +13,7 @@
 
 
 Git 全局设置
-git config --global user.name "孙恒涛"
+git config --global user.name "孙"
 git config --global user.email "pc@xyyweb.com"
 
 创建一个新仓库

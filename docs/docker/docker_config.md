@@ -1,5 +1,10 @@
 ## docker 配置
 ### Docker 组件作用
+1. docker组件
+   1. docker: docker的客户端，负责发送docker操作请求
+   2. dockerd: docker服务器入口，负责接收客户端请求并返回请求结果
+   3. docker-init 当业务主进程没有进程回收能力时，docker-init可以做为容器的1号进程，负责管理容器内子进程
+   4. 
 [https://blog.51cto.com/u_14035463/5585053](https://blog.51cto.com/u_14035463/5585053)
 
 
