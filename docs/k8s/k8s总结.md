@@ -15,10 +15,11 @@
 ### 共享网络  
 [k8s 中 pod 是如何做到网络共享的](https://blog.csdn.net/qq_31725391/article/details/130827819)
 根容器采用none模式，  其他要加入的容器采用 docker的container模式
+pod的ip 其实就是根容器的ip ,其他业务容器container模式是共享根容器ip  
 
 ### 共享存储
-Volumes被定义在pod上，挂载在pod的pause容器上。当业务容器加入时，可以将Volumes挂载到具体的文件目录下，  
-进而进行访问和操作。kubernetes通过Volume实现同一个Pod中不同容器之间的数据共享以及数据的持久化存储  
+Volumes被定义在pod上，挂载在pod的pause容器上。当业务容器加入时，可以将Volumes挂载到具体的文件目录下【多个容器相同目录下】，  
+进而进行访问和操作。kubernetes通过Volume实现同一个Pod中不同容器之间的数据共享以及数据的持久化存储
 [pod中持久化是挂载在哪里](https://zhuanlan.zhihu.com/p/570130935)
 
 
