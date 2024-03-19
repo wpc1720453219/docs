@@ -3,12 +3,20 @@
 1. docker组件
    1. docker: docker的客户端，负责发送docker操作请求
    2. dockerd: docker服务器入口，负责接收客户端请求并返回请求结果
-   3. docker-init 当业务主进程没有进程回收能力时，docker-init可以做为容器的1号进程，负责管理容器内子进程
-   4. 
+   3. docker-init: 当业务父进程没有对子线程进程回收能力时，docker-init可以做为容器的1号进程，负责管理容器内子进程
+      1. 僵尸进程： 当一个进程退出时，它并不是完全消失，而是等到它的父进程通过调用wait(）系统调用来回收该子进程的退出状态和资源，在这个等待的过程中进程处于僵尸进程
+      2. 孤儿进程： 父进程退出了，并没有回收子进程的资源和状态，那么该子进程会变成孤儿进程，最终会被1号进程，也就是init进程收养。其次init会定期来调用wait()来完成僵尸进程的回收
+   4. docker-proxy: 通过设置iptables 规则使得访问到主机的流量可以被顺利转 发到容器中
+2. containerd组件 
+   1. containerd： 负责管理容器的生命周期，通过接收 dockerd 的请求，执行启动或者销毁容器操作。镜像的管理、管理存储、网络 相关资源
+   2. containerd-shim： 将containerd和真正的容器进程解耦，使用containerd-shim作为容器进程的父进程，可以实现重启containerd不影响已经启动的容器进程
+   3. ctr：containerd的客户端，可以直接向 containerd发送容器操作请求，主要用来开发和调试
+3. 容器运行时相关组件 runc：通过调用 namespace、cgroups等系统接口，实现容器的创建和启动
 [https://blog.51cto.com/u_14035463/5585053](https://blog.51cto.com/u_14035463/5585053)
 
 
 ### Docker网络network详解  
+
 [Docker网络network详解](https://blog.csdn.net/qq_44749491/article/details/128682105)    
 [docker网络](https://blog.csdn.net/weixin_42322206/article/details/126564020)  
 
@@ -19,6 +27,9 @@
 在开发当中，最常用使用的一种方式就是自定义网络，自定义网络本身就维护好了主机名称与ip地址的映射关系。  
 
 ### Docker跨主机网络通信
+容器网络发展到现在，形成了两大阵营：  
+Docker的CNM  
+Google、Coreos、Kuberenetes主导的CNI  
 [Docker跨主机网络通信](https://blog.csdn.net/qq_36733838/article/details/130533447)
 
 ###  进入容器内部
@@ -27,18 +38,22 @@
 [容器link](https://blog.csdn.net/qq_28903377/article/details/124042044)
 
 ### docker原理
-[Linux Namespace](https://www.cnblogs.com/sally-zhou/p/13398260.html)
+[Linux Namespace](https://www.cnblogs.com/sally-zhou/p/13398260.html)  
 [一文彻底搞懂Docker中的namespace](https://blog.csdn.net/songguangfan/article/details/121727435)
 Namespace 是 Linux 内核的一个特性，该特性可以实现在同一主机系统中，对进程 ID、主机名、用户 ID、文件名、网络和进程间通信等资源的隔离。  
 Docker 利用 Linux 内核的 Namespace 特性，实现了每个容器的资源相互隔离，从而保证容器内部只能访问到自己 Namespace 的资源  
-
-通过这些 namespace 的隔离，Docker 可以实现容器之间的资源隔离和安全隔离，防止容器之间的干扰和攻击
+通过这些 namespace 的隔离，Docker 可以实现容器之间的资源隔离和安全隔离，防止容器之间的干扰和攻击  
 
 
 [Docker中网络的使用和配置用法详解](https://blog.csdn.net/weixin_44799217/article/details/128167248)  
 [Docker四大网络&自定义网络](https://blog.csdn.net/sinat_34104446/article/details/125057941)  
 Namespace 实现资源隔离的目的  
 [用户定义的 bridge 跟默认 bridge 的区别](https://blog.csdn.net/weixin_42445065/article/details/130827936)  
+用户定义的 bridge 跟默认 bridge 的区别：  
+用户定义的 bridge 提供容器之间的自动 DNS 解析  
+在默认 bridge 下的容器只能通过 IP 地址访问彼此，除非使用 --link 选项，此选项已经标记为遗弃状态。  
+而在用户定义的 bridge 网络，容器间可以通过主机名或者别名来解析彼此的地址。  
+
 
 
 cgroup是一种层次化的组织结构，类似于文件系统的目录树结构。每个cgroup都可以包含一组进程，
