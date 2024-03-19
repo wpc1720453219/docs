@@ -49,6 +49,21 @@ Google、Coreos、Kuberenetes主导的CNI
 ![img.png](./images/img.png)
 
 ### docker原理
+Docker是基于Linux Kernel的Namespace、CGroups、UnionFileSystem等技术封装成的一种自定义容器格式，从而提供一套虚拟运行环境
+
+Namespace：用来做隔离的，比如pid[进程]、net[网络]、mnt[挂载点]等
+CGroups: Controller Groups用来做资源限制，比如内存和CPU等
+Union file systems：用来做image和container分层
+
+
+Network Namespace
+在linux上，网络的隔离是通过network namespace来管理的，不同的network namespace是互相隔离的
+ip netns list：查看当前机器上的network namespace
+network namespace的管理：
+ip netns list       #查看
+ip netns add ns1     #添加
+ip netns delete ns1 #删除 
+
 [Linux Namespace](https://www.cnblogs.com/sally-zhou/p/13398260.html)  
 [一文彻底搞懂Docker中的namespace](https://blog.csdn.net/songguangfan/article/details/121727435)
 Namespace是在内核级别以一种抽象的形式来封装系统资源，通过将系统资源放在不同的Namespace中，来实现资源隔离的目的  
