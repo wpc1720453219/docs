@@ -85,8 +85,7 @@ rootfs: 完整包含根目录的拷贝
 rootfs只是一个操作系统所包含的文件、配置和目录，并不包括操作系统内核，因此在容器中运行的内核与宿主机一致，与内核相关的模块是无法隔离的  
 chroot的过程是将/bin/bash进程的Home目录切换成了/var/lib/docker/aufs/mnt/[id]
 [docker rootfs](https://www.cnblogs.com/WJQ2017/p/17180077.html)  
-[docker实战](https://www.wenjiangs.com/doc/docker-rootfs)    
-说白了，chroot  宿主机 自定义个路径位置 充当容器的根路径    
+说白了，chroot  宿主机 自定义个路径位置 充当容器的根路径     
 
 docker内部:  
 ![img_2.png](./images/img_2.png)  
