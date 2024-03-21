@@ -1,9 +1,18 @@
-## kubernetes 概述
-### kubernetes 基本介绍
-> kubernetes，简称 K8s，是用 8 代替 8 个字符“ubernete”而成的缩写。是一个开源的，用于管理云平台中多个主机上的容器化的应用,Kubernetes 提供了应用部署，规划，更新，维护的一种机制。
->
+## kubernetes 概述  
+### kubernetes 基本介绍  
+> kubernetes，简称 K8s，是用 8 代替 8 个字符“ubernete”而成的缩写。是一个开源的，用于管理云平台中多个主机上的容器化的应用,Kubernetes 提供了应用部署，规划，更新，维护的一种机制。  
 > 1. 传统的应用部署 ： 通过插件或脚本来安装应用，不利于应用的升级更新/回滚等操作，当然也可以通过创建虚拟机的方式来实现某些功能，但是虚拟机非常重，并不利于可移植性
 > 2. 容器方式：容器之间互相隔离，可移植性强，Kubernetes 是 Google 开源的一个容器编排引擎，它支持自动化部署、大规模可伸缩、应用容器化管理。
+
+## kubernetes 组件  
+1. master组件  
+   1. apiServer 集群统一入口，以restful方式，交给etcd存储    
+   2. scheduler 节点调度，选择node节点应用部署   
+   3. controller-manager 处理集群中常规后台任务，一个资源对应一个控制器  
+   4. etcd  存储系统，用于保存集群相关数据  
+2. node组件  
+   1. kubelet：      master排到node节点代表、管理本机容器
+   2. kube-proxy：   提供网络代理，负载均衡等操作
 
 ## Pod 
 > 一个 Pod 里的多个容器可以共享存储和网络，可以看作一个逻辑的主机。共享的如
@@ -66,13 +75,13 @@ Kube-DNS的工作原理如下：
 [CoreDNS简介（非常详细）](http://c.biancheng.net/view/9842.html)
 
 
-### Kube-router替代kube-proxy可行性分析
-kube-proxy的作用主要是用于监听API server中 service 和 endpoint的变化情况，并通过iptables等来为服务配置负载均衡（仅支持TCP和UDP）。  
-kube-proxy 可以直接运行在物理机上，也可以以 static pod 或者 daemonset 的方式运行。目前，在集群内部，kube-proxy是直接部署在物理机上，作为独立的服务运行。  
-Kube-proxy主要有以下技术特点：
-底层默认使用iptables进行流量的转发
-通过监听api server服务中的对象变化，实现service发现功能。
-而kuberouter采用了基于相同技术但增加了更多负载均衡策略的IPVS来实现流量转发，服务发现的实现与kubeproxy一致。因此可以直接替代kubeproxy。
+### Kube-router替代kube-proxy可行性分析  
+kube-proxy的作用主要是用于监听API server中 service 和 endpoint的变化情况，并通过iptables等来为服务配置负载均衡（仅支持TCP和UDP）。    
+kube-proxy 可以直接运行在物理机上，也可以以 static pod 或者 daemonset 的方式运行。目前，在集群内部，kube-proxy是直接部署在物理机上，作为独立的服务运行。    
+Kube-proxy主要有以下技术特点：  
+底层默认使用iptables进行流量的转发  
+通过监听api server服务中的对象变化，实现service发现功 能。
+而kube router采用了基于相同技术但增加了更多负载均衡策略的IPVS来实现流量转发，服务发现的实现与kubeproxy一致。因此可以直接替代kubeproxy  。
 
 ### Kube-router代替flannel/Calico可行性分析
 kube-router  性能最高
