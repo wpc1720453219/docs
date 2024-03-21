@@ -8,7 +8,7 @@
       2. 孤儿进程： 父进程退出了，并没有回收子进程的资源和状态，那么该子进程会变成孤儿进程，最终会被1号进程，也就是init进程收养。其次init会定期来调用wait()来完成僵尸进程的回收
    4. docker-proxy: 通过设置iptables 规则使得访问到主机的流量可以被顺利转 发到容器中
 2. containerd组件 
-   1. containerd： 负责管理容器的生命周期，通过接收 dockerd 的请求，执行启动或者销毁容器操作。镜像的管理、管理存储、网络 相关资源
+   1. containerd： 负责管理容器整个的生命周期，通过接收 dockerd 的请求，从镜像拉取，到挂载fs，再到启动，销毁等，它对外提供grpc形式的API，对内通过调用runc等类库来创建满足OCI标准的容器，并且屏蔽了底层的实现细节。
    2. containerd-shim： 将containerd和真正的容器进程解耦，使用containerd-shim作为容器进程的父进程，可以实现重启containerd不影响已经启动的容器进程
    3. ctr：containerd的客户端，可以直接向 containerd发送容器操作请求，主要用来开发和调试
 3. 容器运行时相关组件 runc：通过调用 namespace、cgroups等系统接口，实现容器的创建和启动
@@ -65,7 +65,9 @@ Google、Coreos、Kuberenetes主导的CNI
 ![img.png](./images/img.png)
 
 ### docker原理
-Docker是基于Linux Kernel的Namespace、CGroups、UnionFileSystem等技术封装成的一种自定义容器格式，从而提供一套虚拟运行环境
+Docker是基于Linux Kernel的Namespace、CGroups、UnionFileSystem等技术封装成的一种自定义容器格式，从而提供一套虚拟运行环境  
+Linux 容器的 Namespace技术：它帮助进程隔离出自己单独的空间  
+Docker是怎么限制每个空间的大小，保证它们不会互相争抢的呢？这就要用到Linux的Cgroups 技术   
 
 Namespace：用来做隔离的，比如pid[进程]、net[网络]、mnt[挂载点]等
 CGroups: Controller Groups用来做资源限制，比如内存和CPU等
