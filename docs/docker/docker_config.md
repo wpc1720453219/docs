@@ -39,10 +39,26 @@ none: 容器有独立的Network namespace，但并没有对其进行任何网络
 link 其实就是在接收容器的 /etc/hosts会添加 源容器的ip：服务名   
 [容器link](https://blog.csdn.net/qq_28903377/article/details/124042044)
 
-### Docker跨主机网络通信
+### Docker跨主机网络通信  
+常见的跨主机通信方案主要有以下几种:   
+[五种Docker容器的网络模式](https://zhuanlan.zhihu.com/p/682597159)  
+Docker主机之间容器通信解决方案:      
+1. 桥接宿主机网络
+2. 端口映射
+3. docker网络驱动：
+   1. Overlay：基于VXLAN封装实现Docker原生Overlay网络。
+   2. Macvlan：Docker主机网卡接口逻辑上分为多个子接口，每个子接口标识一个VLAN。容器接口直接连接Docker主机网卡接口，通过路由策略转发到另一台Docker主机。
+  第三方网络项目：
+   1. 隧道方案：
+      1. Flannel：支持UDP和VXLAN封装传输方式
+      2. Weave：支持UDP(sleeve模式)和VXLAN（优先fastdp模式）
+      3. OpenvSwitch：支持VXLAN和GRE协议
+   2. 路由方案：
+       Calico：支持BGP协议和IPIP隧道。每台宿主机作为虚拟路由，通过BGP协议实现不同主机容器间通信。
+
 容器网络发展到现在，形成了两大阵营：  
 Docker的CNM  
-Google、Coreos、Kuberenetes主导的CNI  
+Google、Coreos、Kuberenetes主导的CNI   
 [Docker跨主机网络通信](https://blog.csdn.net/qq_36733838/article/details/130533447)
 
 ###  进入容器内部
