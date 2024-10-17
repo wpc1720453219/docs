@@ -237,6 +237,10 @@ server {
     }
 ```
 
+http 转https
+https://www.cnblogs.com/wangbaojun/p/10621404.html
+
+
 ### nginx 监听多个端口
 
 [nginx如何设置多端口-Nginx-PHP中文网](https://www.php.cn/nginx/422301.html)
