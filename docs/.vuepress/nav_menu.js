@@ -3,17 +3,14 @@ module.exports = [
     {
         text: 'devops', items: [
             {
-                text: 'Linux', link: '/linux/linux.md', items: [
-                    {text: 'linux', link: '/linux/linux.md'},
                     {text: 'sshd', link: '/linux/0.ssh&&sshd_config.md'},
                     {text: 'iptables', link: '/linux/iptables.md'},
                     {text: 'systemd', link: '/linux/2.systemd.md'},
-                    {text: 'rpm与yum', link: '/linux/1.yan_rpm_apt.md'},
-                    {text: 'wget与curl', link: '/linux/3.wget_curl.md'},
-                    {text: '系统日志', link: '/linux/系统日志.md'},
+                    {text: 'rpm与yum', link: '/linux/1.yum_rpm_apt.md'},
+                    {text: 'wget与curl', link: '/linux/wget_curl.md'},
+
                     {text: '软连接数据迁移', link: '/linux/软连接数据迁移.md'},
                     {text: 'DNS', link: '/linux/DNS.md'},
-                    {text: 'crontab', link: '/linux/crontab.md'},
                     {text: 'centos7服务器初始化', link: '/linux/Centos 7 服务器初始化脚本.md'},
                     {text: 'Almalinux8服务器初始化', link: '/linux/Almalinux 8 服务器初始化脚本.md'},
                     {text: '硬盘分区', link: '/linux/硬盘分区.md.md'},

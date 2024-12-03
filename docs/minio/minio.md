@@ -14,7 +14,7 @@ docker run -d --name minio-9000 \
 -e "MINIO_SECRET_KEY=xyyweb123" \
 -e TZ=Asia/Shanghai \
 --restart=always \
-minio/minio server /data --console-address ":9001"
+minio/minio:RELEASE.2022-05-04T07-45-27Z server /data --console-address ":9001"
 
 ## 新版本
 使用docker的话，需要添加--network=host，两个address一定要指定具体的ip、端口，并且必须是宿主机的ip端口

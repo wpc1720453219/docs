@@ -17,3 +17,9 @@ idea自带的代码监视重启体验远比不上这个。
 
 java、groovy下有效，其他未测试。
 1. [使用教程](https://www.cnblogs.com/flyrock/archive/2019/09/23/11574617.html)
+
+## .gitignore  
+让本地文件无法添加 git里面
+/folderName是忽略根路径folderName目录，folderName/是忽略所有目录
+![img.png](img.png)  
+[开发必备 .gitignore 详解](https://blog.csdn.net/nyist_zxp/article/details/119887324)  

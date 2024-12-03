@@ -238,7 +238,28 @@ default-character-set=utf8
 skip-bin-log是否配置  
 
 ## 补充  
-mysql字符集比较规则中utf8_bin和utf8_general_ci的区别在于比较时是否区分大小写  
+mysql字符集比较规则中utf8_bin和utf8_general_ci的区别在于比较时是否区分大小写
+
+## mysql 回复数据
+问题：误操作将线上数据库进行了覆盖,且没有完整备份
+```shell
+## 查看数据库的binlog日志
+SHOW BINARY LOGS;
+## 通过binlog查看执行的日志
+mysqlbinlog  --base64-output=decode-rows --verbose --start-datetime="2024-10-20 16:00:00" --stop-datetime="2024-10-20 17:07:59" binlog.000002
+
+# 恢复到前面某一节点位置 
+mysqlbinlog --no-defaults  binlog.000002  --stop-position=33792420  | mysql  -uroot -pxyy
+
+
+
+2774078
+
+# 如果后面的操作继续数据保留，仅仅误操作的中间时间节点部分，可以通过位置区间恢复 
+mysqlbinlog --no-defaults /var/lib/mysql/mysql_bin.000006 --start-position=232 --stop-position=2220 | mysql -h127.0.0.1 -P3306 -uroot -p123456
+```
+
+[MySQL 开启配置binlog以及通过binlog恢复数据](https://blog.csdn.net/weixin_44606481/article/details/133344235)
 
 
 

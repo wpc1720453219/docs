@@ -385,7 +385,7 @@ cat << EOF > /etc/docker/daemon.json
     "live-restore": true
 }
 EOF
- 
+ad11 
 systemctl restart docker
 systemctl enable docker
 docker login k8s-test:4800 -u k8s -p 123456
